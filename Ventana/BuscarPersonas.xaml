@@ -1,0 +1,31 @@
+﻿<Window x:Class="Ventana.BuscarPersonas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ventana"
+        mc:Ignorable="d"
+        Title="BuscarPersonas" Height="450" Width="800" Background="#FF2155FF">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="587*"/>
+            <ColumnDefinition Width="206*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Rut" HorizontalAlignment="Left" Height="28" Margin="71,32,0,0" VerticalAlignment="Top" Width="38"/>
+        <TextBox x:Name="TextRut" HorizontalAlignment="Left" Height="28" Margin="114,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" MaxLength="10"/>
+        <Button x:Name="BotonBuscarP" Content="Buscar Persona" HorizontalAlignment="Left" Height="28" Margin="74,32,0,0" VerticalAlignment="Top" Width="106" Click="BotonBuscarP_Click" Grid.Column="1"/>
+        <Button x:Name="BotonSalir" Content="Salir" HorizontalAlignment="Left" Height="33" Margin="99,365,0,0" VerticalAlignment="Top" Width="81" Click="BotonSalir_Click" Grid.Column="1"/>
+        <DataGrid ItemsSource="{Binding}" AutoGenerateColumns="False" x:Name="BusPersonas" HorizontalAlignment="Left" Height="142" Margin="71,118,0,0" VerticalAlignment="Top" Width="558" Loaded="BusPersonas_Loaded" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Rut" Binding="{Binding Rut}"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+                <DataGridTextColumn Header="Segundo Nombre" Binding="{Binding Snombre}"/>
+                <DataGridTextColumn Header="Apellido Paterno" Binding="{Binding Apellido_p}"/>
+                <DataGridTextColumn Header="Apellido Materno" Binding="{Binding Apellido_m}"/>
+                <DataGridTextColumn Header="Correo" Binding="{Binding Correo}"/>
+                <DataGridTextColumn Header="Comuna" Binding="{Binding Comuna}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="BotonEliminar" Content="Eliminar Persona" HorizontalAlignment="Left" Height="28" Margin="517,32,0,0" VerticalAlignment="Top" Width="112" Click="BotonEliminar_Click" Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>

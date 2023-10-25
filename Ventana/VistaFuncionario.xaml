@@ -1,0 +1,17 @@
+﻿<Window x:Class="Ventana.VistaFuncionario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ventana"
+        mc:Ignorable="d"
+        Title="VistaFuncionario" Height="450" Width="612.941" Background="#FF276DB0">
+    <Grid Margin="0,0,3,-0.333">
+        <Button x:Name="BotonET" Content="Agregar Examen" HorizontalAlignment="Left" Height="59" Margin="94,60,0,0" VerticalAlignment="Top" Width="179" Click="BotonET_Click" Background="#FF1C85B4" Foreground="White"/>
+        <Button x:Name="BotonBuscarExamen" Content="Buscar Examen" HorizontalAlignment="Left" Height="59" Margin="94,171,0,0" VerticalAlignment="Top" Width="179" Click="BotonBuscarExamen_Click" Background="#FF1C85B4" Foreground="White"/>
+        <Button x:Name="BotonAgregarH" Content="Agregar Hora" HorizontalAlignment="Left" Height="59" Margin="379,60,0,0" VerticalAlignment="Top" Width="179" Click="BotonAgregarH_Click" Background="#FF1C85B4" Foreground="White"/>
+        <Button x:Name="BotonBuscarH" Content="Buscar Hora" HorizontalAlignment="Left" Height="59" Margin="379,171,0,0" VerticalAlignment="Top" Width="179" Click="BotonBuscarH_Click" Background="#FF1C85B4" Foreground="White"/>
+        <Button x:Name="BotonCerrar" Content="Salir" HorizontalAlignment="Left" Height="59" Margin="379,316,0,0" VerticalAlignment="Top" Width="179" Click="BotonCerrar_Click" Background="#FFD83C3C" Foreground="White"/>
+
+    </Grid>
+</Window>

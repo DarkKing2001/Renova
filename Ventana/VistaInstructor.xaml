@@ -1,0 +1,19 @@
+﻿<Window x:Class="Ventana.VistaInstructor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ventana"
+        mc:Ignorable="d"
+        Title="VistaInstructor" Height="450" Width="427.059" Background="#FF0B6FA9">
+    <Grid Margin="10,0,3.667,8.667">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250*"/>
+            <ColumnDefinition Width="157*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="BotonET" Content="Agregar Examen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="144,58,0,0" Height="52" Click="BotonET_Click" Background="#FF156694" Grid.ColumnSpan="2" Foreground="White"/>
+        <Button x:Name="BotonBuscar" Content="Buscar Examen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="144,164,0,0" Height="52" Click="BotonBuscar_Click" Grid.ColumnSpan="2" Background="#FF156694" Foreground="White"/>
+        <Button x:Name="BotonCerrar" Content="Salir" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="249,327,0,0" Height="52" Click="BotonCerrar_Click" Grid.ColumnSpan="2" Background="#FFB61E1E" Foreground="White"/>
+
+    </Grid>
+</Window>
