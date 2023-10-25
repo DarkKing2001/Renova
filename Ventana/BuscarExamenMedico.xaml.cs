@@ -48,7 +48,14 @@ namespace Ventana
             {
                 string rut = TextRut.Text;
 
-                Mantenedor.EliminarMedico(rut);
+                if (Mantenedor.BuscarMedico(rut) != null)
+                {
+                    Mantenedor.EliminarMedico(rut);
+                }
+                else
+                {
+                    MessageBox.Show("Rut no cuenta con examen medico");
+                }
             }
             else
             {
