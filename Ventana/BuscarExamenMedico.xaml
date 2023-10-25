@@ -15,11 +15,11 @@
         <DataGrid x:Name="BusMedicos" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="164" Margin="64,102,0,0" VerticalAlignment="Top" Width="631" Loaded="BusMedicos_Loaded">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Rut" Binding="{Binding Rut}"/>
-                <DataGridTextColumn Header="Examen Vista" Binding="{Binding Examen_Vista}"/>
-                <DataGridTextColumn Header="Examen Auditivo" Binding="{Binding Examen_Auditivo}"/>
-                <DataGridTextColumn Header="Examen Psicologico" Binding="{Binding Examen_Psicologico}"/>
-                <DataGridTextColumn Header="Coordinacion Motriz" Binding="{Binding Coordinacion_Motriz}"/>
-                <DataGridTextColumn Header="Examen General" Binding="{Binding Examen_General}"/>
+                <DataGridTextColumn Header="Examen Vista" Binding="{Binding ExamenV}"/>
+                <DataGridTextColumn Header="Examen Auditivo" Binding="{Binding ExamenA}"/>
+                <DataGridTextColumn Header="Examen Psicologico" Binding="{Binding ExamenP}"/>
+                <DataGridTextColumn Header="Coordinacion Motriz" Binding="{Binding CoordinacionM}"/>
+                <DataGridTextColumn Header="Examen General" Binding="{Binding ExamenG}"/>
                 <DataGridTextColumn Header="Aprobado" Binding="{Binding Aprobado}"/>
             </DataGrid.Columns>
         </DataGrid>

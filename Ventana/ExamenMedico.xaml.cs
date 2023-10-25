@@ -170,7 +170,7 @@ namespace Ventana
                         m.Aprobado = "Reprobado";
                     }
 
-                    Mantenedor.AgregarMedico(m);
+                    Mantenedor.ModificarMedico(m);
                 }
                 else
                 {

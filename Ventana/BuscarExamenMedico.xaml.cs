@@ -31,7 +31,10 @@ namespace Ventana
             {
                 string rut = TextRut.Text;
 
-                BusMedicos.DataContext = Mantenedor.BuscarMedico(rut);
+                if (Mantenedor.BuscarMedico(rut) != null)
+                {
+                    BusMedicos.ItemsSource = Mantenedor.BuscarMedico(rut);
+                }
             }
             else
             {
@@ -45,7 +48,7 @@ namespace Ventana
             {
                 string rut = TextRut.Text;
 
-                BusMedicos.DataContext = Mantenedor.EliminarMedico(rut);
+                Mantenedor.EliminarMedico(rut);
             }
             else
             {
@@ -60,7 +63,7 @@ namespace Ventana
 
         private void BusMedicos_Loaded(object sender, RoutedEventArgs e)
         {
-            BusMedicos.DataContext = Mantenedor.MostrarMedicos();
+            BusMedicos.ItemsSource = Mantenedor.MostrarMedicos();
         }
     }
 }

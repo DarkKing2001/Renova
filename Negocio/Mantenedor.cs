@@ -783,9 +783,9 @@ namespace Negocio
         public static bool AgregarMedico(Medico medico)
         {
             string sql = "INSERT INTO medico " +
-                    "(rut, examen_visual, examen_auditivo, examen_psicologico, " +
+                    "(persona_id, examen_visual, examen_auditivo, examen_psicologico, " +
                     "coordinacion_motriz, examen_general, aprobado) values " +
-                    "(" + medico.Rut + ", " + AprobadoBool(medico.ExamenV) +
+                    "(" + BuscarIdPersona(medico.Rut) + ", " + AprobadoBool(medico.ExamenV) +
                     ", " + AprobadoBool(medico.ExamenA) + ", " + AprobadoBool(medico.ExamenP) +
                     ", " + AprobadoBool(medico.CoordinacionM) + ", " + AprobadoBool(medico.ExamenG) +
                     ", " + AprobadoBool(medico.Aprobado) + ");";
@@ -818,7 +818,7 @@ namespace Negocio
                     ", coordinacion_motriz = " + AprobadoBool(medico.CoordinacionM) +
                     ", examen_general = " + AprobadoBool(medico.ExamenG) +
                     ", aprobado = " + AprobadoBool(medico.Aprobado) +
-                    "' Where rut = " + medico.Rut + ";";
+                    " Where persona_id = " + BuscarIdPersona(medico.Rut) + ";";
 
             MySqlConnection ConnexionBD = ConexionBD.conexion();
             ConnexionBD.Open();
@@ -833,7 +833,7 @@ namespace Negocio
             }
             catch (MySqlException e)
             {
-                MessageBox.Show("Error al modificada: " + e.ToString());
+                MessageBox.Show("Error al modificar: " + e.ToString());
                 return false;
             }
 
@@ -842,7 +842,7 @@ namespace Negocio
         public static bool EliminarMedico(string rut)
         {
             string sql = "Delete from medico " +
-                        "Where rut = " + rut + ";";
+                        "Where persona_id = " + BuscarIdPersona(rut) + ";";
 
             MySqlConnection ConnexionBD = ConexionBD.conexion();
             ConnexionBD.Open();
@@ -868,7 +868,7 @@ namespace Negocio
             List<Medico> medicos = new List<Medico>();
 
             string sql = "Select * from medico " +
-                        "Where rut = " + rut + ";";
+                        "Where persona_id = " + BuscarIdPersona(rut) + ";";
 
             MySqlConnection ConnexionBD = ConexionBD.conexion();
             ConnexionBD.Open();
@@ -886,7 +886,7 @@ namespace Negocio
 
                         Medico m = new Medico();
 
-                        m.Rut = leer["rut"].ToString();
+                        m.Rut = BuscarRutPersona(int.Parse(leer["persona_id"].ToString()));
                         m.ExamenV = AprobadoString(bool.Parse(leer["examen_visual"].ToString()));
                         m.ExamenA = AprobadoString(bool.Parse(leer["examen_auditivo"].ToString()));
                         m.ExamenP = AprobadoString(bool.Parse(leer["examen_psicologico"].ToString()));
@@ -937,7 +937,7 @@ namespace Negocio
 
                         Medico m = new Medico();
 
-                        m.Rut = leer["rut"].ToString();
+                        m.Rut = BuscarRutPersona(int.Parse(leer["persona_id"].ToString()));
                         m.ExamenV = AprobadoString(bool.Parse(leer["examen_visual"].ToString()));
                         m.ExamenA = AprobadoString(bool.Parse(leer["examen_auditivo"].ToString()));
                         m.ExamenP = AprobadoString(bool.Parse(leer["examen_psicologico"].ToString()));
