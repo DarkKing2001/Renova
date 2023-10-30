@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -31,13 +32,13 @@ namespace Ventana
             {
                 string rut = TextRut.Text;
 
-                if (Mantenedor.BuscarRut(rut) != false)
+                if (Mantenedor.BuscarET(rut) != null)
                 {
                     DG_buscarET.ItemsSource = Mantenedor.BuscarET(rut);
                 }
                 else
                 {
-                    MessageBox.Show("Rut no valido");
+                    MessageBox.Show("Rut no cuenta con examen");
                 }
             }
             else
@@ -52,14 +53,21 @@ namespace Ventana
             {
                 string rut = TextRut.Text;
 
-                if (Mantenedor.BuscarRut(rut) != false)
+                if (rut.Length == 10)
                 {
-                    Mantenedor.EliminarET(rut);
+                    if (Mantenedor.BuscarET(rut) != null)
+                    {
+                        Mantenedor.EliminarET(rut);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Rut no cuenta con examen");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Rut no valido");
-                }
+                    MessageBox.Show("Rut no válido, ej: 12345678-9");
+                }                
             }
             else
             {
@@ -75,6 +83,23 @@ namespace Ventana
         private void BotonMostrarDatos_Click(object sender, RoutedEventArgs e)
         {
             DG_buscarET.ItemsSource = Mantenedor.MostrarEETT();
+        }
+
+        private void DG_buscarET_Loaded(object sender, RoutedEventArgs e)
+        {
+            DG_buscarET.ItemsSource = Mantenedor.MostrarEETT();
+        }
+
+        private static readonly Regex regex1 = new Regex("[^0-9-k]+");
+
+        private static bool ValidarRut(string text)
+        {
+            return !regex1.IsMatch(text);
+        }
+
+        private void TextRut_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !ValidarRut(e.Text);
         }
     }
 }

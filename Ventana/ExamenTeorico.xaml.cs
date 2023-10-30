@@ -36,101 +36,134 @@ namespace Ventana
                 //String rut = TextRut.Text;
                 string rut = TextRut.Text;
                 
-                if (Mantenedor.BuscarRut(rut))
+                if (rut.Length == 10)
                 {
-                    string aprobado = "";
-                    int preguntasC = Convert.ToInt32(TextPreguntasC.Text);
-                    int preguntasI = Convert.ToInt32(TextPreguntasI.Text);
-
-                    string a = ComboBoxClase.Text;
-
-                    if (a == "A1" && a == "A2" && a == "A3" && a == "A4" && a == "A5")
+                    if (Mantenedor.BuscarRut(rut))
                     {
-                        if (preguntasC + preguntasI == 20)
+                        if (Mantenedor.BuscarET(rut) == null)
                         {
-                            if (preguntasC >= 18 && preguntasI <= 2)
+                            string aprobado;
+                            int preguntasC = Convert.ToInt32(TextPreguntasC.Text);
+                            int preguntasI = Convert.ToInt32(TextPreguntasI.Text);
+
+                            string a = ComboBoxClase.Text;
+
+                            if (a == "A1" || a == "A2" || a == "A3" || a == "A4" || a == "A5")
                             {
-                                aprobado = "Aprobado";
-                                MessageBox.Show("Examen Aprobado");
+                                if (preguntasC + preguntasI == 20)
+                                {
+                                    if (preguntasC >= 18 && preguntasI <= 2)
+                                    {
+                                        aprobado = "Aprobado";
+                                        MessageBox.Show("Examen Aprobado");
+                                    }
+                                    else
+                                    {
+                                        aprobado = "Reprobado";
+                                        MessageBox.Show("Examen Reprobado");
+                                    }
+
+                                    Funcionario f = new Funcionario();
+
+                                    f.Rut = TextRut.Text;
+                                    f.PreguntasC = Convert.ToInt32(TextPreguntasC.Text);
+                                    f.PreguntasI = Convert.ToInt32(TextPreguntasI.Text);
+                                    f.Aprobado = aprobado;
+
+                                    Mantenedor.AgregarET(f);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error, la cantidad de preguntas no pueden ser mayor o menor que 20");
+                                }
                             }
-                            else
+                            else if (a == "B" || a == "C")
                             {
-                                aprobado = "Reprobado";
-                                MessageBox.Show("Examen Reprobado");
+                                if (preguntasC + preguntasI == 35)
+                                {
+                                    if (preguntasC >= 31 && preguntasI <= 4)
+                                    {
+                                        aprobado = "Aprobado";
+                                        MessageBox.Show("Examen Aprobado");
+                                    }
+                                    else
+                                    {
+                                        aprobado = "Reprobado";
+                                        MessageBox.Show("Examen Reprobado");
+                                    }
+
+                                    Funcionario f = new Funcionario();
+
+                                    f.Rut = TextRut.Text;
+                                    f.PreguntasC = Convert.ToInt32(TextPreguntasC.Text);
+                                    f.PreguntasI = Convert.ToInt32(TextPreguntasI.Text);
+                                    f.Aprobado = aprobado;
+
+                                    Mantenedor.AgregarET(f);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error, la cantidad de pregustas no pueden ser mayor o menor a 35");
+                                }
                             }
+                            else if (a == "D")
+                            {
+                                if (preguntasC + preguntasI == 12)
+                                {
+                                    if (preguntasC >= 9 && preguntasI <= 3)
+                                    {
+                                        aprobado = "Aprobado";
+                                        MessageBox.Show("Examen Aprobado");
+                                    }
+                                    else
+                                    {
+                                        aprobado = "Reprobado";
+                                        MessageBox.Show("Examen Reprobado");
+                                    }
+
+                                    Funcionario f = new Funcionario();
+
+                                    f.Rut = TextRut.Text;
+                                    f.PreguntasC = Convert.ToInt32(TextPreguntasC.Text);
+                                    f.PreguntasI = Convert.ToInt32(TextPreguntasI.Text);
+                                    f.Aprobado = aprobado;
+
+                                    Mantenedor.AgregarET(f);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error, la cantidad de preguntas no puede ser mayor o menor a 12");
+                                }
+                            }
+                            /*else if (a == "E")
+                            {
+                                if (preguntasC >= 9 && preguntasI <= 3)
+                                {
+                                    aprobado = true;
+                                    MessageBox.Show("Examen Aprobado");
+                                }
+                                else
+                                {
+                                    aprobado = false;
+                                    MessageBox.Show("Examen Reprobado");
+                                }
+                            }*/
                         }
                         else
                         {
-                            MessageBox.Show("Error, la cantidad de preguntas no pueden ser mayor o menor que 20");
+                            MessageBox.Show("Rut ya cuenta con un examen");
                         }
                     }
-                    else if (a == "B" || a == "C")
+                    else
                     {
-                        if (preguntasC + preguntasI == 35)
-                        {
-                            if (preguntasC >= 31 && preguntasI <= 4)
-                            {
-                                aprobado = "Aprobado";
-                                MessageBox.Show("Examen Aprobado");
-                            }
-                            else
-                            {
-                                aprobado = "Reprobado";
-                                MessageBox.Show("Examen Reprobado");
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Error, la cantidad de pregustas no pueden ser mayor o menor a 35");
-                        }
+                        MessageBox.Show("Rut no valido");
                     }
-                    else if (a == "D")
-                    {
-                        if (preguntasC + preguntasI == 12)
-                        {
-                            if (preguntasC >= 9 && preguntasI <= 3)
-                            {
-                                aprobado = "Aprobado";
-                                MessageBox.Show("Examen Aprobado");
-                            }
-                            else
-                            {
-                                aprobado = "Reprobado";
-                                MessageBox.Show("Examen Reprobado");
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Error, la cantidad de preguntas no puede ser mayor o menor a 12");
-                        }
-                    }
-                    /*else if (a == "E")
-                    {
-                        if (preguntasC >= 9 && preguntasI <= 3)
-                        {
-                            aprobado = true;
-                            MessageBox.Show("Examen Aprobado");
-                        }
-                        else
-                        {
-                            aprobado = false;
-                            MessageBox.Show("Examen Reprobado");
-                        }
-                    }*/
-
-                    Funcionario f = new Funcionario();
-
-                    f.Rut = TextRut.Text;
-                    f.PreguntasC = Convert.ToInt32(TextPreguntasC.Text);
-                    f.PreguntasI = Convert.ToInt32(TextPreguntasI.Text);
-                    f.Aprobado = aprobado;
-
-                    Mantenedor.AgregarET(f);
                 }
                 else
                 {
-                    MessageBox.Show("Rut no valido");
+                    MessageBox.Show("Rut no válido, ej: 12345678-9");
                 }
+                
             }
             else
             {
@@ -146,17 +179,17 @@ namespace Ventana
                 //String rut = TextRut.Text;
                 string rut = TextRut.Text;
 
-                if (Mantenedor.BuscarRut(rut))
+                if (rut.Length == 10)
                 {
-                    if (Mantenedor.BuscarRutET(rut) != false)
+                    if (Mantenedor.BuscarET(rut) != null)
                     {
-                        string aprobado = "";
+                        string aprobado;
                         int preguntasC = Convert.ToInt32(TextPreguntasC.Text);
                         int preguntasI = Convert.ToInt32(TextPreguntasI.Text);
 
-                        String a = ComboBoxClase.SelectedItem.ToString();
+                        string a = ComboBoxClase.Text;
 
-                        if (a == "A1" && a == "A2" && a == "A3" && a == "A4" && a == "A5")
+                        if (a == "A1" || a == "A2" || a == "A3" || a == "A4" || a == "A5")
                         {
                             if (preguntasC + preguntasI == 20)
                             {
@@ -170,6 +203,15 @@ namespace Ventana
                                     aprobado = "Reprobado";
                                     MessageBox.Show("Examen Reprobado");
                                 }
+
+                                Funcionario f = new Funcionario();
+
+                                f.Rut = TextRut.Text;
+                                f.PreguntasC = Convert.ToInt32(TextPreguntasC.Text);
+                                f.PreguntasI = Convert.ToInt32(TextPreguntasI.Text);
+                                f.Aprobado = aprobado;
+
+                                Mantenedor.ModificarET(f);
                             }
                             else
                             {
@@ -190,6 +232,15 @@ namespace Ventana
                                     aprobado = "Reprobado";
                                     MessageBox.Show("Examen Reprobado");
                                 }
+
+                                Funcionario f = new Funcionario();
+
+                                f.Rut = TextRut.Text;
+                                f.PreguntasC = Convert.ToInt32(TextPreguntasC.Text);
+                                f.PreguntasI = Convert.ToInt32(TextPreguntasI.Text);
+                                f.Aprobado = aprobado;
+
+                                Mantenedor.ModificarET(f);
                             }
                             else
                             {
@@ -210,6 +261,15 @@ namespace Ventana
                                     aprobado = "Reprobado";
                                     MessageBox.Show("Examen Reprobado");
                                 }
+
+                                Funcionario f = new Funcionario();
+
+                                f.Rut = TextRut.Text;
+                                f.PreguntasC = Convert.ToInt32(TextPreguntasC.Text);
+                                f.PreguntasI = Convert.ToInt32(TextPreguntasI.Text);
+                                f.Aprobado = aprobado;
+
+                                Mantenedor.ModificarET(f);
                             }
                             else
                             {
@@ -229,25 +289,17 @@ namespace Ventana
                                 MessageBox.Show("Examen Reprobado");
                             }
                         }*/
-
-                        Funcionario f = new Funcionario();
-
-                        f.Rut = TextRut.Text;
-                        f.PreguntasC = Convert.ToInt32(TextPreguntasC.Text);
-                        f.PreguntasI = Convert.ToInt32(TextPreguntasI.Text);
-                        f.Aprobado = aprobado;
-
-                        Mantenedor.ModificarET(f);
                     }
                     else
                     {
-                        MessageBox.Show("Error, rut no cuenta con un examen");
+                        MessageBox.Show("Rut no cuenta con un examen");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Rut no valido");
+                    MessageBox.Show("Rut no válido, ej: 12345678-9");
                 }
+
             }
             else
             {

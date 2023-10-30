@@ -1203,8 +1203,8 @@ namespace Negocio
         public static bool AgregarET(Funcionario funcionario)
         {
             string sql = "INSERT INTO funcionario " +
-                    "(rut, p_correctas, p_incorrectas, aprobado) values " +
-                    "(" + funcionario.Rut + ", " + funcionario.PreguntasC +
+                    "(persona_id, p_correctas, p_incorrectas, aprobado) values " +
+                    "(" + BuscarIdPersona(funcionario.Rut) + ", " + funcionario.PreguntasC +
                     ", " + funcionario.PreguntasI + ", " + AprobadoBool(funcionario.Aprobado) + ");";
 
             MySqlConnection ConnexionBD = ConexionBD.conexion();
@@ -1232,7 +1232,7 @@ namespace Negocio
                     " p_correctas = " + funcionario.PreguntasC +
                     ", p_incorrectas = " + funcionario.PreguntasI +
                     ", aprobado = " + AprobadoBool(funcionario.Aprobado) +
-                    " Where rut = " + funcionario.Rut + ";";
+                    " Where persona_id = " + BuscarIdPersona(funcionario.Rut) + ";";
 
             MySqlConnection ConnexionBD = ConexionBD.conexion();
             ConnexionBD.Open();
@@ -1256,7 +1256,7 @@ namespace Negocio
         public static bool EliminarET(string rut)
         {
             string sql = "Delete from funcionario " +
-                        "Where rut = " + rut + ";";
+                        "Where persona_id = " + BuscarIdPersona(rut) + ";";
 
             MySqlConnection ConnexionBD = ConexionBD.conexion();
             ConnexionBD.Open();
@@ -1282,7 +1282,7 @@ namespace Negocio
             List<Funcionario> funcionarios = new List<Funcionario>();
 
             string sql = "Select * from funcionario " +
-                        "Where rut = " + rut + ";";
+                        "Where persona_id = " + BuscarIdPersona(rut) + ";";
 
             MySqlConnection ConnexionBD = ConexionBD.conexion();
             ConnexionBD.Open();
@@ -1300,7 +1300,7 @@ namespace Negocio
 
                         Funcionario f = new Funcionario();
 
-                        f.Rut = leer.GetString("rut");
+                        f.Rut = BuscarRutPersona(leer.GetInt32("persona_id"));
                         f.PreguntasC = leer.GetInt32("p_correctas");
                         f.PreguntasI = leer.GetInt32("p_incorrectas");
                         f.Aprobado = AprobadoString(bool.Parse(leer["aprobado"].ToString()));
@@ -1346,7 +1346,7 @@ namespace Negocio
 
                         Funcionario f = new Funcionario();
 
-                        f.Rut = leer.GetString("rut");
+                        f.Rut = BuscarRutPersona(leer.GetInt32("persona_id"));
                         f.PreguntasC = leer.GetInt32("p_correctas");
                         f.PreguntasI = leer.GetInt32("p_incorrectas");
                         f.Aprobado = AprobadoString(bool.Parse(leer["aprobado"].ToString()));
