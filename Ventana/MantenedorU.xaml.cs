@@ -150,7 +150,7 @@ namespace Ventana
         }
 
         private static readonly Regex regex = new Regex("[^0-9]S+");
-        private static readonly Regex regex1 = new Regex("[^0-9-k]+");
+        private static readonly Regex regex1 = new Regex("[^0-9k]+");
         private static readonly Regex regex2 = new Regex("[^a-zA-Z]+$");
 
         private static bool SoloNumeros(string text)
