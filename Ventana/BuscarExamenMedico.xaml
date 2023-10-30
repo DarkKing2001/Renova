@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="BuscarExamenMedico" Height="450" Width="800" Background="#FF0F88E4">
     <Grid>
-        <Button x:Name="BotonEliminar" Content="Eliminar" HorizontalAlignment="Left" Height="35" Margin="420,10,0,0" VerticalAlignment="Top" Width="118" Click="BotonEliminar_Click"/>
-        <Button x:Name="BotonBuscar" Content="Buscar" HorizontalAlignment="Left" Height="35" Margin="584,10,0,0" VerticalAlignment="Top" Width="137" Click="BotonBuscar_Click"/>
+        <Button x:Name="BotonEliminar" Content="Eliminar" HorizontalAlignment="Left" Height="35" Margin="361,13,0,0" VerticalAlignment="Top" Width="118" Click="BotonEliminar_Click"/>
+        <Button x:Name="BotonBuscar" Content="Buscar" HorizontalAlignment="Left" Height="35" Margin="501,13,0,0" VerticalAlignment="Top" Width="137" Click="BotonBuscar_Click"/>
         <Button x:Name="BotonCerrar" Content="Salir" HorizontalAlignment="Left" Height="40" Margin="637,356,0,0" VerticalAlignment="Top" Width="129" Click="BotonCerrar_Click"/>
         <Label Content="Rut" HorizontalAlignment="Left" Height="28" Margin="87,17,0,0" VerticalAlignment="Top" Width="35"/>
         <TextBox x:Name="TextRut" HorizontalAlignment="Left" Height="28" Margin="147,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
@@ -23,6 +23,7 @@
                 <DataGridTextColumn Header="Aprobado" Binding="{Binding Aprobado}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="BotonMostrar" Content="Mostrar Datos" HorizontalAlignment="Left" Height="35" Margin="656,13,0,0" VerticalAlignment="Top" Width="110" Click="BotonMostrar_Click"/>
 
     </Grid>
 </Window>

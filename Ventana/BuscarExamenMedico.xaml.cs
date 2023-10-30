@@ -29,12 +29,19 @@ namespace Ventana
         {
             if (!TextRut.Text.Equals(""))
             {
-                string rut = TextRut.Text;
-
-                if (Mantenedor.BuscarMedico(rut) != null)
+                if (TextRut.Text.Length == 10)
                 {
-                    BusMedicos.ItemsSource = Mantenedor.BuscarMedico(rut);
+                    string rut = TextRut.Text;
+
+                    if (Mantenedor.BuscarMedico(rut) != null)
+                    {
+                        BusMedicos.ItemsSource = Mantenedor.BuscarMedico(rut);
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("rut no válido, ej: 12345678-9");
+                }                
             }
             else
             {
@@ -46,16 +53,23 @@ namespace Ventana
         {
             if (!TextRut.Text.Equals(""))
             {
-                string rut = TextRut.Text;
-
-                if (Mantenedor.BuscarMedico(rut) != null)
+                if (TextRut.Text.Length == 10)
                 {
-                    Mantenedor.EliminarMedico(rut);
+                    string rut = TextRut.Text;
+
+                    if (Mantenedor.BuscarMedico(rut) != null)
+                    {
+                        Mantenedor.EliminarMedico(rut);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Rut no cuenta con examen medico");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Rut no cuenta con examen medico");
-                }
+                    MessageBox.Show("Rut no válido, ej: 12345678-9");
+                }                
             }
             else
             {
@@ -72,5 +86,12 @@ namespace Ventana
         {
             BusMedicos.ItemsSource = Mantenedor.MostrarMedicos();
         }
+
+        private void BotonMostrar_Click(object sender, RoutedEventArgs e)
+        {
+            BusMedicos.ItemsSource = Mantenedor.MostrarMedicos();
+        }
+
+
     }
 }

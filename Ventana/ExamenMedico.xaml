@@ -23,11 +23,13 @@
         <RadioButton x:Name="RB_examenG_N" Content="No Aprobado" HorizontalAlignment="Left" Height="27" Margin="401,280,0,0" VerticalAlignment="Top" Width="135" GroupName="ExamenG" IsChecked="True"/>
         <Label Content="Examen General" HorizontalAlignment="Left" Height="27" Margin="96,273,0,0" VerticalAlignment="Top" Width="128"/>
         <Label Content="Rut" HorizontalAlignment="Left" Height="30" Margin="114,28,0,0" VerticalAlignment="Top" Width="41"/>
-        <TextBox x:Name="TextRut" HorizontalAlignment="Left" Height="30" Margin="176,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" Background="#FF97F9FF"/>
+        <TextBox x:Name="TextRut" HorizontalAlignment="Left" Height="30" Margin="176,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" MaxLength="8" Background="#FF97F9FF" PreviewTextInput="TextRut_PreviewTextInput"/>
         <Button x:Name="BotonAgregar" Content="Agregar" HorizontalAlignment="Left" Height="37" Margin="74,343,0,0" VerticalAlignment="Top" Width="116" Click="BotonAgregar_Click" Background="#FF1B31B2" BorderBrush="#FF6277BB" Foreground="White"/>
         <Button x:Name="BotonCerrar" Content="Salir" HorizontalAlignment="Left" Height="45" Margin="637,366,0,0" VerticalAlignment="Top" Width="125" Click="BotonCerrar_Click" Foreground="White" Background="#FFFF0505"/>
         <Button x:Name="BotonModificar" Content="Modificar" HorizontalAlignment="Left" Height="37" Margin="224,343,0,0" VerticalAlignment="Top" Width="119" Click="BotonModificar_Click" Foreground="White" Background="#FF1B31B2"/>
         <Button x:Name="BotonBuscar" Content="Buscar" HorizontalAlignment="Left" Height="37" Margin="382,343,0,0" VerticalAlignment="Top" Width="123" Click="BotonBuscar_Click" Foreground="White" Background="#FF1B31B2"/>
+        <Label Content="-" HorizontalAlignment="Left" Height="30" Margin="283,28,0,0" VerticalAlignment="Top" Width="18"/>
+        <TextBox x:Name="TextDV" HorizontalAlignment="Left" Height="30" Margin="306,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="26" MaxLength="1" PreviewTextInput="TextDV_PreviewTextInput"/>
 
     </Grid>
 </Window>

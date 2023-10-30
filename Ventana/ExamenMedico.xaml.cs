@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace Ventana
 {
@@ -29,75 +30,91 @@ namespace Ventana
 
         private void BotonAgregar_Click(object sender, RoutedEventArgs e)
         {
-            if (!TextRut.Text.Equals(""))
+            if (!TextRut.Text.Equals("") && !TextDV.Text.Equals(""))
             {
-                if(Mantenedor.BuscarRut(TextRut.Text) != false)
+                string rut = TextRut.Text + "-" + TextDV.Text;
+
+                if (rut.Length == 10)
                 {
-                    Medico m = new Medico();
-
-                    m.Rut = TextRut.Text;
-
-                    if (RB_examenV_A.IsChecked == true)
+                    if (Mantenedor.BuscarRut(rut) != false)
                     {
-                        m.ExamenV = "Aprobado";
+                        if (Mantenedor.BuscarRutEM(rut) != true)
+                        {
+                            Medico m = new Medico();
+
+                            m.Rut = rut;
+
+                            if (RB_examenV_A.IsChecked == true)
+                            {
+                                m.ExamenV = "Aprobado";
+                            }
+                            else
+                            {
+                                m.ExamenV = "Reprobado";
+                            }
+
+                            if (RB_examenA_A.IsChecked == true)
+                            {
+                                m.ExamenA = "Aprobado";
+                            }
+                            else
+                            {
+                                m.ExamenA = "Reprobado";
+                            }
+
+                            if (RB_examenP_A.IsChecked == true)
+                            {
+                                m.ExamenP = "Aprobado";
+                            }
+                            else
+                            {
+                                m.ExamenP = "Reprobado";
+                            }
+
+                            if (RB_cooA.IsChecked == true)
+                            {
+                                m.CoordinacionM = "Aprobado";
+                            }
+                            else
+                            {
+                                m.CoordinacionM = "Reprobado";
+                            }
+                            if (RB_examenG_A.IsChecked == true)
+                            {
+                                m.ExamenG = "Aprobado";
+                            }
+                            else
+                            {
+                                m.ExamenG = "Reprobado";
+                            }
+
+                            if (RB_examenV_A.IsChecked == true && RB_examenA_A.IsChecked == true &&
+                                RB_examenP_A.IsChecked == true && RB_cooA.IsChecked == true &&
+                                RB_examenG_A.IsChecked == true)
+                            {
+                                m.Aprobado = "Aprobado";
+                            }
+                            else
+                            {
+                                m.Aprobado = "Reprobado";
+                            }
+
+                            Mantenedor.AgregarMedico(m);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Rut cuenta con un examen");
+                        }                        
                     }
                     else
                     {
-                        m.ExamenV = "Reprobado";
+                        MessageBox.Show("Error, rut no válido");
                     }
-
-                    if (RB_examenA_A.IsChecked == true)
-                    {
-                        m.ExamenA = "Aprobado";
-                    }
-                    else
-                    {
-                        m.ExamenA = "Reprobado";
-                    }
-
-                    if (RB_examenP_A.IsChecked == true)
-                    {
-                        m.ExamenP = "Aprobado";
-                    }
-                    else
-                    {
-                        m.ExamenP = "Reprobado";
-                    }
-
-                    if (RB_cooA.IsChecked == true)
-                    {
-                        m.CoordinacionM = "Aprobado";
-                    }
-                    else
-                    {
-                        m.CoordinacionM = "Reprobado";
-                    }
-                    if (RB_examenG_A.IsChecked == true)
-                    {
-                        m.ExamenG = "Aprobado";
-                    }
-                    else
-                    {
-                        m.ExamenG = "Reprobado";
-                    }
-
-                    if (RB_examenV_A.IsChecked == true && RB_examenA_A.IsChecked == true &&
-                        RB_examenP_A.IsChecked == true && RB_cooA.IsChecked == true &&
-                        RB_examenG_A.IsChecked == true)
-                    {
-                        m.Aprobado = "Aprobado";
-                    }
-                    else
-                    {
-                        m.Aprobado = "Reprobado";
-                    }
-
-                    Mantenedor.AgregarMedico(m);
                 }
                 else
                 {
-                    MessageBox.Show("Error, rut no válido");
-                }
+                    MessageBox.Show("Rut no válido, ej: 12345678-9");
+                }                
             }
             else
             {
@@ -107,74 +124,83 @@ namespace Ventana
 
         private void BotonModificar_Click(object sender, RoutedEventArgs e)
         {
-            if (!TextRut.Text.Equals(""))
+            if (!TextRut.Text.Equals("") && !TextDV.Text.Equals(""))
             {
-                if (Mantenedor.BuscarRutEM(TextRut.Text) != false)
+                string rut = TextRut.Text + "-" + TextDV.Text;
+
+                if (rut.Length == 10)
                 {
-                    Medico m = new Medico();
-
-                    m.Rut = TextRut.Text;
-
-                    if (RB_examenV_A.IsChecked == true)
+                    if (Mantenedor.BuscarRutEM(rut) != false)
                     {
-                        m.ExamenV = "Aprobado";
+                        Medico m = new Medico();
+
+                        m.Rut = rut;
+
+                        if (RB_examenV_A.IsChecked == true)
+                        {
+                            m.ExamenV = "Aprobado";
+                        }
+                        else
+                        {
+                            m.ExamenV = "Reprobado";
+                        }
+
+                        if (RB_examenA_A.IsChecked == true)
+                        {
+                            m.ExamenA = "Aprobado";
+                        }
+                        else
+                        {
+                            m.ExamenA = "Reprobado";
+                        }
+
+                        if (RB_examenP_A.IsChecked == true)
+                        {
+                            m.ExamenP = "Aprobado";
+                        }
+                        else
+                        {
+                            m.ExamenP = "Reprobado";
+                        }
+
+                        if (RB_cooA.IsChecked == true)
+                        {
+                            m.CoordinacionM = "Aprobado";
+                        }
+                        else
+                        {
+                            m.CoordinacionM = "Reprobado";
+                        }
+                        if (RB_examenG_A.IsChecked == true)
+                        {
+                            m.ExamenG = "Aprobado";
+                        }
+                        else
+                        {
+                            m.ExamenG = "Reprobado";
+                        }
+
+                        if (RB_examenV_A.IsChecked == true && RB_examenA_A.IsChecked == true &&
+                            RB_examenP_A.IsChecked == true && RB_cooA.IsChecked == true &&
+                            RB_examenG_A.IsChecked == true)
+                        {
+                            m.Aprobado = "Aprobado";
+                        }
+                        else
+                        {
+                            m.Aprobado = "Reprobado";
+                        }
+
+                        Mantenedor.ModificarMedico(m);
                     }
                     else
                     {
-                        m.ExamenV = "Reprobado";
+                        MessageBox.Show("Rut no cuenta con un examen");
                     }
-
-                    if (RB_examenA_A.IsChecked == true)
-                    {
-                        m.ExamenA = "Aprobado";
-                    }
-                    else
-                    {
-                        m.ExamenA = "Reprobado";
-                    }
-
-                    if (RB_examenP_A.IsChecked == true)
-                    {
-                        m.ExamenP = "Aprobado";
-                    }
-                    else
-                    {
-                        m.ExamenP = "Reprobado";
-                    }
-
-                    if (RB_cooA.IsChecked == true)
-                    {
-                        m.CoordinacionM = "Aprobado";
-                    }
-                    else
-                    {
-                        m.CoordinacionM = "Reprobado";
-                    }
-                    if (RB_examenG_A.IsChecked == true)
-                    {
-                        m.ExamenG = "Aprobado";
-                    }
-                    else
-                    {
-                        m.ExamenG = "Reprobado";
-                    }
-
-                    if (RB_examenV_A.IsChecked == true && RB_examenA_A.IsChecked == true &&
-                        RB_examenP_A.IsChecked == true && RB_cooA.IsChecked == true &&
-                        RB_examenG_A.IsChecked == true)
-                    {
-                        m.Aprobado = "Aprobado";
-                    }
-                    else
-                    {
-                        m.Aprobado = "Reprobado";
-                    }
-
-                    Mantenedor.ModificarMedico(m);
                 }
                 else
                 {
-                    MessageBox.Show("Error, rut no válido");
+                    MessageBox.Show("Rut no válido, ej: 12345678-9");
                 }
             }
             else
@@ -192,6 +218,29 @@ namespace Ventana
         private void BotonCerrar_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private static readonly Regex regex = new Regex("[^0-9]+");
+        private static readonly Regex regex1 = new Regex("[^0-9k]+");
+
+        private static bool SoloNumeros(string text)
+        {
+            return !regex.IsMatch(text);
+        }
+
+        private static bool ValidarDV(string text)
+        {
+            return !regex1.IsMatch(text);
+        }
+
+        private void TextRut_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !SoloNumeros(e.Text);
+        }
+
+        private void TextDV_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !ValidarDV(e.Text);
         }
     }
 }
