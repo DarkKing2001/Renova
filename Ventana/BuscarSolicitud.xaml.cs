@@ -72,7 +72,7 @@ namespace Ventana
             }
             else
             {
-                MessageBox.Show("Error, no puede estar rut vacio");
+                MessageBox.Show("Error, no puede estar N° Solicitud vacio");
             }
         }
 
