@@ -1000,8 +1000,8 @@ namespace Negocio
         public static bool AgregarEP(Instructor instructor)
         {
             string sql = "INSERT INTO instructor " +
-                    "(rut, f_graves, f_leves, aprobado) values " +
-                    "(" + instructor.Rut + ", " + instructor.FaltasG +
+                    "(persona_id, f_graves, f_leves, aprobado) values " +
+                    "(" + BuscarIdPersona(instructor.Rut) + ", " + instructor.FaltasG +
                     ", " + instructor.FaltasL + ", " + AprobadoBool(instructor.Aprobado) + ");";
 
             MySqlConnection ConnexionBD = ConexionBD.conexion();
@@ -1029,7 +1029,7 @@ namespace Negocio
                     " f_graves = " + instructor.FaltasG +
                     ", f_leves = " + instructor.FaltasL +
                     ", aprobado = " + AprobadoBool(instructor.Aprobado) +
-                    " Where rut = " + instructor.Rut + ";";
+                    " Where persona_id = " + BuscarIdPersona(instructor.Rut) + ";";
 
             MySqlConnection ConnexionBD = ConexionBD.conexion();
             ConnexionBD.Open();
@@ -1053,7 +1053,7 @@ namespace Negocio
         public static bool EliminarEP(string rut)
         {
             string sql = "Delete from instructor " +
-                        "Where rut = " + rut + ";";
+                        "Where persona_id = " + BuscarIdPersona(rut) + ";";
 
             MySqlConnection ConnexionBD = ConexionBD.conexion();
             ConnexionBD.Open();
@@ -1079,7 +1079,7 @@ namespace Negocio
             List<Instructor> instructores = new List<Instructor>();
 
             string sql = "Select * from instructor " +
-                        "Where rut = " + rut + ";";
+                        "Where persona_id = " + BuscarIdPersona(rut) + ";";
 
             MySqlConnection ConnexionBD = ConexionBD.conexion();
             ConnexionBD.Open();
@@ -1097,7 +1097,7 @@ namespace Negocio
 
                         Instructor i = new Instructor();
 
-                        i.Rut = leer.GetString("rut");
+                        i.Rut = BuscarRutPersona(leer.GetInt32("persona_id"));
                         i.FaltasG = leer.GetInt32("f_graves");
                         i.FaltasL = leer.GetInt32("f_leves");
                         i.Aprobado = AprobadoString(bool.Parse(leer["aprobado"].ToString()));
@@ -1143,7 +1143,7 @@ namespace Negocio
 
                         Instructor i = new Instructor();
 
-                        i.Rut = leer.GetString("rut");
+                        i.Rut = BuscarRutPersona(leer.GetInt32("persona_id"));
                         i.FaltasG = leer.GetInt32("f_graves");
                         i.FaltasL = leer.GetInt32("f_leves");
                         i.Aprobado = AprobadoString(bool.Parse(leer["aprobado"].ToString()));

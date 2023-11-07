@@ -15,8 +15,8 @@
         <DataGrid x:Name="DG_ExamenP" AutoGenerateColumns="False" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="206" Margin="69,116,0,0" VerticalAlignment="Top" Width="595" Loaded="DG_ExamenP_Loaded">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Rut" Binding="{Binding Rut}"/>
-                <DataGridTextColumn Header="Faltas Graves" Binding="{Binding F_graves}"/>
-                <DataGridTextColumn Header="Faltas Leves" Binding="{Binding F_leves}"/>
+                <DataGridTextColumn Header="Faltas Graves" Binding="{Binding FaltasG}"/>
+                <DataGridTextColumn Header="Faltas Leves" Binding="{Binding FaltasL}"/>
                 <DataGridTextColumn Header="Aprobado" Binding="{Binding Aprobado}"/>
             </DataGrid.Columns>
         </DataGrid>

@@ -34,7 +34,7 @@ namespace Ventana
             {
                 if (TextRut.Text.Length == 8)
                 {
-                    string rut = TextRut.Text + "-" + TextDV;
+                    string rut = TextRut.Text + "-" + TextDV.Text;
                     int faltasG = Convert.ToInt32(TextFaltasG.Text);
                     int faltasL = Convert.ToInt32(TextFaltasL.Text);
                     string aprobado;
