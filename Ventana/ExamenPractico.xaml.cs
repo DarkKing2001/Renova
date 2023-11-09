@@ -81,7 +81,7 @@ namespace Ventana
             {
                 if (TextRut.Text.Length == 8)
                 {
-                    string rut = TextRut.Text + "-" + TextDV;
+                    string rut = TextRut.Text + "-" + TextDV.Text;
 
                     if (Mantenedor.BuscarRutEP(rut) != false)
                     {
