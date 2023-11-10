@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="Solicitudes" Height="575" Width="850" Background="#FF0F88E4">
     <Grid Margin="0,0,16.333,9.333">
-        <Label Content="Rut" HorizontalAlignment="Left" Height="30" Margin="56,43,0,0" VerticalAlignment="Top" Width="28"/>
-        <TextBox x:Name="TextRut" HorizontalAlignment="Left" Height="30" Margin="85,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" MaxLength="8"/>
-        <Label Content="-" HorizontalAlignment="Left" Height="30" Margin="198,44,0,0" VerticalAlignment="Top" Width="20"/>
-        <TextBox x:Name="TextDV" HorizontalAlignment="Left" Height="30" Margin="218,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" MaxLength="1"/>
+        <Label Content="Rut" HorizontalAlignment="Left" Height="30" Margin="51,18,0,0" VerticalAlignment="Top" Width="28"/>
+        <TextBox x:Name="TextRut" HorizontalAlignment="Left" Height="30" Margin="84,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" MaxLength="8"/>
+        <Label Content="-" HorizontalAlignment="Left" Height="30" Margin="198,18,0,0" VerticalAlignment="Top" Width="20"/>
+        <TextBox x:Name="TextDV" HorizontalAlignment="Left" Height="30" Margin="218,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" MaxLength="1"/>
         <Button x:Name="BotonAgregar" Content="Agregar" HorizontalAlignment="Left" Height="40" Margin="71,459,0,0" VerticalAlignment="Top" Width="117" Click="BotonAgregar_Click"/>
         <Button x:Name="BotonModificar" Content="Modificar" HorizontalAlignment="Left" Height="40" Margin="233,459,0,0" VerticalAlignment="Top" Width="111" Click="BotonModificar_Click"/>
         <Button x:Name="BotonBuscar" Content="Buscar" HorizontalAlignment="Left" Height="40" Margin="375,459,0,0" VerticalAlignment="Top" Width="115" Click="BotonBuscar_Click"/>
@@ -58,6 +58,8 @@
         </ComboBox>
         <RadioButton x:Name="RB_Aprobado" Content="Aprobado" HorizontalAlignment="Left" Height="20" Margin="293,43,0,0" VerticalAlignment="Top" Width="82" GroupName="RB_AproRe"/>
         <RadioButton x:Name="RB_Rechazado" Content="Rechazado" HorizontalAlignment="Left" Height="20" Margin="293,68,0,0" VerticalAlignment="Top" Width="82" GroupName="RB_AproRe" IsChecked="True"/>
+        <Label Content="N° Solicitud" HorizontalAlignment="Left" Height="24" Margin="7,61,0,0" VerticalAlignment="Top" Width="72"/>
+        <TextBox x:Name="TextSoli" HorizontalAlignment="Left" Height="23" Margin="84,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" PreviewTextInput="TextSoli_PreviewTextInput"/>
 
     </Grid>
 </Window>

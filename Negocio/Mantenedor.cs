@@ -1482,7 +1482,7 @@ namespace Negocio
                     ", licencia = @licencia" +
                     ", recidencia = @recidencia" +
                     ", certificadoE = @certificadoE" + 
-                    ", aprobado = " + RechazoBool(solicitud.Aprobado) +
+                    ", aprobada = " + RechazoBool(solicitud.Aprobado) +
                     " Where persona_id = " + BuscarIdPersona(solicitud.Rut) + ";";
 
             MySqlConnection ConnexionBD = ConexionBD.conexion();

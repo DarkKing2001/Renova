@@ -368,29 +368,164 @@ namespace Ventana
                                                          //s.Certificado = TextLicencia.Text;
 
 
-                                        //var aux = (BitmapImage)this.myCarnet.Source;
-                                        //s.Carnet = aux.UriSource.AbsoluteUri;
+                                        if (myCarnet.Source == null)
+                                        {
+                                            if (!TextSoli.Text.Equals(""))
+                                            {
+                                                int soli = Convert.ToInt32(TextSoli.Text);
+                                                MemoryStream ms = Mantenedor.BuscarCarnet(soli);
 
-                                        byte[] carnet = Mantenedor.ImageByte(myCarnet);
-                                        s.Carnet = carnet;
+                                                if (ms != null)
+                                                {
+                                                    BitmapImage bm = new BitmapImage();
+                                                    bm.BeginInit();
+                                                    bm.StreamSource = ms;
+                                                    bm.CacheOption = BitmapCacheOption.OnLoad;
+                                                    bm.EndInit();
+
+                                                    myCarnet.Source = bm;
+
+                                                    byte[] carnet = Mantenedor.ImageByte(myCarnet);
+                                                    s.Carnet = carnet;
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("N° solicitud no cuenta con un registro");
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("N° solicitud no puede estar vacio para modificar");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            byte[] carnet = Mantenedor.ImageByte(myCarnet);
+                                            s.Carnet = carnet;
+                                        }
+
+
 
                                         //var ar = (BitmapImage)this.myRecidencia.Source;
                                         //s.Recidencia = ar.UriSource.AbsoluteUri;
 
-                                        byte[] recidencia = Mantenedor.ImageByte(myRecidencia);
-                                        s.Recidencia = recidencia;
+                                        if (myRecidencia.Source == null)
+                                        {
+                                            if (!TextSoli.Text.Equals(""))
+                                            {
+                                                int soli = Convert.ToInt32(TextSoli.Text);
+                                                MemoryStream ms = Mantenedor.BuscarRecidencia(soli);
+
+                                                if (ms != null)
+                                                {
+                                                    BitmapImage bm = new BitmapImage();
+                                                    bm.BeginInit();
+                                                    bm.StreamSource = ms;
+                                                    bm.CacheOption = BitmapCacheOption.OnLoad;
+                                                    bm.EndInit();
+
+                                                    myRecidencia.Source = bm;
+
+                                                    byte[] recidencia = Mantenedor.ImageByte(myRecidencia);
+                                                    s.Recidencia = recidencia;
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("N° solicitud no cuenta con un registro");
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("N° solicitud no puede estar vacio para modificar");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            byte[] recidencia = Mantenedor.ImageByte(myRecidencia);
+                                            s.Recidencia = recidencia;
+                                        }
+
+
 
                                         //var al = (BitmapImage)this.myLicencia.Source;
                                         //s.Licencia = al.UriSource.AbsoluteUri;
 
-                                        byte[] licencia = Mantenedor.ImageByte(myCarnet);
-                                        s.Licencia = licencia;
+                                        if (myLicencia.Source == null)
+                                        {
+                                            if (!TextSoli.Text.Equals(""))
+                                            {
+                                                int soli = Convert.ToInt32(TextSoli.Text);
+                                                MemoryStream ms = Mantenedor.BuscarLicencia(soli);
+
+                                                if (ms != null)
+                                                {
+                                                    BitmapImage bm = new BitmapImage();
+                                                    bm.BeginInit();
+                                                    bm.StreamSource = ms;
+                                                    bm.CacheOption = BitmapCacheOption.OnLoad;
+                                                    bm.EndInit();
+
+                                                    myLicencia.Source = bm;
+
+                                                    byte[] licencia = Mantenedor.ImageByte(myLicencia);
+                                                    s.Licencia = licencia;
+                                                }
+                                                else
+                                                {
+                                                    s.Licencia = null;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("N° solicitud no puede estar vacio para modificar");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            byte[] licencia = Mantenedor.ImageByte(myLicencia);
+                                            s.Licencia = licencia;
+                                        }
+
+
 
                                         //var ac = (BitmapImage)this.myCertificado.Source;
                                         //s.Certificado = ac.UriSource.AbsoluteUri;
 
-                                        byte[] certificado = Mantenedor.ImageByte(myCarnet);
-                                        s.Certificado = certificado;
+                                        if (myCertificado.Source == null)
+                                        {
+                                            if (!TextSoli.Text.Equals(""))
+                                            {
+                                                int soli = Convert.ToInt32(TextSoli.Text);
+                                                MemoryStream ms = Mantenedor.BuscarCertificado(soli);
+
+                                                if (ms != null)
+                                                {
+                                                    BitmapImage bm = new BitmapImage();
+                                                    bm.BeginInit();
+                                                    bm.StreamSource = ms;
+                                                    bm.CacheOption = BitmapCacheOption.OnLoad;
+                                                    bm.EndInit();
+
+                                                    myCertificado.Source = bm;
+
+                                                    byte[] certificado = Mantenedor.ImageByte(myCertificado);
+                                                    s.Certificado = certificado;
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("N° solicitud no cuenta con un registro");
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("N° solicitud no puede estar vacio para modificar");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            byte[] certificado = Mantenedor.ImageByte(myCertificado);
+                                            s.Certificado = certificado;
+                                        }
 
                                         if (RB_PrimeraL.IsChecked == true)
                                         {
@@ -465,29 +600,164 @@ namespace Ventana
                                                          //s.Certificado = TextLicencia.Text;
 
 
-                                        //var aux = (BitmapImage)this.myCarnet.Source;
-                                        //s.Carnet = aux.UriSource.AbsoluteUri;
+                                        if (myCarnet.Source == null)
+                                        {
+                                            if (!TextSoli.Text.Equals(""))
+                                            {
+                                                int soli = Convert.ToInt32(TextSoli.Text);
+                                                MemoryStream ms = Mantenedor.BuscarCarnet(soli);
 
-                                        byte[] carnet = Mantenedor.ImageByte(myCarnet);
-                                        s.Carnet = carnet;
+                                                if (ms != null)
+                                                {
+                                                    BitmapImage bm = new BitmapImage();
+                                                    bm.BeginInit();
+                                                    bm.StreamSource = ms;
+                                                    bm.CacheOption = BitmapCacheOption.OnLoad;
+                                                    bm.EndInit();
+
+                                                    myCarnet.Source = bm;
+
+                                                    byte[] carnet = Mantenedor.ImageByte(myCarnet);
+                                                    s.Carnet = carnet;
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("N° solicitud no cuenta con un registro");
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("N° solicitud no puede estar vacio para modificar");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            byte[] carnet = Mantenedor.ImageByte(myCarnet);
+                                            s.Carnet = carnet;
+                                        }
+
+
 
                                         //var ar = (BitmapImage)this.myRecidencia.Source;
                                         //s.Recidencia = ar.UriSource.AbsoluteUri;
 
-                                        byte[] recidencia = Mantenedor.ImageByte(myRecidencia);
-                                        s.Recidencia = recidencia;
+                                        if (myRecidencia.Source == null)
+                                        {
+                                            if (!TextSoli.Text.Equals(""))
+                                            {
+                                                int soli = Convert.ToInt32(TextSoli.Text);
+                                                MemoryStream ms = Mantenedor.BuscarRecidencia(soli);
+
+                                                if (ms != null)
+                                                {
+                                                    BitmapImage bm = new BitmapImage();
+                                                    bm.BeginInit();
+                                                    bm.StreamSource = ms;
+                                                    bm.CacheOption = BitmapCacheOption.OnLoad;
+                                                    bm.EndInit();
+
+                                                    myRecidencia.Source = bm;
+
+                                                    byte[] recidencia = Mantenedor.ImageByte(myRecidencia);
+                                                    s.Recidencia = recidencia;
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("N° solicitud no cuenta con un registro");
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("N° solicitud no puede estar vacio para modificar");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            byte[] recidencia = Mantenedor.ImageByte(myRecidencia);
+                                            s.Recidencia = recidencia;
+                                        }
+
+
 
                                         //var al = (BitmapImage)this.myLicencia.Source;
                                         //s.Licencia = al.UriSource.AbsoluteUri;
 
-                                        byte[] licencia = Mantenedor.ImageByte(myCarnet);
-                                        s.Licencia = licencia;
+                                        if (myLicencia.Source == null)
+                                        {
+                                            if (!TextSoli.Text.Equals(""))
+                                            {
+                                                int soli = Convert.ToInt32(TextSoli.Text);
+                                                MemoryStream ms = Mantenedor.BuscarLicencia(soli);
+
+                                                if (ms != null)
+                                                {
+                                                    BitmapImage bm = new BitmapImage();
+                                                    bm.BeginInit();
+                                                    bm.StreamSource = ms;
+                                                    bm.CacheOption = BitmapCacheOption.OnLoad;
+                                                    bm.EndInit();
+
+                                                    myLicencia.Source = bm;
+
+                                                    byte[] licencia = Mantenedor.ImageByte(myLicencia);
+                                                    s.Licencia = licencia;
+                                                }
+                                                else
+                                                {
+                                                    s.Licencia = null;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("N° solicitud no puede estar vacio para modificar");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            byte[] licencia = Mantenedor.ImageByte(myLicencia);
+                                            s.Licencia = licencia;
+                                        }
+
+
 
                                         //var ac = (BitmapImage)this.myCertificado.Source;
                                         //s.Certificado = ac.UriSource.AbsoluteUri;
 
-                                        byte[] certificado = Mantenedor.ImageByte(myCarnet);
-                                        s.Certificado = certificado;
+                                        if (myCertificado.Source == null)
+                                        {
+                                            if (!TextSoli.Text.Equals(""))
+                                            {
+                                                int soli = Convert.ToInt32(TextSoli.Text);
+                                                MemoryStream ms = Mantenedor.BuscarCertificado(soli);
+
+                                                if (ms != null)
+                                                {
+                                                    BitmapImage bm = new BitmapImage();
+                                                    bm.BeginInit();
+                                                    bm.StreamSource = ms;
+                                                    bm.CacheOption = BitmapCacheOption.OnLoad;
+                                                    bm.EndInit();
+
+                                                    myCertificado.Source = bm;
+
+                                                    byte[] certificado = Mantenedor.ImageByte(myCertificado);
+                                                    s.Certificado = certificado;
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("N° solicitud no cuenta con un registro");
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("N° solicitud no puede estar vacio para modificar");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            byte[] certificado = Mantenedor.ImageByte(myCertificado);
+                                            s.Certificado = certificado;
+                                        }
 
                                         if (RB_PrimeraL.IsChecked == true)
                                         {
@@ -516,7 +786,249 @@ namespace Ventana
                                     {
                                         MessageBox.Show("No quedan cupos en la fecha y/o hora seleccionada");
                                     }
+                                }
+                                else if (RB_PrimeraL.IsChecked == true && CB_Clase.SelectedIndex >=5)
+                                {
+                                    int dia = f.Day;
+                                    int mes = f.Month;
+                                    int anio = f.Year;
+                                    int hora = 0;
 
+                                    if (CB_Hora.SelectedIndex == 0)
+                                    {
+                                        hora = 09;
+                                    }
+                                    else if (CB_Hora.SelectedIndex == 1)
+                                    {
+                                        hora = 10;
+                                    }
+                                    else if (CB_Hora.SelectedIndex == 2)
+                                    {
+                                        hora = 11;
+                                    }
+                                    else if (CB_Hora.SelectedIndex == 3)
+                                    {
+                                        hora = 12;
+                                    }
+                                    else if (CB_Hora.SelectedIndex == 4)
+                                    {
+                                        hora = 14;
+                                    }
+                                    else if (CB_Hora.SelectedIndex == 5)
+                                    {
+                                        hora = 15;
+                                    }
+                                    else if (CB_Hora.SelectedIndex == 6)
+                                    {
+                                        hora = 16;
+                                    }
+
+                                    DateTime fecha = new DateTime(anio, mes, dia, hora, 00, 00);
+
+                                    if (Mantenedor.BuscarHoras(fecha) <= 3)
+                                    {
+                                        Solicitud s = new Solicitud();
+
+
+                                        s.Rut = TextRut.Text + "-" + TextDV.Text;
+                                        s.Fecha = fecha; //Convert.ToDateTime(CalendarioFecha.SelectedDate);
+                                                         //s.Carnet = TextCarnet.Text;
+                                                         //s.Recidencia = TextRecidencia.Text;
+                                                         //s.Licencia = TextLicencia.Text;
+                                                         //s.Certificado = TextLicencia.Text;
+
+
+                                        //var aux = (BitmapImage)this.myCarnet.Source;
+                                        //s.Carnet = aux.UriSource.AbsoluteUri;
+
+                                        if (myCarnet.Source == null)
+                                        {
+                                            if (!TextSoli.Text.Equals(""))
+                                            {
+                                                int soli = Convert.ToInt32(TextSoli.Text);
+                                                MemoryStream ms = Mantenedor.BuscarCarnet(soli);
+
+                                                if (ms != null)
+                                                {
+                                                    BitmapImage bm = new BitmapImage();
+                                                    bm.BeginInit();
+                                                    bm.StreamSource = ms;
+                                                    bm.CacheOption = BitmapCacheOption.OnLoad;
+                                                    bm.EndInit();
+
+                                                    myCarnet.Source = bm;
+
+                                                    byte[] carnet = Mantenedor.ImageByte(myCarnet);
+                                                    s.Carnet = carnet;
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("N° solicitud no cuenta con un registro");
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("N° solicitud no puede estar vacio para modificar");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            byte[] carnet = Mantenedor.ImageByte(myCarnet);
+                                            s.Carnet = carnet;
+                                        }
+
+                                        
+
+                                        //var ar = (BitmapImage)this.myRecidencia.Source;
+                                        //s.Recidencia = ar.UriSource.AbsoluteUri;
+
+                                        if (myRecidencia.Source == null)
+                                        {
+                                            if (!TextSoli.Text.Equals(""))
+                                            {
+                                                int soli = Convert.ToInt32(TextSoli.Text);
+                                                MemoryStream ms = Mantenedor.BuscarRecidencia(soli);
+
+                                                if (ms != null)
+                                                {
+                                                    BitmapImage bm = new BitmapImage();
+                                                    bm.BeginInit();
+                                                    bm.StreamSource = ms;
+                                                    bm.CacheOption = BitmapCacheOption.OnLoad;
+                                                    bm.EndInit();
+
+                                                    myRecidencia.Source = bm;
+
+                                                    byte[] recidencia = Mantenedor.ImageByte(myRecidencia);
+                                                    s.Recidencia = recidencia;
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("N° solicitud no cuenta con un registro");
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("N° solicitud no puede estar vacio para modificar");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            byte[] recidencia = Mantenedor.ImageByte(myRecidencia);
+                                            s.Recidencia = recidencia;
+                                        }
+
+                                        
+
+                                        //var al = (BitmapImage)this.myLicencia.Source;
+                                        //s.Licencia = al.UriSource.AbsoluteUri;
+
+                                        if (myLicencia.Source == null)
+                                        {
+                                            if (!TextSoli.Text.Equals(""))
+                                            {
+                                                int soli = Convert.ToInt32(TextSoli.Text);
+                                                MemoryStream ms = Mantenedor.BuscarLicencia(soli);
+
+                                                if (ms != null)
+                                                {
+                                                    BitmapImage bm = new BitmapImage();
+                                                    bm.BeginInit();
+                                                    bm.StreamSource = ms;
+                                                    bm.CacheOption = BitmapCacheOption.OnLoad;
+                                                    bm.EndInit();
+
+                                                    myLicencia.Source = bm;
+
+                                                    byte[] licencia = Mantenedor.ImageByte(myLicencia);
+                                                    s.Licencia = licencia;
+                                                }
+                                                else
+                                                {
+                                                    s.Licencia = null;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("N° solicitud no puede estar vacio para modificar");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            byte[] licencia = Mantenedor.ImageByte(myLicencia);
+                                            s.Licencia = licencia;
+                                        }
+
+                                        
+
+                                        //var ac = (BitmapImage)this.myCertificado.Source;
+                                        //s.Certificado = ac.UriSource.AbsoluteUri;
+
+                                        if (myCertificado.Source == null)
+                                        {
+                                            if (!TextSoli.Text.Equals(""))
+                                            {
+                                                int soli = Convert.ToInt32(TextSoli.Text);
+                                                MemoryStream ms = Mantenedor.BuscarCertificado(soli);
+
+                                                if (ms != null)
+                                                {
+                                                    BitmapImage bm = new BitmapImage();
+                                                    bm.BeginInit();
+                                                    bm.StreamSource = ms;
+                                                    bm.CacheOption = BitmapCacheOption.OnLoad;
+                                                    bm.EndInit();
+
+                                                    myCertificado.Source = bm;
+
+                                                    byte[] certificado = Mantenedor.ImageByte(myCertificado);
+                                                    s.Certificado = certificado;
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("N° solicitud no cuenta con un registro");
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("N° solicitud no puede estar vacio para modificar");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            byte[] certificado = Mantenedor.ImageByte(myCertificado);
+                                            s.Certificado = certificado;
+                                        }
+
+                                        
+
+                                        if (RB_PrimeraL.IsChecked == true)
+                                        {
+                                            s.Renovacion = "Primera Licencia";
+                                        }
+                                        else
+                                        {
+                                            s.Renovacion = "Renovacion";
+                                        }
+
+                                        s.Clase = CB_Clase.Text;
+
+                                        if (RB_Aprobado.IsChecked == true)
+                                        {
+                                            s.Aprobado = "Aprobado";
+                                        }
+                                        else
+                                        {
+                                            s.Aprobado = "Rechazado";
+                                        }
+
+                                        //MessageBox.Show("fecha igual: " + fecha.ToString("yyyy/MM/dd HH:mm"));
+                                        Mantenedor.ModificarSolicitud(s);
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("No quedan cupos en la fecha y/o hora seleccionada");
+                                    }
                                 }
                                 else
                                 {
@@ -694,6 +1206,11 @@ namespace Ventana
             CB_Clase.SelectedIndex = 0;
 
             RB_PrimeraL.IsChecked = true;
+        }
+
+        private void TextSoli_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
         }
     }
 }
