@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:Ventana"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="/Diseño/ProColores.xaml"/>
     </Application.Resources>
 </Application>
