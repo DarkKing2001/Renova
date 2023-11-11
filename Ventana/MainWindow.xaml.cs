@@ -38,7 +38,7 @@ namespace Ventana
 
         private void BotonCerrar_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Application.Current.Shutdown();
         }
 
         private void BotonInicioSecion_Click(object sender, RoutedEventArgs e)

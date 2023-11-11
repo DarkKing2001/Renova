@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:Ventana"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <ResourceDictionary Source="/Diseño/ProColores.xaml"/>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Diseño/ProColores.xaml"/>
+                <ResourceDictionary Source="/Diseño/BotonesD.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
     </Application.Resources>
 </Application>
