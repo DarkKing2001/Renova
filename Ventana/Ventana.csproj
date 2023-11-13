@@ -77,11 +77,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BuscarEM.xaml.cs">
+      <DependentUpon>BuscarEM.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BuscarEP.xaml.cs">
       <DependentUpon>BuscarEP.xaml</DependentUpon>
     </Compile>
     <Compile Include="BuscarSolicitud.xaml.cs">
       <DependentUpon>BuscarSolicitud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExamenM.xaml.cs">
+      <DependentUpon>ExamenM.xaml</DependentUpon>
     </Compile>
     <Compile Include="ExamenP.xaml.cs">
       <DependentUpon>ExamenP.xaml</DependentUpon>
@@ -110,6 +116,10 @@
     <Compile Include="VistaModelo\MainViewModel.cs" />
     <Compile Include="VistaModelo\ViewModelBase.cs" />
     <Compile Include="VistaModelo\ViewModelCommand.cs" />
+    <Page Include="BuscarEM.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BuscarEP.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Diseño\ProColores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExamenM.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

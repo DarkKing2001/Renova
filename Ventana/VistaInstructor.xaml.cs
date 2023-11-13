@@ -40,16 +40,7 @@ namespace Ventana
             ep.ShowDialog();
         }*/
 
-        private void BotonExamenT(object obj)
-        {
-            ExamenPractico ep = new ExamenPractico();
-        }
 
-        private void BotonBuscar_Click(object sender, RoutedEventArgs e)
-        {
-            BuscarExamenPractico bep = new BuscarExamenPractico();
-            bep.ShowDialog();
-        }
 
         private void BotonCerrar_Click(object sender, RoutedEventArgs e)
         {

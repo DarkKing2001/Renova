@@ -74,6 +74,7 @@ namespace Ventana.VistaModelo
             ShowExamenT = new ViewModelCommand(ExecuteShowExamenT);
 
             ExecuteShowExamenesPracticos(null);
+            ExecuteShowExamenesMedicos(null);
 
         }
 
