@@ -18,11 +18,11 @@
     </Window.DataContext>
 
     <Window.Resources>
-        <DataTemplate DataType="{x:Type viewModel:BuscarEPModel}">
+        <DataTemplate DataType="{x:Type viewModel:BuscarEP}">
             <local:BuscarEP/>
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type viewModel:EP}">
+        <DataTemplate DataType="{x:Type viewModel:ExamenP}">
             <local:ExamenP/>
         </DataTemplate>
     </Window.Resources>

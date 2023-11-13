@@ -101,10 +101,12 @@
     <Compile Include="VistaMedico.xaml.cs">
       <DependentUpon>VistaMedico.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VistaModelo\BuscarEPModel.cs" />
+    <Compile Include="VistaModelo\BuscarEM.cs" />
+    <Compile Include="VistaModelo\BuscarEP.cs" />
     <Compile Include="VistaModelo\BuscarET.cs" />
-    <Compile Include="VistaModelo\EP.cs" />
-    <Compile Include="VistaModelo\ExamenesT.cs" />
+    <Compile Include="VistaModelo\ExamenM.cs" />
+    <Compile Include="VistaModelo\ExamenP.cs" />
+    <Compile Include="VistaModelo\ExamenT.cs" />
     <Compile Include="VistaModelo\MainViewModel.cs" />
     <Compile Include="VistaModelo\ViewModelBase.cs" />
     <Compile Include="VistaModelo\ViewModelCommand.cs" />
