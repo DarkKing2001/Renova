@@ -79,42 +79,42 @@ namespace Ventana.VistaModelo
 
         private void ExecuteShowExamenesPracticos(object obj)
         {
-            CurrentChildView = new BuscarEP();
+            CurrentChildView = new ModeloBuscarEP();
             Caption = "Examenes";
             Icon = IconChar.UserGroup;
         }
 
         private void ExecuteShowExamenP(object obj)
         {
-            CurrentChildView = new ExamenP();
+            CurrentChildView = new ModeloExamenP();
             Caption = "Examen";
             Icon = IconChar.UserGroup;
         }
 
         private void ExecuteShowExamenesTeoricos(object obj)
         {
-            CurrentChildView = new BuscarET();
+            CurrentChildView = new ModleoBuscarET();
             Caption = "Examenes";
             Icon = IconChar.UserGroup;
         }
 
         private void ExecuteShowExamenT(object obj)
         {
-            CurrentChildView = new ExamenT();
+            CurrentChildView = new ModeloExamenT();
             Caption = "Examen";
             Icon = IconChar.UserGroup;
         }
 
         private void ExecuteShowExamenesMedicos(object obj)
         {
-            CurrentChildView = new BuscarEM();
+            CurrentChildView = new ModeloBuscarEM();
             Caption = "Examenes";
             Icon = IconChar.UserGroup;
         }
 
         private void ExecuteShowExamenM(object obj)
         {
-            CurrentChildView = new ExamenM();
+            CurrentChildView = new ModeloExamenM();
             Caption = "Examen";
             Icon = IconChar.UserGroup;
         }

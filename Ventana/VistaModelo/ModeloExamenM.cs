@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ventana.VistaModelo
 {
-    public class ExamenP : ViewModelBase
+    public class ModeloExamenM : ViewModelBase
     {
     }
 }
