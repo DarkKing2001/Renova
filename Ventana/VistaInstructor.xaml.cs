@@ -34,10 +34,15 @@ namespace Ventana
         [DllImport("user32.dll")]
         public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        private void BotonET_Click(object sender, RoutedEventArgs e)
+        /*private void BotonET_Click(object sender, RoutedEventArgs e)
         {
             ExamenPractico ep = new ExamenPractico();
             ep.ShowDialog();
+        }*/
+
+        private void BotonExamenT(object obj)
+        {
+            ExamenPractico ep = new ExamenPractico();
         }
 
         private void BotonBuscar_Click(object sender, RoutedEventArgs e)

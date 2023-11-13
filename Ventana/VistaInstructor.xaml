@@ -5,12 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ventana"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        xmlns:viewModel="clr-namespace:Ventana.VistaModelo"
         mc:Ignorable="d"
         Title="VistaInstructor" Height="500" Width="900"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True">
+
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:BuscarEPModel}">
+            <local:BuscarEP/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:EP}">
+            <local:ExamenP/>
+        </DataTemplate>
+    </Window.Resources>
+
 
     <Border CornerRadius="10"
             BorderThickness="5">
@@ -61,18 +77,18 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color1}"
                                  IsChecked="True"
-                                 Command="{Binding ShowHomeViewCommand}">
+                                 Command="{Binding ShowExamenesPracticos}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>
+                            <TextBlock Text="Registros" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color2}"
-                                 Command="{Binding ShowCustomerViewCommand}">
+                                 Command="{Binding ShowExamenP}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="UserGroup" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Customers" Style="{StaticResource menuButtonText}"/>
+                            <TextBlock Text="Examenes" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                 </StackPanel>
@@ -174,7 +190,7 @@
                             </Ellipse>                            
                         </StackPanel>                        
                     </Grid>
-                    <ContentControl Content=""
+                    <ContentControl Content="{Binding CurrentChildView}"
                                         Grid.Row="2"
                                         Margin="25"/>
                 </Grid>
