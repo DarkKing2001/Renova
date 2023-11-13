@@ -70,7 +70,7 @@ namespace Ventana.VistaModelo
 
         private void ExecuteShowExamenesTeoricos(object obj)
         {
-            CurrentChildView = new ModleoBuscarET();
+            CurrentChildView = new ModeloBuscarET();
             Caption = "Examenes";
             Icon = IconChar.UserGroup;
         }
