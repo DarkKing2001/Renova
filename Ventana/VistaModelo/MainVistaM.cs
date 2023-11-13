@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace Ventana.VistaModelo
 {
-    public class MainViewModel : ViewModelBase
+    public class MainVistaM : ViewModelBase
     {
         private ViewModelBase _currentChildView;
         private string _caption;
@@ -53,31 +53,29 @@ namespace Ventana.VistaModelo
             }
         }
 
-        public ICommand ShowExamenesPracticos { get; }
-        public ICommand ShowExamenP { get; }
+        public ICommand ShowExamenesMedicos { get; }
+        public ICommand ShowExamenM { get; }
 
-        public MainViewModel()
-        {
-            ShowExamenesPracticos = new ViewModelCommand(ExecuteShowExamenesPracticos);
-            ShowExamenP = new ViewModelCommand(ExecuteShowExamenP);
+        public MainVistaM()
+        { 
+            ShowExamenesMedicos = new ViewModelCommand(ExecuteShowExamenesMedicos);
+            ShowExamenM = new ViewModelCommand(ExecuteShowExamenM);
 
-            ExecuteShowExamenesPracticos(null);
+            ExecuteShowExamenesMedicos(null);
         }
 
-        private void ExecuteShowExamenesPracticos(object obj)
+        private void ExecuteShowExamenesMedicos(object obj)
         {
-            CurrentChildView = new ModeloBuscarEP();
+            CurrentChildView = new ModeloBuscarEM();
             Caption = "Examenes";
             Icon = IconChar.UserGroup;
         }
 
-        private void ExecuteShowExamenP(object obj)
+        private void ExecuteShowExamenM(object obj)
         {
-            CurrentChildView = new ModeloExamenP();
+            CurrentChildView = new ModeloExamenM();
             Caption = "Examen";
             Icon = IconChar.UserGroup;
         }
-
-
     }
 }

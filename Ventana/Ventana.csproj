@@ -107,6 +107,8 @@
     <Compile Include="VistaMedico.xaml.cs">
       <DependentUpon>VistaMedico.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VistaModelo\MainVistaF.cs" />
+    <Compile Include="VistaModelo\MainVistaM.cs" />
     <Compile Include="VistaModelo\ModeloBuscarEM.cs" />
     <Compile Include="VistaModelo\ModeloBuscarEP.cs" />
     <Compile Include="VistaModelo\ModleoBuscarET.cs" />
