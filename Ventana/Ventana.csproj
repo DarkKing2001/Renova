@@ -86,8 +86,17 @@
     <Compile Include="BuscarET.xaml.cs">
       <DependentUpon>BuscarET.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BuscarP.xaml.cs">
+      <DependentUpon>BuscarP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BuscarS.xaml.cs">
+      <DependentUpon>BuscarS.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BuscarSolicitud.xaml.cs">
       <DependentUpon>BuscarSolicitud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BuscarU.xaml.cs">
+      <DependentUpon>BuscarU.xaml</DependentUpon>
     </Compile>
     <Compile Include="ExamenM.xaml.cs">
       <DependentUpon>ExamenM.xaml</DependentUpon>
@@ -97,6 +106,15 @@
     </Compile>
     <Compile Include="ExamenT.xaml.cs">
       <DependentUpon>ExamenT.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MPersonas.xaml.cs">
+      <DependentUpon>MPersonas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MSolicitud.xaml.cs">
+      <DependentUpon>MSolicitud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MUsuario.xaml.cs">
+      <DependentUpon>MUsuario.xaml</DependentUpon>
     </Compile>
     <Compile Include="Solicitudes.xaml.cs">
       <DependentUpon>Solicitudes.xaml</DependentUpon>
@@ -113,15 +131,22 @@
     <Compile Include="VistaMedico.xaml.cs">
       <DependentUpon>VistaMedico.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VistaModelo\MainVistaAdmin.cs" />
     <Compile Include="VistaModelo\MainVistaF.cs" />
     <Compile Include="VistaModelo\MainVistaM.cs" />
     <Compile Include="VistaModelo\ModeloBuscarEM.cs" />
     <Compile Include="VistaModelo\ModeloBuscarEP.cs" />
     <Compile Include="VistaModelo\ModeloBuscarET.cs" />
+    <Compile Include="VistaModelo\ModeloBuscarP.cs" />
+    <Compile Include="VistaModelo\ModeloBuscarS.cs" />
+    <Compile Include="VistaModelo\ModeloBuscarU.cs" />
     <Compile Include="VistaModelo\ModeloExamenM.cs" />
     <Compile Include="VistaModelo\ModeloExamenP.cs" />
     <Compile Include="VistaModelo\ModeloExamenT.cs" />
     <Compile Include="VistaModelo\MainViewModel.cs" />
+    <Compile Include="VistaModelo\ModeloPersona.cs" />
+    <Compile Include="VistaModelo\ModeloSolicitud.cs" />
+    <Compile Include="VistaModelo\ModeloUsuario.cs" />
     <Compile Include="VistaModelo\ViewModelBase.cs" />
     <Compile Include="VistaModelo\ViewModelCommand.cs" />
     <Page Include="BuscarEM.xaml">
@@ -148,11 +173,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="BuscarP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BuscarPersonas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="BuscarS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BuscarSolicitud.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BuscarU.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -233,6 +270,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MantenedorU.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MPersonas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MSolicitud.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
