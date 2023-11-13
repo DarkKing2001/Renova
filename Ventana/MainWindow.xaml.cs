@@ -54,7 +54,7 @@ namespace Ventana
 
                     if (comprobar != false)
                     {
-                        Limpiar();
+                        this.Hide();
                         VistaAdmin va = new VistaAdmin();
                         va.ShowDialog();
                     }
@@ -72,7 +72,8 @@ namespace Ventana
 
                     if (comprobar != false)
                     {
-                        Limpiar();
+                        this.Hide();
+
                         VistaInstructor vi = new VistaInstructor();
                         vi.ShowDialog();
                     }
@@ -90,7 +91,7 @@ namespace Ventana
 
                     if (comprobar != false)
                     {
-                        Limpiar();
+                        this.Hide();
                         VistaFuncionario vf = new VistaFuncionario();
                         vf.ShowDialog();
                     }
@@ -108,7 +109,7 @@ namespace Ventana
 
                     if (comprobar != false)
                     {
-                        Limpiar();
+                        this.Hide();
                         VistaMedico vm = new VistaMedico();
                         vm.ShowDialog();
                     }
