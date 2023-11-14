@@ -4,25 +4,165 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Ventana"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Button x:Name="BotonEliminar" Content="Eliminar" HorizontalAlignment="Left" Height="35" Margin="361,13,0,0" VerticalAlignment="Top" Width="118" Click="BotonEliminar_Click"/>
-        <Button x:Name="BotonBuscar" Content="Buscar" HorizontalAlignment="Left" Height="35" Margin="501,13,0,0" VerticalAlignment="Top" Width="137" Click="BotonBuscar_Click"/>
-        <Label Content="Rut" HorizontalAlignment="Left" Height="28" Margin="87,17,0,0" VerticalAlignment="Top" Width="35" Foreground="White"/>
-        <TextBox x:Name="TextRut" HorizontalAlignment="Left" Height="28" Margin="147,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
-        <DataGrid x:Name="BusMedicos" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="164" Margin="64,102,0,0" VerticalAlignment="Top" Width="603" Loaded="BusMedicos_Loaded">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Rut" Binding="{Binding Rut}"/>
-                <DataGridTextColumn Header="Examen Vista" Binding="{Binding ExamenV}"/>
-                <DataGridTextColumn Header="Examen Auditivo" Binding="{Binding ExamenA}"/>
-                <DataGridTextColumn Header="Examen Psicologico" Binding="{Binding ExamenP}"/>
-                <DataGridTextColumn Header="Coordinacion Motriz" Binding="{Binding CoordinacionM}"/>
-                <DataGridTextColumn Header="Examen General" Binding="{Binding ExamenG}"/>
-                <DataGridTextColumn Header="Aprobado" Binding="{Binding Aprobado}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Button x:Name="BotonMostrar" Content="Mostrar Datos" HorizontalAlignment="Left" Height="35" Margin="656,13,0,0" VerticalAlignment="Top" Width="110" Click="BotonMostrar_Click"/>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Grid.Column="0" Margin="0,0,100,0">
+                <fa:IconImage Icon="Search" Height="20" Width="20" Foreground="{StaticResource plainTextColor3}"/>
+                <TextBox x:Name="TextRut" Text=""  MaxLength="10" 
+                    FontSize="13"
+                         Height="24"
+                           Width="150"
+                           Background="Transparent"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"                            
+                             Foreground="{StaticResource plainTextColor3}"
+                             CaretBrush="{StaticResource plainTextColor3}"
+                             BorderBrush="{StaticResource plainTextColor3}"
+                             BorderThickness="0,0,0,1"                             
+                             VerticalContentAlignment="Center"
+                             Margin="5,5,0,0" PreviewTextInput="TextRut_PreviewTextInput"></TextBox>
+            </StackPanel>
+            <Button Grid.Column="1"
+                            x:Name="BotonBuscar"
+                            Content="Buscar"                            
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                    VerticalAlignment="Top"
+                    Click="BotonBuscar_Click" Grid.ColumnSpan="2" Margin="10,0,160,0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#773DFF"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Height="30"
+                                                    CornerRadius="15"
+                                                    Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                                      HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#836EFB"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Grid.Column="2"
+                            x:Name="BotonEliminar"
+                            Content="ELiminar"                            
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                    VerticalAlignment="Top"
+                    Click="BotonEliminar_Click" Grid.ColumnSpan="2" Margin="10,0,160,0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#773DFF"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Height="30"
+                                                    CornerRadius="15"
+                                                    Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                                      HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#836EFB"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Grid.Column="3"
+                            x:Name="BotonMostrar"
+                            Content="Mostrar Datos"                            
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                    VerticalAlignment="Top"
+                    Click="BotonMostrar_Click" Grid.ColumnSpan="2" Margin="10,0,10,0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#773DFF"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Height="30"
+                                                    CornerRadius="15"
+                                                    Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                                      HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#836EFB"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+        <Border Grid.Row="1"
+                Background="#200F53"
+                CornerRadius="10" 
+                Padding="10">
+            <DataGrid x:Name="DG_ExamenesM" ColumnWidth="*" ItemsSource="{Binding}" AutoGenerateColumns="False"
+                  Background="#200F53"
+                  BorderThickness="0" Loaded="DG_ExamenesM_Loaded">
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="Foreground" Value="#BCBEE0"/>
+                        <Setter Property="Padding" Value="10,0,0,10"/>
+                        <Setter Property="FontFamily" Value="Montserrat"/>
+                        <Setter Property="FontSize" Value="15"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Rut}" ClipboardContentBinding="{x:Null}" Header="Rut" HeaderStringFormat=""/>
+                    <DataGridTextColumn Binding="{Binding ExamenV}" ClipboardContentBinding="{x:Null}" Header="Examen Vista"/>
+                    <DataGridTextColumn Binding="{Binding ExamenA}" ClipboardContentBinding="{x:Null}" Header="Examen Auditivo"/>
+                    <DataGridTextColumn Binding="{Binding ExamenP}" ClipboardContentBinding="{x:Null}" Header="Examen Psicologico"/>
+                    <DataGridTextColumn Binding="{Binding CoordinacionM}" ClipboardContentBinding="{x:Null}" Header="Coordinacion Motriz"/>
+                    <DataGridTextColumn Binding="{Binding ExamenG}" ClipboardContentBinding="{x:Null}" Header="Examen General"/>
+                    <DataGridTextColumn Binding="{Binding Aprobado}" ClipboardContentBinding="{x:Null}" Header="Aprobado"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
     </Grid>
 </UserControl>

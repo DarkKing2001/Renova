@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,7 +27,7 @@ namespace Ventana
             InitializeComponent();
         }
 
-        private void BotonBuscarP_Click(object sender, RoutedEventArgs e)
+        private void BotonBuscar_Click(object sender, RoutedEventArgs e)
         {
             if (!TextRut.Text.Equals(""))
             {
@@ -34,12 +35,11 @@ namespace Ventana
                 {
                     string rut = TextRut.Text;
 
-                    BusPersonas.ItemsSource = Mantenedor.Buscar(rut);
+                    DG_Personas.ItemsSource = Mantenedor.Buscar(rut);
                 }
                 else
                 {
                     MessageBox.Show("Rut no valido, ej:12345678-9");
-                    BusPersonas.ItemsSource = Mantenedor.MostrarPersonas();
                 }
             }
             else
@@ -62,9 +62,26 @@ namespace Ventana
             }
         }
 
-        private void BusPersonas_Loaded(object sender, RoutedEventArgs e)
+        private void DG_Personas_Loaded(object sender, RoutedEventArgs e)
         {
-            BusPersonas.ItemsSource = Mantenedor.MostrarPersonas();
+            DG_Personas.ItemsSource = Mantenedor.MostrarPersonas();
+        }
+
+        private void BotonMostrar_Click(object sender, RoutedEventArgs e)
+        {
+            DG_Personas.ItemsSource = Mantenedor.MostrarPersonas();
+        }
+
+        private static readonly Regex regex1 = new Regex("[^0-9-k]+");
+
+        private static bool ValidarRut(string text)
+        {
+            return !regex1.IsMatch(text);
+        }
+
+        private void TextRut_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !ValidarRut(e.Text);
         }
     }
 }

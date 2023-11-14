@@ -79,7 +79,7 @@
                                  IsChecked="True"
                                  Command="{Binding ShowExamenesPracticos}">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
+                            <fa:IconImage Icon="List" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Registros" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>

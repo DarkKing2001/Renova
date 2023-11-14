@@ -35,7 +35,7 @@ namespace Ventana
 
                 if (Mantenedor.BuscarET(rut) != null)
                 {
-                    DG_buscarET.ItemsSource = Mantenedor.BuscarET(rut);
+                    DG_ExamenesT.ItemsSource = Mantenedor.BuscarET(rut);
                 }
                 else
                 {
@@ -76,14 +76,14 @@ namespace Ventana
             }
         }
 
-        private void BotonMostrarDatos_Click(object sender, RoutedEventArgs e)
+        private void BotonMostrar_Click(object sender, RoutedEventArgs e)
         {
-            DG_buscarET.ItemsSource = Mantenedor.MostrarEETT();
+            DG_ExamenesT.ItemsSource = Mantenedor.MostrarEETT();
         }
 
-        private void DG_buscarET_Loaded(object sender, RoutedEventArgs e)
+        private void DG_ExamenesT_Loaded(object sender, RoutedEventArgs e)
         {
-            DG_buscarET.ItemsSource = Mantenedor.MostrarEETT();
+            DG_ExamenesT.ItemsSource = Mantenedor.MostrarEETT();
         }
 
         private static readonly Regex regex1 = new Regex("[^0-9-k]+");

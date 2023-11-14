@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -36,7 +37,7 @@ namespace Ventana
 
                     if (Mantenedor.BuscarMedico(rut) != null)
                     {
-                        BusMedicos.ItemsSource = Mantenedor.BuscarMedico(rut);
+                        DG_ExamenesM.ItemsSource = Mantenedor.BuscarMedico(rut);
                     }
                 }
                 else
@@ -80,12 +81,24 @@ namespace Ventana
 
         private void BotonMostrar_Click(object sender, RoutedEventArgs e)
         {
-            BusMedicos.ItemsSource = Mantenedor.MostrarMedicos();
+            DG_ExamenesM.ItemsSource = Mantenedor.MostrarMedicos();
         }
 
-        private void BusMedicos_Loaded(object sender, RoutedEventArgs e)
+        private void DG_ExamenesM_Loaded(object sender, RoutedEventArgs e)
         {
-            BusMedicos.ItemsSource = Mantenedor.MostrarMedicos();
+            DG_ExamenesM.ItemsSource = Mantenedor.MostrarMedicos();
+        }
+
+        private static readonly Regex regex = new Regex("[^0-9-k]+");
+
+        private static bool ValidarRut(string text)
+        {
+            return !regex.IsMatch(text);
+        }
+
+        private void TextRut_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !ValidarRut(e.Text);
         }
     }
 }

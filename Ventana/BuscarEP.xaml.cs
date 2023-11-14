@@ -79,26 +79,27 @@ namespace Ventana
             }
         }
 
-        private static readonly Regex regex = new Regex("[^0-9-]+");
+        private static readonly Regex regex = new Regex("[^0-9-k]+");
 
         private static bool ValidarRut(string text)
         {
             return !regex.IsMatch(text);
         }
 
-        private void TextRut_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            e.Handled = !ValidarRut(e.Text);
-        }
-
-        private void DG_ExamenP_Loaded(object sender, RoutedEventArgs e)
-        {
-            DG_ExamenP.ItemsSource = Mantenedor.MostrarEEPP();
-        }
 
         private void BotonMostrar_Click(object sender, RoutedEventArgs e)
         {
             DG_ExamenP.ItemsSource = Mantenedor.MostrarEEPP();
+        }
+
+        private void DG_ExamenP_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            DG_ExamenP.ItemsSource = Mantenedor.MostrarEEPP();
+        }
+
+        private void TextRut_PreviewTextInput_1(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !ValidarRut(e.Text);
         }
     }
 }

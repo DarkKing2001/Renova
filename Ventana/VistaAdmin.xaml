@@ -7,7 +7,7 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         xmlns:viewModel="clr-namespace:Ventana.VistaModelo"
         mc:Ignorable="d"
-        Title="VistaAdmin" Height="450" Width="700"
+        Title="VistaAdmin" Height="450" Width="1000"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"        
         Background="Transparent"
@@ -78,8 +78,8 @@
                                  IsChecked="True"
                                  Command="{Binding ShowBuscarPersonas}">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Registros" Style="{StaticResource menuButtonText}"/>
+                            <fa:IconImage Icon="List" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Registros Personas" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
@@ -87,7 +87,7 @@
                                  Command="{Binding ShowPersona}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="UserGroup" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Examenes" Style="{StaticResource menuButtonText}"/>
+                            <TextBlock Text="Persona" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                 </StackPanel>
