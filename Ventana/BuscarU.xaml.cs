@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,7 +27,7 @@ namespace Ventana
             InitializeComponent();
         }
 
-        private void BotonBuscarP_Click(object sender, RoutedEventArgs e)
+        private void BotonBuscar_Click(object sender, RoutedEventArgs e)
         {
             if (!TextRut.Text.Equals(""))
             {
@@ -40,7 +41,7 @@ namespace Ventana
                     //dataList.Add(new Usuario {Rut = u.Rut, Nombre = u.Nombre, Contra = u.Contra });
 
                     //BusUsuarios.ItemsSource = dataList;
-                    BusUsuarios.ItemsSource = Mantenedor.BuscarUsuarios(rut);
+                    DG_Usuarios.ItemsSource = Mantenedor.BuscarUsuarios(rut);
 
                     //BusUsuarios.DataContext = Mantenedor.BuscarUsuarios(rut);
 
@@ -77,14 +78,26 @@ namespace Ventana
             }
         }
 
-        private void BotonMostrarDatos_Click(object sender, RoutedEventArgs e)
+        private void BotonMostrar_Click(object sender, RoutedEventArgs e)
         {
-            BusUsuarios.ItemsSource = Mantenedor.MostrarUsuarios();
+            DG_Usuarios.ItemsSource = Mantenedor.MostrarUsuarios();
         }
 
-        private void BusPersonas_Loaded(object sender, RoutedEventArgs e)
+        private void DG_Usuarios_Loaded(object sender, RoutedEventArgs e)
         {
-            BusUsuarios.ItemsSource = Mantenedor.MostrarUsuarios();
+            DG_Usuarios.ItemsSource = Mantenedor.MostrarUsuarios();
+        }
+
+        private static readonly Regex regex1 = new Regex("[^0-9-k]+");
+
+        private static bool ValidarRut(string text)
+        {
+            return !regex1.IsMatch(text);
+        }
+
+        private void TextRut_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !ValidarRut(e.Text);
         }
     }
 }

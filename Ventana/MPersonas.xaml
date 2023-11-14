@@ -10,20 +10,21 @@
         <Label Content="Rut" HorizontalAlignment="Left" Height="25" Margin="79,30,0,0" VerticalAlignment="Top" Width="33" Foreground="White"/>
         <Label Content="Primer Nombre" HorizontalAlignment="Left" Height="24" Margin="25,64,0,0" VerticalAlignment="Top" Width="96" Foreground="White"/>
         <Label Content="Segundo Nombre" HorizontalAlignment="Left" Height="24" Margin="12,105,0,0" VerticalAlignment="Top" Width="109" Foreground="White"/>
-        <Label Content="Apellido Paterno" HorizontalAlignment="Left" Height="25" Margin="393,30,0,0" VerticalAlignment="Top" Width="114" Foreground="White"/>
-        <Label Content="Apellido Materno" HorizontalAlignment="Left" Height="30" Margin="393,70,0,0" VerticalAlignment="Top" Width="114" Foreground="White"/>
-        <Label Content="Correo" HorizontalAlignment="Left" Height="30" Margin="393,105,0,0" VerticalAlignment="Top" Width="114" Foreground="White"/>
+        <Label Content="Apellido Paterno" HorizontalAlignment="Left" Height="25" Margin="324,26,0,0" VerticalAlignment="Top" Width="114" Foreground="White"/>
+        <Label Content="Apellido Materno" HorizontalAlignment="Left" Height="30" Margin="324,66,0,0" VerticalAlignment="Top" Width="114" Foreground="White"/>
+        <Label Content="Correo" HorizontalAlignment="Left" Height="30" Margin="324,101,0,0" VerticalAlignment="Top" Width="114" Foreground="White"/>
         <TextBox x:Name="TextRut" HorizontalAlignment="Left" Height="25" Margin="133,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" MaxLength="8" PreviewTextInput="TextRut_PreviewTextInput"/>
         <TextBox x:Name="TextPN" HorizontalAlignment="Left" Height="25" Margin="133,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" MaxLength="50" PreviewTextInput="TextPN_PreviewTextInput"/>
         <TextBox x:Name="TextSN" HorizontalAlignment="Left" Height="25" Margin="133,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" MaxLength="50" PreviewTextInput="TextSN_PreviewTextInput"/>
-        <TextBox x:Name="TextAP" HorizontalAlignment="Left" Height="25" Margin="528,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" MaxLength="50" PreviewTextInput="TextAP_PreviewTextInput"/>
-        <TextBox x:Name="TextAM" HorizontalAlignment="Left" Height="30" Margin="528,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" MaxLength="50" PreviewTextInput="TextAM_PreviewTextInput"/>
-        <TextBox x:Name="TextCorreo" HorizontalAlignment="Left" Height="24" Margin="528,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" MaxLength="50"/>
-        <Button x:Name="BotonAgregar" Content="Agregar" HorizontalAlignment="Left" Height="38" Margin="91,260,0,0" VerticalAlignment="Top" Width="144" Click="BotonAgregar_Click"/>
-        <Button x:Name="BotonModificar" Content="Modificar" HorizontalAlignment="Left" Height="38" Margin="324,260,0,0" VerticalAlignment="Top" Width="140" Click="BotonModificar_Click"/>
-        <Button x:Name="BotonBuscar" Content="Buscar" HorizontalAlignment="Left" Height="40" Margin="609,260,0,0" VerticalAlignment="Top" Width="132" Click="BotonBuscar_Click"/>
-        <Label Content="-" HorizontalAlignment="Left" Height="25" Margin="230,30,0,0" VerticalAlignment="Top" Width="16"/>
+        <TextBox x:Name="TextAP" HorizontalAlignment="Left" Height="25" Margin="459,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" MaxLength="50" PreviewTextInput="TextAP_PreviewTextInput"/>
+        <TextBox x:Name="TextAM" HorizontalAlignment="Left" Height="30" Margin="459,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" MaxLength="50" PreviewTextInput="TextAM_PreviewTextInput"/>
+        <TextBox x:Name="TextCorreo" HorizontalAlignment="Left" Height="24" Margin="459,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" MaxLength="50"/>
+        <Button x:Name="BotonAgregar" Content="Agregar" HorizontalAlignment="Left" Height="38" Margin="84,182,0,0" VerticalAlignment="Top" Width="144" Click="BotonAgregar_Click"/>
+        <Button x:Name="BotonModificar" Content="Modificar" HorizontalAlignment="Left" Height="38" Margin="272,182,0,0" VerticalAlignment="Top" Width="140" Click="BotonModificar_Click"/>
+        <Button x:Name="BotonBuscar" Content="Buscar" HorizontalAlignment="Left" Height="40" Margin="459,180,0,0" VerticalAlignment="Top" Width="132" Click="BotonBuscar_Click"/>
+        <Label Content="-" HorizontalAlignment="Left" Height="25" Margin="230,30,0,0" VerticalAlignment="Top" Width="16" Foreground="White"/>
         <TextBox x:Name="TextDV" HorizontalAlignment="Left" Height="25" Margin="251,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="29" MaxLength="1" PreviewTextInput="TextDV_PreviewTextInput"/>
+
 
     </Grid>
 </UserControl>

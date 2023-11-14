@@ -159,11 +159,11 @@
                 </DataGrid.ColumnHeaderStyle>
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Rut}" ClipboardContentBinding="{x:Null}" Header="Rut" HeaderStringFormat="" Width="70"/>
-                    <DataGridTextColumn Binding="{Binding Nombre}" ClipboardContentBinding="{x:Null}" Header="Primer Nombre"/>
-                    <DataGridTextColumn Binding="{Binding Snombre}" ClipboardContentBinding="{x:Null}" Header="Segundo Nombre"/>
-                    <DataGridTextColumn Binding="{Binding Apellido_p}" ClipboardContentBinding="{x:Null}" Header="Apellido Paterno"/>
-                    <DataGridTextColumn Binding="{Binding Apellido_m}" ClipboardContentBinding="{x:Null}" Header="Apellido Materno"/>
-                    <DataGridTextColumn Binding="{Binding Correo}" ClipboardContentBinding="{x:Null}" Header="Correo" Width="70"/>
+                    <DataGridTextColumn Binding="{Binding Nombre}" ClipboardContentBinding="{x:Null}" Header="Nombre" Width="80"/>
+                    <DataGridTextColumn Binding="{Binding Snombre}" ClipboardContentBinding="{x:Null}" Header="Segundo Nombre" Width="130"/>
+                    <DataGridTextColumn Binding="{Binding Apellido_p}" ClipboardContentBinding="{x:Null}" Header="Apellido Paterno" Width="125"/>
+                    <DataGridTextColumn Binding="{Binding Apellido_m}" ClipboardContentBinding="{x:Null}" Header="Apellido Materno" Width="125"/>
+                    <DataGridTextColumn Binding="{Binding Correo}" ClipboardContentBinding="{x:Null}" Header="Correo" Width="160"/>
                     <DataGridTextColumn Binding="{Binding Comuna}" ClipboardContentBinding="{x:Null}" Header="Comuna" Width="70"/>
                 </DataGrid.Columns>
             </DataGrid>

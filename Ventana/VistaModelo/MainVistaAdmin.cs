@@ -72,29 +72,29 @@ namespace Ventana.VistaModelo
         private void ExecuteShowBuscarPersonas(object obj)
         {
             CurrentChildView = new ModeloBuscarP();
-            Caption = "Examenes";
-            Icon = IconChar.UserGroup;
+            Caption = "Personas";
+            Icon = IconChar.List;
         }
 
         private void ExecuteShowPersona(object obj)
         {
             CurrentChildView = new ModeloPersona();
-            Caption = "Examen";
+            Caption = "Persona";
             Icon = IconChar.UserGroup;
         }
 
         private void ExecuteShowBuscarUsuarios(object obj)
         {
             CurrentChildView = new ModeloBuscarU();
-            Caption = "Examenes";
-            Icon = IconChar.UserGroup;
+            Caption = "Usuarios";
+            Icon = IconChar.List;
         }
 
         private void ExecuteShowUsuario(object obj)
         {
             CurrentChildView = new ModeloUsuario();
-            Caption = "Examen";
-            Icon = IconChar.UserGroup;
+            Caption = "Usuario";
+            Icon = IconChar.User;
         }
     }
 }

@@ -25,6 +25,14 @@
         <DataTemplate DataType="{x:Type viewModel:ModeloPersona}">
             <local:MPersonas/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:ModeloBuscarU}">
+            <local:BuscarU/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:ModeloUsuario}">
+            <local:MUsuario/>
+        </DataTemplate>
     </Window.Resources>
 
     <Border CornerRadius="10"
@@ -79,15 +87,31 @@
                                  Command="{Binding ShowBuscarPersonas}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="List" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Registros Personas" Style="{StaticResource menuButtonText}"/>
+                            <TextBlock Text="Registros de Personas" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color2}"
+                                 Tag="{StaticResource color7}"
                                  Command="{Binding ShowPersona}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="UserGroup" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Persona" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color5}"
+                                 Command="{Binding ShowBuscarUsuarios}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="ListUl" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Registro de Usuarios" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color8}"
+                                 Command="{Binding ShowUsuario}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="User" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Usuario" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                 </StackPanel>
