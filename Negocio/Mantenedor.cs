@@ -1532,6 +1532,65 @@ namespace Negocio
 
         }
 
+        public static Solicitud BuscarS(string rut)
+        {
+            Solicitud s = new Solicitud();
+
+            string sql = "Select * from solicitud " +
+                        "Where persona_id = " + BuscarIdPersona(rut) + ";";
+
+            MySqlConnection ConnexionBD = ConexionBD.conexion();
+            ConnexionBD.Open();
+
+            try
+            {
+                MySqlCommand comando = new MySqlCommand(sql, ConnexionBD);
+                MySqlDataReader leer = comando.ExecuteReader();
+
+                if (leer.HasRows)
+                {
+
+                    while (leer.Read())
+                    {
+
+                        //DateTime f = DateTime.Parse(leer["fecha"].ToString());
+
+                        //MemoryStream ms = new MemoryStream((byte[])leer["dni"]);
+
+                        s.NumSoli = int.Parse(leer.GetString("numSoli"));
+                        s.Rut = BuscarRutPersona(leer.GetInt32("persona_id"));
+                        s.Fecha = DateTime.Parse(leer["fecha"].ToString());
+                        s.Renovacion = RenovacionString(bool.Parse(leer["renovacion"].ToString()));
+                        s.Clase = leer.GetString("clase");
+                        s.Carnet = (byte[])leer["dni"];
+                        s.Recidencia = (byte[])leer["recidencia"];
+                        s.Licencia = (byte[])leer["licencia"];
+                        s.Certificado = (byte[])leer["certificadoE"];
+                        //s.Carnet = null;
+                        //s.Recidencia = null;
+                        //s.Licencia = null;
+                        //s.Certificado = null;
+                        s.Aprobado = RechazoString(bool.Parse(leer["aprobada"].ToString()));
+
+                        return s;
+                    }
+
+                    return s;
+                }
+                else
+                {
+                    MessageBox.Show("No se han encontrado datos");
+                    return null;
+                }
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("Error al Buscar: " + e.ToString());
+                return null;
+            }
+
+        }
+
         public static List<Solicitud> BuscarSolicitud(string rut)
         {
             List<Solicitud> solicitudes = new List<Solicitud>();

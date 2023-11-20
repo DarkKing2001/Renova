@@ -56,13 +56,17 @@ namespace Ventana.VistaModelo
 
         public ICommand ShowExamenesTeoricos { get; }
         public ICommand ShowExamenT { get; }
-
+        public ICommand ShowSolicitudes { get; }
+        public ICommand ShowSolicitud { get; }
 
         public MainVistaF()
         {
 
             ShowExamenesTeoricos = new ViewModelCommand(ExecuteShowExamenesTeoricos);
             ShowExamenT = new ViewModelCommand(ExecuteShowExamenT);
+
+            ShowSolicitudes = new ViewModelCommand(ExecuteShowSolicitudes);
+            ShowSolicitud = new ViewModelCommand(ExecuteShowSoli);
 
             ExecuteShowExamenesTeoricos(null);
 
@@ -80,6 +84,20 @@ namespace Ventana.VistaModelo
             CurrentChildView = new ModeloExamenT();
             Caption = "Examen";
             Icon = IconChar.UserGroup;
+        }
+
+        private void ExecuteShowSolicitudes(object obj)
+        {
+            CurrentChildView = new ModeloBuscarS();
+            Caption = "Solicitudes";
+            Icon = IconChar.Scroll;
+        }
+
+        private void ExecuteShowSoli(object obj)
+        {
+            CurrentChildView = new ModeloSolicitud();
+            Caption = "Solicitud";
+            Icon = IconChar.CalendarDays;
         }
     }
 }

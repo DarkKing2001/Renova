@@ -25,6 +25,14 @@
         <DataTemplate DataType="{x:Type viewModel:ModeloExamenT}">
             <local:ExamenT/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:ModeloBuscarS}">
+            <local:BuscarS/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:ModeloSolicitud}">
+            <local:MSolicitud/>
+        </DataTemplate>
     </Window.Resources>
 
     <Border CornerRadius="10"
@@ -88,6 +96,22 @@
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="UserGroup" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Examenes" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color9}"
+                                 Command="{Binding ShowSolicitudes}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="Scroll" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Solicitudes" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color3}"
+                                 Command="{Binding ShowSolicitud}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="CalendarDays" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Solicitud" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                 </StackPanel>

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,7 +31,7 @@ namespace Ventana
 
         private void BotonAgregar_Click(object sender, RoutedEventArgs e)
         {
-            if (!TextRut.Text.Equals("") && !TextDV.Text.Equals(""))
+            if (!TextRut.Text.Equals("") && !TextDV.Text.Equals("") && !TextCarnet.Text.Equals("") && !TextCertificado.Text.Equals("") && !TextRecidencia.Text.Equals(""))
             {
                 string rut = TextRut.Text + "-" + TextDV.Text;
 
@@ -144,7 +145,14 @@ namespace Ventana
 
                                         s.Clase = CB_Clase.Text;
 
-                                        s.Aprobado = "Aprobado";
+                                        if (RB_Aprobado.IsChecked == true)
+                                        {
+                                            s.Aprobado = "Aprobado";
+                                        }
+                                        else
+                                        {
+                                            s.Aprobado = "Rechazado";
+                                        }
 
                                         //MessageBox.Show("fecha igual: " + fecha.ToString("yyyy/MM/dd HH:mm"));
                                         Mantenedor.AgregarSolicitud(s);
@@ -299,7 +307,7 @@ namespace Ventana
 
         private void BotonModificar_Click(object sender, RoutedEventArgs e)
         {
-            if (!TextRut.Text.Equals("") && !TextDV.Text.Equals(""))
+            if (!TextRut.Text.Equals("") && !TextDV.Text.Equals("") && !TextCarnet.Text.Equals("") && !TextCertificado.Text.Equals("") && !TextRecidencia.Text.Equals(""))
             {
                 string rut = TextRut.Text + "-" + TextDV.Text;
 
@@ -369,7 +377,7 @@ namespace Ventana
                                                          //s.Certificado = TextLicencia.Text;
 
 
-                                        if (myCarnet.Source == null)
+                                        /*if (myCarnet.Source == null)
                                         {
                                             if (!TextSoli.Text.Equals(""))
                                             {
@@ -526,7 +534,35 @@ namespace Ventana
                                         {
                                             byte[] certificado = Mantenedor.ImageByte(myCertificado);
                                             s.Certificado = certificado;
+                                        }*/
+
+                                        byte[] carnet = Mantenedor.ImageByte(myCarnet);
+                                        s.Carnet = carnet;
+
+                                        //var ar = (BitmapImage)this.myRecidencia.Source;
+                                        //s.Recidencia = ar.UriSource.AbsoluteUri;
+
+                                        byte[] recidencia = Mantenedor.ImageByte(myRecidencia);
+                                        s.Recidencia = recidencia;
+
+                                        //var al = (BitmapImage)this.myLicencia.Source;
+                                        //s.Licencia = al.UriSource.AbsoluteUri;
+
+                                        if (!TextLicencia.Text.Equals(""))
+                                        {
+                                            byte[] licencia = Mantenedor.ImageByte(myLicencia);
+                                            s.Licencia = licencia;
                                         }
+                                        else
+                                        {
+                                            s.Licencia = null;
+                                        }
+
+                                        //var ac = (BitmapImage)this.myCertificado.Source;
+                                        //s.Certificado = ac.UriSource.AbsoluteUri;
+
+                                        byte[] certificado = Mantenedor.ImageByte(myCertificado);
+                                        s.Certificado = certificado;
 
                                         if (RB_PrimeraL.IsChecked == true)
                                         {
@@ -539,7 +575,14 @@ namespace Ventana
 
                                         s.Clase = CB_Clase.Text;
 
-                                        s.Aprobado = "Aprobado";
+                                        if (RB_Aprobado.IsChecked == true)
+                                        {
+                                            s.Aprobado = "Aprobado";
+                                        }
+                                        else
+                                        {
+                                            s.Aprobado = "Rechazo";
+                                        }
 
                                         //MessageBox.Show("fecha igual: " + fecha.ToString("yyyy/MM/dd HH:mm"));
                                         Mantenedor.ModificarSolicitud(s);
@@ -601,7 +644,7 @@ namespace Ventana
                                                          //s.Certificado = TextLicencia.Text;
 
 
-                                        if (myCarnet.Source == null)
+                                        /*if (myCarnet.Source == null)
                                         {
                                             if (!TextSoli.Text.Equals(""))
                                             {
@@ -758,7 +801,35 @@ namespace Ventana
                                         {
                                             byte[] certificado = Mantenedor.ImageByte(myCertificado);
                                             s.Certificado = certificado;
+                                        }*/
+
+                                        byte[] carnet = Mantenedor.ImageByte(myCarnet);
+                                        s.Carnet = carnet;
+
+                                        //var ar = (BitmapImage)this.myRecidencia.Source;
+                                        //s.Recidencia = ar.UriSource.AbsoluteUri;
+
+                                        byte[] recidencia = Mantenedor.ImageByte(myRecidencia);
+                                        s.Recidencia = recidencia;
+
+                                        //var al = (BitmapImage)this.myLicencia.Source;
+                                        //s.Licencia = al.UriSource.AbsoluteUri;
+
+                                        if (!TextLicencia.Text.Equals(""))
+                                        {
+                                            byte[] licencia = Mantenedor.ImageByte(myLicencia);
+                                            s.Licencia = licencia;
                                         }
+                                        else
+                                        {
+                                            s.Licencia = null;
+                                        }
+
+                                        //var ac = (BitmapImage)this.myCertificado.Source;
+                                        //s.Certificado = ac.UriSource.AbsoluteUri;
+
+                                        byte[] certificado = Mantenedor.ImageByte(myCertificado);
+                                        s.Certificado = certificado;
 
                                         if (RB_PrimeraL.IsChecked == true)
                                         {
@@ -842,7 +913,7 @@ namespace Ventana
                                         //var aux = (BitmapImage)this.myCarnet.Source;
                                         //s.Carnet = aux.UriSource.AbsoluteUri;
 
-                                        if (myCarnet.Source == null)
+                                        /*if (myCarnet.Source == null)
                                         {
                                             if (!TextSoli.Text.Equals(""))
                                             {
@@ -999,7 +1070,35 @@ namespace Ventana
                                         {
                                             byte[] certificado = Mantenedor.ImageByte(myCertificado);
                                             s.Certificado = certificado;
+                                        }*/
+
+                                        byte[] carnet = Mantenedor.ImageByte(myCarnet);
+                                        s.Carnet = carnet;
+
+                                        //var ar = (BitmapImage)this.myRecidencia.Source;
+                                        //s.Recidencia = ar.UriSource.AbsoluteUri;
+
+                                        byte[] recidencia = Mantenedor.ImageByte(myRecidencia);
+                                        s.Recidencia = recidencia;
+
+                                        //var al = (BitmapImage)this.myLicencia.Source;
+                                        //s.Licencia = al.UriSource.AbsoluteUri;
+
+                                        if (!TextLicencia.Text.Equals(""))
+                                        {
+                                            byte[] licencia = Mantenedor.ImageByte(myLicencia);
+                                            s.Licencia = licencia;
                                         }
+                                        else
+                                        {
+                                            s.Licencia = null;
+                                        }
+
+                                        //var ac = (BitmapImage)this.myCertificado.Source;
+                                        //s.Certificado = ac.UriSource.AbsoluteUri;
+
+                                        byte[] certificado = Mantenedor.ImageByte(myCertificado);
+                                        s.Certificado = certificado;
 
 
 
@@ -1066,7 +1165,194 @@ namespace Ventana
 
         private void BotonBuscar_Click(object sender, RoutedEventArgs e)
         {
+            if (!TextRut.Text.Equals("") && !TextDV.Text.Equals(""))
+            {
+                if (TextRut.Text.Length == 8)
+                {
+                    string rut = TextRut.Text + "-" + TextDV.Text;
 
+                    if (Mantenedor.BuscarSolicitud(rut) != null)
+                    {
+                        Solicitud s = Mantenedor.BuscarS(rut);
+
+                        TextCarnet.Text = s.Carnet.ToString();
+                        TextCertificado.Text = s.Certificado.ToString();
+                        TextLicencia.Text = s.Licencia.ToString();
+                        TextRecidencia.Text = s.Recidencia.ToString();
+
+                        int soli = s.NumSoli;
+
+                        MemoryStream ms = Mantenedor.BuscarCarnet(soli);
+
+                        if(ms != null)
+                        {
+                            BitmapImage bm = new BitmapImage();
+                            bm.BeginInit();
+                            bm.StreamSource = ms;
+                            bm.CacheOption = BitmapCacheOption.OnLoad;
+                            bm.EndInit();
+
+                            myCarnet.Source = bm;
+                        }
+                        
+                        
+                        MemoryStream msr = Mantenedor.BuscarRecidencia(soli);
+
+                        if (msr != null)
+                        {
+                            BitmapImage bmr = new BitmapImage();
+                            bmr.BeginInit();
+                            bmr.StreamSource = msr;
+                            bmr.CacheOption = BitmapCacheOption.OnLoad;
+                            bmr.EndInit();
+
+                            myRecidencia.Source = bmr;
+                        }
+                        
+
+                        MemoryStream msc = Mantenedor.BuscarCertificado(soli);
+
+                        if (msc != null)
+                        {
+                            BitmapImage bmc = new BitmapImage();
+                            bmc.BeginInit();
+                            bmc.StreamSource = msc;
+                            bmc.CacheOption = BitmapCacheOption.OnLoad;
+                            bmc.EndInit();
+
+                            myCertificado.Source = bmc;
+                        }
+                        
+
+                        MemoryStream msl = Mantenedor.BuscarLicencia(soli);
+
+                        if (msl != null)
+                        {
+                            BitmapImage bml = new BitmapImage();
+                            bml.BeginInit();
+                            bml.StreamSource = msl;
+                            bml.CacheOption = BitmapCacheOption.OnLoad;
+                            bml.EndInit();
+
+                            myLicencia.Source = bml;
+                        }
+                       
+
+                        if (s.Renovacion == "Renovacion")
+                        {
+                            RB_Renovacion.IsChecked = true;
+                        }
+                        else
+                        {
+                            RB_PrimeraL.IsChecked = true;
+                        }
+
+                        if (s.Aprobado == "Aprobado")
+                        {
+                            RB_Aprobado.IsChecked = true;
+                        }
+                        else
+                        {
+                            RB_Rechazado.IsChecked = true;
+                        }
+
+                        switch (s.Clase)
+                        {
+                            case "A1":
+
+                                CB_Clase.SelectedIndex = 0;
+                                break;
+
+                            case "A2":
+
+                                CB_Clase.SelectedIndex = 1;
+                                break;
+
+                            case "A3":
+
+                                CB_Clase.SelectedIndex = 2;
+                                break;
+
+                            case "A4":
+
+                                CB_Clase.SelectedIndex = 3;
+                                break;
+
+                            case "A5":
+
+                                CB_Clase.SelectedIndex = 4;
+                                break;
+
+                            case "B":
+
+                                CB_Clase.SelectedIndex = 5;
+                                break;
+
+                            case "C":
+
+                                CB_Clase.SelectedIndex = 6;
+                                break;
+
+                            case "D":
+
+                                CB_Clase.SelectedIndex = 7;
+                                break;
+
+                            default:
+                                break;
+                        }
+
+                        CalendarioFecha.SelectedDate = (s.Fecha);
+
+                        switch (s.Fecha.Hour)
+                        {
+                            case 09:
+
+                                CB_Hora.SelectedIndex = 0;
+                                break;
+                            case 10:
+
+                                CB_Hora.SelectedIndex = 1;
+                                break;
+                            case 11:
+
+                                CB_Hora.SelectedIndex = 2;
+                                break;
+                            case 12:
+
+                                CB_Hora.SelectedIndex = 3;
+                                break;
+                            case 14:
+
+                                CB_Hora.SelectedIndex = 4;
+                                break;
+                            case 15:
+
+                                CB_Hora.SelectedIndex = 5;
+                                break;
+                            case 16:
+
+                                CB_Hora.SelectedIndex = 6;
+                                break;
+
+                            default:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario no cuenta con una solicitud");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Rut no válido, ej: 12345678-9");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No puede haber campos vacios");
+            }
         }
 
         private void BotonCarnet_Click(object sender, RoutedEventArgs e)
@@ -1155,6 +1441,29 @@ namespace Ventana
                 var aux = (BitmapImage)this.myLicencia.Source;
                 TextLicencia.Text = aux.UriSource.AbsoluteUri;
             }
+        }
+
+        private static readonly Regex regex = new Regex("[^0-9]+");
+        private static readonly Regex regex1 = new Regex("[^0-9k]+");
+
+        private static bool SoloNumeros(string text)
+        {
+            return !regex.IsMatch(text);
+        }
+
+        private static bool ValidarDV(string text)
+        {
+            return !regex1.IsMatch(text);
+        }
+
+        private void TextRut_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !SoloNumeros(e.Text);
+        }
+
+        private void TextDV_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !ValidarDV(e.Text);
         }
     }
 }
