@@ -116,6 +116,9 @@
     <Compile Include="MUsuario.xaml.cs">
       <DependentUpon>MUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PruebasD.xaml.cs">
+      <DependentUpon>PruebasD.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Solicitudes.xaml.cs">
       <DependentUpon>Solicitudes.xaml</DependentUpon>
     </Compile>
@@ -282,6 +285,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PruebasD.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

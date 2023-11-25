@@ -31,9 +31,9 @@ namespace Ventana
 
         private void BotonAgregar_Click(object sender, RoutedEventArgs e)
         {
-            if (!TextRut.Text.Equals("") && !TextDV.Text.Equals("") && !TextCarnet.Text.Equals("") && !TextCertificado.Text.Equals("") && !TextRecidencia.Text.Equals(""))
+            if (!TextRut.Text.Equals("") && !TextCarnet.Text.Equals("") && !TextCertificado.Text.Equals("") && !TextRecidencia.Text.Equals(""))
             {
-                string rut = TextRut.Text + "-" + TextDV.Text;
+                string rut = TextRut.Text;
 
                 if (Mantenedor.BuscarRut(rut) != false)
                 {
@@ -95,7 +95,7 @@ namespace Ventana
                                     {
                                         Solicitud s = new Solicitud();
 
-                                        s.Rut = TextRut.Text + "-" + TextDV.Text;
+                                        s.Rut = TextRut.Text;
                                         s.Fecha = fecha; //Convert.ToDateTime(CalendarioFecha.SelectedDate);
                                                          //s.Carnet = TextCarnet.Text;
                                                          //s.Recidencia = TextRecidencia.Text;
@@ -307,9 +307,9 @@ namespace Ventana
 
         private void BotonModificar_Click(object sender, RoutedEventArgs e)
         {
-            if (!TextRut.Text.Equals("") && !TextDV.Text.Equals("") && !TextCarnet.Text.Equals("") && !TextCertificado.Text.Equals("") && !TextRecidencia.Text.Equals(""))
+            if (!TextRut.Text.Equals("") && !TextCarnet.Text.Equals("") && !TextCertificado.Text.Equals("") && !TextRecidencia.Text.Equals(""))
             {
-                string rut = TextRut.Text + "-" + TextDV.Text;
+                string rut = TextRut.Text;
 
                 if (Mantenedor.BuscarRut(rut) != false)
                 {
@@ -369,7 +369,7 @@ namespace Ventana
                                     {
                                         Solicitud s = new Solicitud();
 
-                                        s.Rut = TextRut.Text + "-" + TextDV.Text;
+                                        s.Rut = TextRut.Text;
                                         s.Fecha = fecha; //Convert.ToDateTime(CalendarioFecha.SelectedDate);
                                                          //s.Carnet = TextCarnet.Text;
                                                          //s.Recidencia = TextRecidencia.Text;
@@ -636,7 +636,7 @@ namespace Ventana
                                         Solicitud s = new Solicitud();
 
 
-                                        s.Rut = TextRut.Text + "-" + TextDV.Text;
+                                        s.Rut = TextRut.Text;
                                         s.Fecha = fecha; //Convert.ToDateTime(CalendarioFecha.SelectedDate);
                                                          //s.Carnet = TextCarnet.Text;
                                                          //s.Recidencia = TextRecidencia.Text;
@@ -902,7 +902,7 @@ namespace Ventana
                                         Solicitud s = new Solicitud();
 
 
-                                        s.Rut = TextRut.Text + "-" + TextDV.Text;
+                                        s.Rut = TextRut.Text;
                                         s.Fecha = fecha; //Convert.ToDateTime(CalendarioFecha.SelectedDate);
                                                          //s.Carnet = TextCarnet.Text;
                                                          //s.Recidencia = TextRecidencia.Text;
@@ -1165,11 +1165,11 @@ namespace Ventana
 
         private void BotonBuscar_Click(object sender, RoutedEventArgs e)
         {
-            if (!TextRut.Text.Equals("") && !TextDV.Text.Equals(""))
+            if (!TextRut.Text.Equals(""))
             {
-                if (TextRut.Text.Length == 8)
+                if (TextRut.Text.Length == 10)
                 {
-                    string rut = TextRut.Text + "-" + TextDV.Text;
+                    string rut = TextRut.Text;
 
                     if (Mantenedor.BuscarSolicitud(rut) != null)
                     {
@@ -1358,7 +1358,7 @@ namespace Ventana
         private void BotonCarnet_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofdSeleccionar = new OpenFileDialog();
-            ofdSeleccionar.Filter = "Documentos |*.pdf; *.jpg";
+            ofdSeleccionar.Filter = "Documentos |*.jpg";
             ofdSeleccionar.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             ofdSeleccionar.Title = "Seleccionar Documento";
 
@@ -1380,7 +1380,7 @@ namespace Ventana
         private void BotonRecidencia_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofdSeleccionar = new OpenFileDialog();
-            ofdSeleccionar.Filter = "Documentos |*.pdf; *.jpg";
+            ofdSeleccionar.Filter = "Documentos |*.jpg";
             ofdSeleccionar.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             ofdSeleccionar.Title = "Seleccionar Documento";
 
@@ -1402,7 +1402,7 @@ namespace Ventana
         private void BotonCertificado_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofdSeleccionar = new OpenFileDialog();
-            ofdSeleccionar.Filter = "Documentos |*.pdf; *.jpg";
+            ofdSeleccionar.Filter = "Documentos |*.jpg";
             ofdSeleccionar.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             ofdSeleccionar.Title = "Seleccionar Documento";
 
@@ -1424,7 +1424,7 @@ namespace Ventana
         private void BotonLicencia_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofdSeleccionar = new OpenFileDialog();
-            ofdSeleccionar.Filter = "Documentos |*.pdf; *.jpg";
+            ofdSeleccionar.Filter = "Documentos |*.jpg";
             ofdSeleccionar.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             ofdSeleccionar.Title = "Seleccionar Documento";
 
@@ -1443,25 +1443,15 @@ namespace Ventana
             }
         }
 
-        private static readonly Regex regex = new Regex("[^0-9]+");
-        private static readonly Regex regex1 = new Regex("[^0-9k]+");
+        private static readonly Regex regex = new Regex("[^0-9-k]+");
 
-        private static bool SoloNumeros(string text)
+
+        private static bool ValidarDV(string text)
         {
             return !regex.IsMatch(text);
         }
 
-        private static bool ValidarDV(string text)
-        {
-            return !regex1.IsMatch(text);
-        }
-
         private void TextRut_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            e.Handled = !SoloNumeros(e.Text);
-        }
-
-        private void TextDV_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !ValidarDV(e.Text);
         }

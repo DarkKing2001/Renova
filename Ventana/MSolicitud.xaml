@@ -4,58 +4,194 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Ventana"
-             mc:Ignorable="d" Height="534" Width="856.444">
-    <Grid Margin="0,0,10.667,10">
-        <Label Content="Rut" HorizontalAlignment="Left" Height="30" Margin="51,18,0,0" VerticalAlignment="Top" Width="28" Background="White"/>
-        <TextBox x:Name="TextRut" HorizontalAlignment="Left" Height="30" Margin="84,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" MaxLength="8" PreviewTextInput="TextRut_PreviewTextInput"/>
-        <Label Content="-" HorizontalAlignment="Left" Height="30" Margin="198,18,0,0" VerticalAlignment="Top" Width="20" Foreground="White"/>
-        <TextBox x:Name="TextDV" HorizontalAlignment="Left" Height="30" Margin="218,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" MaxLength="1" PreviewTextInput="TextDV_PreviewTextInput"/>
-        <Button x:Name="BotonAgregar" Content="Agregar" HorizontalAlignment="Left" Height="40" Margin="71,459,0,0" VerticalAlignment="Top" Width="117" Click="BotonAgregar_Click"/>
-        <Button x:Name="BotonModificar" Content="Modificar" HorizontalAlignment="Left" Height="40" Margin="233,459,0,0" VerticalAlignment="Top" Width="111" Click="BotonModificar_Click"/>
-        <Button x:Name="BotonBuscar" Content="Buscar" HorizontalAlignment="Left" Height="40" Margin="375,459,0,0" VerticalAlignment="Top" Width="115" Click="BotonBuscar_Click"/>
-        <Calendar x:Name="CalendarioFecha" HorizontalAlignment="Left" Height="196" Margin="35,140,0,0" VerticalAlignment="Top" Width="238" IsTodayHighlighted="False"/>
-        <Label Content="Dia Disponible" HorizontalAlignment="Left" Height="34" Margin="81,101,0,0" VerticalAlignment="Top" Width="107" Foreground="White"/>
-        <Label Content="Hora Disponible" HorizontalAlignment="Left" Height="34" Margin="283,101,0,0" VerticalAlignment="Top" Width="102" Foreground="White"/>
-        <ComboBox x:Name="CB_Hora" HorizontalAlignment="Left" Height="31" Margin="293,140,0,0" VerticalAlignment="Top" Width="80" SelectedIndex="0">
-            <ComboBoxItem Content="09:00"/>
-            <ComboBoxItem Content="10:00"/>
-            <ComboBoxItem Content="11:00"/>
-            <ComboBoxItem Content="12:00"/>
-            <ComboBoxItem Content="14:00"/>
-            <ComboBoxItem Content="15:00"/>
-            <ComboBoxItem Content="16:00"/>
-        </ComboBox>
-        <Label Content="Carnet" HorizontalAlignment="Left" Height="29" Margin="415,44,0,0" VerticalAlignment="Top" Width="75" Foreground="White"/>
-        <Label Content="Recidencia" HorizontalAlignment="Left" Height="29" Margin="415,119,0,0" VerticalAlignment="Top" Width="75" Foreground="White"/>
-        <Label x:Name="Label_Licencia" Content="Licencia" HorizontalAlignment="Left" Height="33" Margin="415,273,0,0" VerticalAlignment="Top" Width="75" Foreground="White"/>
-        <TextBox x:Name="TextCarnet" HorizontalAlignment="Left" Height="30" Margin="512,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" IsEnabled="False" IsHitTestVisible="False"/>
-        <TextBox x:Name="TextRecidencia" HorizontalAlignment="Left" Height="30" Margin="512,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" IsEnabled="False"/>
-        <TextBox x:Name="TextLicencia" HorizontalAlignment="Left" Height="30" Margin="512,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" IsEnabled="False" IsUndoEnabled="True"/>
-        <Button x:Name="BotonCarnet" Content="..." HorizontalAlignment="Left" Height="26" Margin="758,48,0,0" VerticalAlignment="Top" Width="47" Click="BotonCarnet_Click"/>
-        <Button x:Name="BotonRecidencia" Content="..." HorizontalAlignment="Left" Height="26" Margin="758,122,0,0" VerticalAlignment="Top" Width="47" Click="BotonRecidencia_Click"/>
-        <Button x:Name="BotonLicencia" Content="..." HorizontalAlignment="Left" Height="26" Margin="758,277,0,0" VerticalAlignment="Top" Width="47" Click="BotonLicencia_Click"/>
-        <Image x:Name="myCarnet" HorizontalAlignment="Left" Height="35" Margin="512,79,0,0" VerticalAlignment="Top" Width="85"/>
-        <Image x:Name="myRecidencia" HorizontalAlignment="Left" Height="35" Margin="512,154,0,0" VerticalAlignment="Top" Width="68"/>
-        <Image x:Name="myLicencia" HorizontalAlignment="Left" Height="35" Margin="512,308,0,0" VerticalAlignment="Top" Width="68"/>
-        <Label Content="Certificado" HorizontalAlignment="Left" Height="25" Margin="415,206,0,0" VerticalAlignment="Top" Width="75" Foreground="White"/>
-        <TextBox x:Name="TextCertificado" HorizontalAlignment="Left" Height="31" Margin="512,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" IsEnabled="False"/>
-        <Button x:Name="BotonCertificado" Content="..." HorizontalAlignment="Left" Height="25" Margin="758,206,0,0" VerticalAlignment="Top" Width="47" Click="BotonCertificado_Click"/>
-        <Image x:Name="myCertificado" HorizontalAlignment="Left" Height="35" Margin="512,242,0,0" VerticalAlignment="Top" Width="68"/>
-        <RadioButton x:Name="RB_Renovacion" Content="Renovación" HorizontalAlignment="Left" Height="25" Margin="283,206,0,0" VerticalAlignment="Top" Width="92" GroupName="RB_RePr" Foreground="White"/>
-        <RadioButton x:Name="RB_PrimeraL" Content="Primera Licencia" HorizontalAlignment="Left" Height="25" Margin="283,236,0,0" VerticalAlignment="Top" Width="111" GroupName="RB_RePr" IsChecked="True" Foreground="White"/>
-        <Label Content="Clase" HorizontalAlignment="Left" Height="26" Margin="283,288,0,0" VerticalAlignment="Top" Width="102" Foreground="White"/>
-        <ComboBox x:Name="CB_Clase" HorizontalAlignment="Left" Height="24" Margin="283,319,0,0" VerticalAlignment="Top" Width="90" SelectedIndex="0">
-            <ComboBoxItem Content="A1"/>
-            <ComboBoxItem Content="A2"/>
-            <ComboBoxItem Content="A3"/>
-            <ComboBoxItem Content="A4"/>
-            <ComboBoxItem Content="A5"/>
-            <ComboBoxItem Content="B"/>
-            <ComboBoxItem Content="C"/>
-            <ComboBoxItem Content="D"/>
-        </ComboBox>
-        <RadioButton x:Name="RB_Aprobado" Content="Aprobado" HorizontalAlignment="Left" Height="20" Margin="293,43,0,0" VerticalAlignment="Top" Width="82" GroupName="RB_AproRe" Foreground="White"/>
-        <RadioButton x:Name="RB_Rechazado" Content="Rechazado" HorizontalAlignment="Left" Height="20" Margin="293,68,0,0" VerticalAlignment="Top" Width="82" GroupName="RB_AproRe" IsChecked="True" Foreground="White"/>
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             mc:Ignorable="d" Height="450" Width="880">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="350"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="370"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Grid.Column="0" Margin="0,0,100,0">
+                <fa:IconImage Icon="User" Height="20" Width="20" Foreground="{StaticResource plainTextColor3}"/>
+                <TextBox x:Name="TextRut" Text=""  MaxLength="10" 
+                    FontSize="13"
+                         Height="24"
+                           Width="150"
+                           Background="Transparent"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"                            
+                             Foreground="{StaticResource plainTextColor3}"
+                             CaretBrush="{StaticResource plainTextColor3}"
+                             BorderBrush="{StaticResource plainTextColor3}"
+                             BorderThickness="0,0,0,1"                             
+                             VerticalContentAlignment="Center"
+                             Margin="5,5,0,0" PreviewTextInput="TextRut_PreviewTextInput"></TextBox>
+            </StackPanel>
 
+            <RadioButton x:Name="RB_Renovacion" Content="Renovación" HorizontalAlignment="Left" Height="25" Margin="250,60,0,0" VerticalAlignment="Top" Width="110" GroupName="RB_RePr" Foreground="White"/>
+            <RadioButton x:Name="RB_PrimeraL" Content="Primera Licencia" HorizontalAlignment="Left" Height="25" Margin="250,80,0,0" VerticalAlignment="Top" Width="110" GroupName="RB_RePr" IsChecked="True" Foreground="White"/>
+            <RadioButton x:Name="RB_Aprobado" Content="Aprobado" HorizontalAlignment="Left" Height="25" Margin="250,120,0,0" VerticalAlignment="Top" Width="110" GroupName="RB_AproRe" Foreground="White"/>
+            <RadioButton x:Name="RB_Rechazado" Content="Rechazado" HorizontalAlignment="Left" Height="25" Margin="250,140,0,0" VerticalAlignment="Top" Width="110" GroupName="RB_AproRe" IsChecked="True" Foreground="White"/>
+
+            <Label Content="Hora Disponible" HorizontalAlignment="Left" Height="25" Margin="250,170,0,0" VerticalAlignment="Top" Width="100" Foreground="White"/>
+            <ComboBox x:Name="CB_Hora" HorizontalAlignment="Left" Height="25" Margin="250,200,0,0" VerticalAlignment="Top" Width="80" SelectedIndex="0">
+                <ComboBoxItem Content="09:00"/>
+                <ComboBoxItem Content="10:00"/>
+                <ComboBoxItem Content="11:00"/>
+                <ComboBoxItem Content="12:00"/>
+                <ComboBoxItem Content="14:00"/>
+                <ComboBoxItem Content="15:00"/>
+                <ComboBoxItem Content="16:00"/>
+            </ComboBox>
+
+            <Label Content="Clase" HorizontalAlignment="Left" Height="25" Margin="250,240,0,0" VerticalAlignment="Top" Width="80" Foreground="White"/>
+            <ComboBox x:Name="CB_Clase" HorizontalAlignment="Left" Height="25" Margin="250,270,0,0" VerticalAlignment="Top" Width="80" SelectedIndex="0">
+                <ComboBoxItem Content="A1"/>
+                <ComboBoxItem Content="A2"/>
+                <ComboBoxItem Content="A3"/>
+                <ComboBoxItem Content="A4"/>
+                <ComboBoxItem Content="A5"/>
+                <ComboBoxItem Content="B"/>
+                <ComboBoxItem Content="C"/>
+                <ComboBoxItem Content="D"/>
+            </ComboBox>
+
+            <Label Content="Dia Disponible" HorizontalAlignment="Left" Height="34" Margin="70,45,0,0" VerticalAlignment="Top" Width="90" Foreground="White"/>
+            <Calendar x:Name="CalendarioFecha" HorizontalAlignment="Left" Height="180" Margin="15,80,0,0" VerticalAlignment="Top" Width="200" IsTodayHighlighted="False"/>
+
+            <Grid Grid.Column="1">
+                <Label Content="Carnet" HorizontalAlignment="Left" Height="29" Margin="5,45,0,0" VerticalAlignment="Top" Width="75" Foreground="White"/>
+                <Label Content="Recidencia" HorizontalAlignment="Left" Height="29" Margin="5,120,0,0" VerticalAlignment="Top" Width="75" Foreground="White"/>
+                <Label Content="Certificado" HorizontalAlignment="Left" Height="25" Margin="5,195,0,0" VerticalAlignment="Top" Width="75" Foreground="White"/>
+                <Label x:Name="Label_Licencia" Content="Licencia" HorizontalAlignment="Left" Height="33" Margin="5,270,0,0" VerticalAlignment="Top" Width="75" Foreground="White"/>
+                <TextBox x:Name="TextCarnet" HorizontalAlignment="Left" Height="30" Margin="80,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" IsEnabled="False" IsHitTestVisible="False"/>
+                <TextBox x:Name="TextRecidencia" HorizontalAlignment="Left" Height="30" Margin="80,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" IsEnabled="False"/>
+                <TextBox x:Name="TextCertificado" HorizontalAlignment="Left" Height="30" Margin="80,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" IsEnabled="False"/>
+                <TextBox x:Name="TextLicencia" HorizontalAlignment="Left" Height="30" Margin="80,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" IsEnabled="False" IsUndoEnabled="True"/>
+                <Button x:Name="BotonCarnet" Content="..." HorizontalAlignment="Left" Height="25" Margin="315,49,0,0" VerticalAlignment="Top" Width="47" Click="BotonCarnet_Click"/>
+                <Button x:Name="BotonRecidencia" Content="..." HorizontalAlignment="Left" Height="25" Margin="315,124,0,0" VerticalAlignment="Top" Width="47" Click="BotonRecidencia_Click"/>
+                <Button x:Name="BotonCertificado" Content="..." HorizontalAlignment="Left" Height="25" Margin="315,199,0,0" VerticalAlignment="Top" Width="47" Click="BotonCertificado_Click"/>
+                <Button x:Name="BotonLicencia" Content="..." HorizontalAlignment="Left" Height="25" Margin="315,274,0,0" VerticalAlignment="Top" Width="47" Click="BotonLicencia_Click"/>
+                <Image x:Name="myCarnet" HorizontalAlignment="Left" Height="35" Margin="80,80,0,0" VerticalAlignment="Top" Width="70"/>
+                <Image x:Name="myRecidencia" HorizontalAlignment="Left" Height="35" Margin="80,155,0,0" VerticalAlignment="Top" Width="70"/>
+                <Image x:Name="myCertificado" HorizontalAlignment="Left" Height="35" Margin="80,230,0,0" VerticalAlignment="Top" Width="70"/>
+                <Image x:Name="myLicencia" HorizontalAlignment="Left" Height="35" Margin="80,308,0,0" VerticalAlignment="Top" Width="70"/>
+            </Grid>
+
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="130"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"
+                            x:Name="BotonAgregar"
+                            Content="Agregar"                            
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                    VerticalAlignment="Top"
+                    Click="BotonAgregar_Click" Grid.ColumnSpan="2" Margin="10,10,140,0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#773DFF"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Height="30"
+                                                    CornerRadius="15"
+                                                    Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                                      HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#836EFB"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Grid.Column="1"
+                            x:Name="BotonModificar"
+                            Content="Modificar"                            
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                    VerticalAlignment="Top"
+                    Click="BotonModificar_Click" Grid.ColumnSpan="2" Margin="10,10,140,0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#773DFF"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Height="30"
+                                                    CornerRadius="15"
+                                                    Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                                      HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#836EFB"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Grid.Column="2"
+                            x:Name="BotonBuscar"
+                            Content="Buscar"                            
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                    VerticalAlignment="Top"
+                    Click="BotonBuscar_Click" Grid.ColumnSpan="2" Margin="10,10,10,0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#773DFF"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Height="30"
+                                                    CornerRadius="15"
+                                                    Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                                      HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#836EFB"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
     </Grid>
 </UserControl>

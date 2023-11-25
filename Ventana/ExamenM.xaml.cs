@@ -29,9 +29,9 @@ namespace Ventana
 
         private void BotonAgregar_Click(object sender, RoutedEventArgs e)
         {
-            if (!TextRut.Text.Equals("") && !TextDV.Text.Equals(""))
+            if (!TextRut.Text.Equals(""))
             {
-                string rut = TextRut.Text + "-" + TextDV.Text;
+                string rut = TextRut.Text;
 
                 if (rut.Length == 10)
                 {
@@ -123,9 +123,9 @@ namespace Ventana
 
         private void BotonModificar_Click(object sender, RoutedEventArgs e)
         {
-            if (!TextRut.Text.Equals("") && !TextDV.Text.Equals(""))
+            if (!TextRut.Text.Equals(""))
             {
-                string rut = TextRut.Text + "-" + TextDV.Text;
+                string rut = TextRut.Text;
 
                 if (rut.Length == 10)
                 {
@@ -213,27 +213,16 @@ namespace Ventana
 
         }
 
-        private static readonly Regex regex = new Regex("[^0-9]+");
-        private static readonly Regex regex1 = new Regex("[^0-9k]+");
+        private static readonly Regex regex = new Regex("[^0-9-k]+");
 
-        private static bool SoloNumeros(string text)
+        private static bool ValidarRut(string text)
         {
             return !regex.IsMatch(text);
         }
 
-        private static bool ValidarDV(string text)
-        {
-            return !regex1.IsMatch(text);
-        }
-
         private void TextRut_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            e.Handled = !SoloNumeros(e.Text);
-        }
-
-        private void TextDV_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            e.Handled = !ValidarDV(e.Text);
+            e.Handled = !ValidarRut(e.Text);
         }
     }
 }

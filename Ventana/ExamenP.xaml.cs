@@ -29,11 +29,11 @@ namespace Ventana
 
         private void BotonAgregar_Click(object sender, RoutedEventArgs e)
         {
-            if (!TextRut.Text.Equals("") && !TextDV.Text.Equals("") && !TextFaltasG.Text.Equals("") && !TextFaltasL.Text.Equals(""))
+            if (!TextRut.Text.Equals("") && !TextFaltasG.Text.Equals("") && !TextFaltasL.Text.Equals(""))
             {
-                if (TextRut.Text.Length == 8)
+                if (TextRut.Text.Length == 10)
                 {
-                    string rut = TextRut.Text + "-" + TextDV.Text;
+                    string rut = TextRut.Text;
                     int faltasG = Convert.ToInt32(TextFaltasG.Text);
                     int faltasL = Convert.ToInt32(TextFaltasL.Text);
                     string aprobado;
@@ -76,11 +76,11 @@ namespace Ventana
 
         private void BotonModificar_Click(object sender, RoutedEventArgs e)
         {
-            if (!TextRut.Text.Equals("") && !TextDV.Text.Equals("") && !TextFaltasG.Text.Equals("") && !TextFaltasL.Text.Equals(""))
+            if (!TextRut.Text.Equals("") && !TextFaltasG.Text.Equals("") && !TextFaltasL.Text.Equals(""))
             {
-                if (TextRut.Text.Length == 8)
+                if (TextRut.Text.Length == 10)
                 {
-                    string rut = TextRut.Text + "-" + TextDV.Text;
+                    string rut = TextRut.Text;
 
                     if (Mantenedor.BuscarRutEP(rut) != false)
                     {
@@ -141,11 +141,6 @@ namespace Ventana
         }
 
         private void TextRut_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            e.Handled = !SoloNumeros(e.Text);
-        }
-
-        private void TextDV_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !ValidarDV(e.Text);
         }

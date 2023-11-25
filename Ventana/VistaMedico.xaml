@@ -78,7 +78,7 @@
                                  IsChecked="True"
                                  Command="{Binding ShowExamenesMedicos}">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
+                            <fa:IconImage Icon="List" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Registros" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
@@ -86,7 +86,7 @@
                                  Tag="{StaticResource color2}"
                                  Command="{Binding ShowExamenM}">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="UserGroup" Style="{StaticResource menuButtonIcon}"/>
+                            <fa:IconImage Icon="Clipboard" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Examenes" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>

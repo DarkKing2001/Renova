@@ -76,14 +76,14 @@ namespace Ventana.VistaModelo
         {
             CurrentChildView = new ModeloBuscarET();
             Caption = "Examenes";
-            Icon = IconChar.UserGroup;
+            Icon = IconChar.ClipboardList;
         }
 
         private void ExecuteShowExamenT(object obj)
         {
             CurrentChildView = new ModeloExamenT();
             Caption = "Examen";
-            Icon = IconChar.UserGroup;
+            Icon = IconChar.Clipboard;
         }
 
         private void ExecuteShowSolicitudes(object obj)

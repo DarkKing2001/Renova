@@ -87,8 +87,8 @@
                                  Tag="{StaticResource color2}"
                                  Command="{Binding ShowExamenP}">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="UserGroup" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Examenes" Style="{StaticResource menuButtonText}"/>
+                            <fa:IconImage Icon="Clipboard" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Examen" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                 </StackPanel>

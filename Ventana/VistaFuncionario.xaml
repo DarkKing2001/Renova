@@ -7,7 +7,7 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         xmlns:viewModel="clr-namespace:Ventana.VistaModelo"
         mc:Ignorable="d"
-        Title="VistaFuncionario" Height="450" Width="1000" 
+        Title="VistaFuncionario" Height="550" Width="1200" 
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"        
         Background="Transparent"
@@ -86,7 +86,7 @@
                                  IsChecked="True"
                                  Command="{Binding ShowExamenesTeoricos}">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
+                            <fa:IconImage Icon="ClipboardList" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Registros" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
@@ -94,8 +94,8 @@
                                  Tag="{StaticResource color2}"
                                  Command="{Binding ShowExamenT}">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="UserGroup" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Examenes" Style="{StaticResource menuButtonText}"/>
+                            <fa:IconImage Icon="Clipboard" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Examen" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"

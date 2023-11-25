@@ -29,10 +29,10 @@ namespace Ventana
 
         private void BotonAgregar_Click(object sender, RoutedEventArgs e)
         {
-            if (!TextRut.Text.Equals("") && !TextDV.Text.Equals("") && !TextPN.Text.Equals("") && !TextSN.Text.Equals("") &&
+            if (!TextRut.Text.Equals("") && !TextPN.Text.Equals("") && !TextSN.Text.Equals("") &&
                 !TextAP.Text.Equals("") && !TextAM.Text.Equals("") && !TextCorreo.Text.Equals(""))
             {
-                if (TextRut.Text.Length == 8)
+                if (TextRut.Text.Length == 10)
                 {
                     if (TextPN.Text.Length >= 2 && TextSN.Text.Length >= 2 &&
                        TextAP.Text.Length >= 2 && TextAM.Text.Length >= 2)
@@ -40,17 +40,17 @@ namespace Ventana
                         if (ValidarEmail(TextCorreo.Text) == true)
                         {
                             string rut = TextRut.Text;
-                            char dv = Convert.ToChar(TextDV.Text);
+                            //char dv = Convert.ToChar("d");
+                            char dv = Convert.ToChar(rut.Substring(9,1));
 
                             if (Mantenedor.ValidarRut(rut, dv) != false)
                             {
-                                string r = rut + "-" + dv;
 
-                                if (Mantenedor.BuscarRut(r) != true)
+                                if (Mantenedor.BuscarRut(rut) != true)
                                 {
                                     Persona p = new Persona();
 
-                                    p.Rut = r;
+                                    p.Rut = rut;
                                     p.Nombre = TextPN.Text;
                                     p.Snombre = TextSN.Text;
                                     p.Apellido_p = TextAP.Text;
@@ -95,7 +95,7 @@ namespace Ventana
 
         private void BotonModificar_Click(object sender, RoutedEventArgs e)
         {
-            if (!TextRut.Text.Equals("") && !TextDV.Text.Equals("") && !TextPN.Text.Equals("") && !TextSN.Text.Equals("") &&
+            if (!TextRut.Text.Equals("") && !TextPN.Text.Equals("") && !TextSN.Text.Equals("") &&
                 !TextAP.Text.Equals("") && !TextAM.Text.Equals("") && !TextCorreo.Text.Equals(""))
             {
                 if (TextRut.Text.Length == 8)
@@ -106,17 +106,17 @@ namespace Ventana
                         if (ValidarEmail(TextCorreo.Text) == true)
                         {
                             string rut = TextRut.Text;
-                            char dv = Convert.ToChar(TextDV.Text);
+                            //char dv = Convert.ToChar("f");
+                            char dv = Convert.ToChar(rut.Substring(9,1));
 
                             if (Mantenedor.ValidarRut(rut, dv) != false)
-                            {
-                                string r = rut + "-" + dv;
+                            {                                
 
-                                if (Mantenedor.BuscarRut(r) != false)
+                                if (Mantenedor.BuscarRut(rut) != false)
                                 {
                                     Persona p = new Persona();
 
-                                    p.Rut = r;
+                                    p.Rut = rut;
                                     p.Nombre = TextPN.Text;
                                     p.Snombre = TextSN.Text;
                                     p.Apellido_p = TextAP.Text;
@@ -161,14 +161,26 @@ namespace Ventana
 
         private void BotonBuscar_Click(object sender, RoutedEventArgs e)
         {
+            if (!TextRut.Text.Equals(""))
+            {
+                if (TextRut.Text.Length == 10)
+                {
+                    string rut = TextRut.Text;
 
+                    if (Mantenedor.Buscar(rut) != null)
+                    {
+                        //Persona p = Mantenedor.Buscar(rut);
+
+                        TextPN.Text = "hola";
+                    }
+                }
+            }
         }
 
-        private static readonly Regex regex = new Regex("[^0-9]+");
-        private static readonly Regex regex1 = new Regex("[^0-9-k]+");
+        private static readonly Regex regex = new Regex("[^0-9-k]+");
         private static readonly Regex regex2 = new Regex("[^a-zA-Z]+$");
 
-        private static bool SoloNumeros(string text)
+        private static bool ValidarRut(string text)
         {
             return !regex.IsMatch(text);
         }
@@ -176,11 +188,6 @@ namespace Ventana
         private static bool SoloLetras(string text)
         {
             return !regex2.IsMatch(text);
-        }
-
-        private static bool ValidarDV(string text)
-        {
-            return !regex1.IsMatch(text);
         }
 
         public static bool ValidarEmail(string email)
@@ -207,13 +214,8 @@ namespace Ventana
 
         private void TextRut_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            e.Handled = !SoloNumeros(e.Text);
+            e.Handled = !ValidarRut(e.Text);
         }
-        private void TextDV_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            e.Handled = !ValidarDV(e.Text);
-        }
-
         private void TextPN_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !SoloLetras(e.Text);

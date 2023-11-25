@@ -88,7 +88,7 @@ namespace Negocio
         public static bool ValidarRut(string rut, char dv)
         {
 
-            int r = Convert.ToInt32(rut);
+            int r = Convert.ToInt32(rut.Substring(0,8));
             int m = 0;
             int s = 1;            
 

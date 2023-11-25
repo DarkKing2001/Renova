@@ -68,14 +68,14 @@ namespace Ventana.VistaModelo
         {
             CurrentChildView = new ModeloBuscarEP();
             Caption = "Examenes";
-            Icon = IconChar.UserGroup;
+            Icon = IconChar.List;
         }
 
         private void ExecuteShowExamenP(object obj)
         {
             CurrentChildView = new ModeloExamenP();
             Caption = "Examen";
-            Icon = IconChar.UserGroup;
+            Icon = IconChar.Clipboard;
         }
 
 

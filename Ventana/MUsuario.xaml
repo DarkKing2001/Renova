@@ -4,20 +4,185 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Ventana"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label Content="Rut" HorizontalAlignment="Left" Height="24" Margin="143,41,0,0" VerticalAlignment="Top" Width="37" Foreground="White"/>
-        <Label Content="Usuario" HorizontalAlignment="Left" Height="26" Margin="129,89,0,0" VerticalAlignment="Top" Width="51" Foreground="White"/>
-        <Label Content="Contraseña" HorizontalAlignment="Left" Height="29" Margin="111,140,0,0" VerticalAlignment="Top" Width="69" Foreground="White"/>
-        <TextBox x:Name="TextRut" HorizontalAlignment="Left" Height="29" Margin="224,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" MaxLength="8" PreviewTextInput="TextRut_PreviewTextInput"/>
-        <TextBox x:Name="TextUsuario" HorizontalAlignment="Left" Height="29" Margin="224,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" MaxLength="50" PreviewTextInput="TextUsuario_PreviewTextInput"/>
-        <TextBox x:Name="TextContra" HorizontalAlignment="Left" Height="29" Margin="224,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" MaxLength="50"/>
-        <Button x:Name="BotonAgregar" Content="Agregar" HorizontalAlignment="Left" Height="39" Margin="79,250,0,0" VerticalAlignment="Top" Width="112" Click="BotonAgregar_Click"/>
-        <Button x:Name="BotonBuscar" Content="Buscar" HorizontalAlignment="Left" Height="39" Margin="424,250,0,0" VerticalAlignment="Top" Width="112" Click="BotonBuscar_Click"/>
-        <Button x:Name="BotonModificar" Content="Modificar" HorizontalAlignment="Left" Height="39" Margin="253,250,0,0" VerticalAlignment="Top" Width="112" Click="BotonModificar_Click"/>
-        <Label Content="-" HorizontalAlignment="Left" Height="29" Margin="319,41,0,0" VerticalAlignment="Top" Width="15"/>
-        <TextBox x:Name="TextDV" HorizontalAlignment="Left" Height="29" Margin="339,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="26" MaxLength="1" PreviewTextInput="TextDV_PreviewTextInput"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="180"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Grid.Column="0" Margin="40,0,300,0">
+                <fa:IconImage Icon="AddressCard" Height="20" Width="20" Foreground="{StaticResource plainTextColor3}"/>
+                <TextBlock Text="Rut" Foreground="{StaticResource plainTextColor3}" Margin="15,5,0,0"/>
+                <TextBox x:Name="TextRut" Text=""  MaxLength="10"
+                    FontSize="13"
+                         Height="24"
+                           Width="150"
+                           Background="Transparent"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"                            
+                             Foreground="{StaticResource plainTextColor3}"
+                             CaretBrush="{StaticResource plainTextColor3}"
+                             BorderBrush="{StaticResource plainTextColor3}"
+                             BorderThickness="0,0,0,1"                             
+                             VerticalContentAlignment="Center"
+                             Margin="100,5,0,0" PreviewTextInput="TextRut_PreviewTextInput"></TextBox>
+            </StackPanel>
 
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Grid.Column="0" Margin="40,50,300,0">
+                <fa:IconImage Icon="UserAlt" Height="15" Width="15" Foreground="{StaticResource plainTextColor3}"/>
+                <TextBlock Text="Nombre de Usuario" Foreground="{StaticResource plainTextColor3}" Margin="5,5,0,0"/>
+                <TextBox x:Name="TextUsuario" Text=""  MaxLength="50" 
+                    FontSize="13"
+                         Height="24"
+                           Width="170"
+                           Background="Transparent"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"                            
+                             Foreground="{StaticResource plainTextColor3}"
+                             CaretBrush="{StaticResource plainTextColor3}"
+                             BorderBrush="{StaticResource plainTextColor3}"
+                             BorderThickness="0,0,0,1"                             
+                             VerticalContentAlignment="Center"
+                             Margin="25,5,0,0" PreviewTextInput="TextUsuario_PreviewTextInput"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Grid.Column="0" Margin="40,100,300,0">
+                <fa:IconImage Icon="Key" Height="15" Width="15" Foreground="{StaticResource plainTextColor3}"/>
+                <TextBlock Text="Contraseña" Foreground="{StaticResource plainTextColor3}" Margin="5,5,0,0"/>
+                <TextBox x:Name="TextContra" Text=""  MaxLength="50" 
+                    FontSize="13"
+                         Height="24"
+                           Width="170"
+                           Background="Transparent"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"                            
+                             Foreground="{StaticResource plainTextColor3}"
+                             CaretBrush="{StaticResource plainTextColor3}"
+                             BorderBrush="{StaticResource plainTextColor3}"
+                             BorderThickness="0,0,0,1"                             
+                             VerticalContentAlignment="Center"
+                             Margin="70,5,0,0"></TextBox>
+            </StackPanel>
+
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="130"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"
+                            x:Name="BotonAgregar"
+                            Content="Agregar"                            
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                    VerticalAlignment="Top"
+                    Click="BotonAgregar_Click" Grid.ColumnSpan="2" Margin="10,10,140,0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#773DFF"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Height="30"
+                                                    CornerRadius="15"
+                                                    Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                                      HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#836EFB"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Grid.Column="1"
+                            x:Name="BotonModificar"
+                            Content="Modificar"                            
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                    VerticalAlignment="Top"
+                    Click="BotonModificar_Click" Grid.ColumnSpan="2" Margin="10,10,140,0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#773DFF"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Height="30"
+                                                    CornerRadius="15"
+                                                    Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                                      HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#836EFB"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Grid.Column="2"
+                            x:Name="BotonBuscar"
+                            Content="Buscar"                            
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                    VerticalAlignment="Top"
+                    Click="BotonBuscar_Click" Grid.ColumnSpan="2" Margin="10,10,10,0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#773DFF"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Height="30"
+                                                    CornerRadius="15"
+                                                    Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                                      HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#836EFB"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
     </Grid>
 </UserControl>

@@ -29,27 +29,25 @@ namespace Ventana
 
         private void BotonAgregar_Click(object sender, RoutedEventArgs e)
         {
-            if (!TextRut.Text.Equals("") && !TextUsuario.Text.Equals("") && !TextContra.Text.Equals("") && !TextDV.Text.Equals(""))
+            if (!TextRut.Text.Equals("") && !TextUsuario.Text.Equals("") && !TextContra.Text.Equals(""))
             {
-                if (TextRut.Text.Length == 8)
+                if (TextRut.Text.Length == 20)
                 {
                     string rut = TextRut.Text;
-                    char dv = Convert.ToChar(TextDV.Text);
 
-                    if (Mantenedor.ValidarRut(rut, dv) != false)
+                    if (Mantenedor.Buscar(rut) != null)
                     {
-                        string r = rut + "-" + dv;
 
-                        if (Mantenedor.BuscarRut(r) != false)
+                        if (Mantenedor.BuscarRut(rut) != false)
                         {
 
-                            if (Mantenedor.BuscarRutUsuario(r) != true)
+                            if (Mantenedor.BuscarRutUsuario(rut) != true)
                             {
                                 if (Mantenedor.BuscarNombreUsuario(TextUsuario.Text) != true)
                                 {
                                     Usuario u = new Usuario();
 
-                                    u.Rut = r;
+                                    u.Rut = rut;
                                     u.Nombre = TextUsuario.Text;
                                     u.Contra = TextContra.Text;
 
@@ -88,24 +86,21 @@ namespace Ventana
 
         private void BotonModificar_Click(object sender, RoutedEventArgs e)
         {
-            if (!TextRut.Text.Equals("") && !TextUsuario.Text.Equals("") && !TextContra.Text.Equals("") && !TextDV.Text.Equals(""))
+            if (!TextRut.Text.Equals("") && !TextUsuario.Text.Equals("") && !TextContra.Text.Equals(""))
             {
                 if (TextRut.Text.Length == 8)
                 {
                     string rut = TextRut.Text;
-                    char dv = Convert.ToChar(TextDV.Text);
 
-                    if (Mantenedor.ValidarRut(rut, dv) != false)
+                    if (Mantenedor.Buscar(rut) != null)
                     {
-                        string r = rut + "-" + dv;
-
-                        if (Mantenedor.BuscarRut(r) != false)
+                        if (Mantenedor.BuscarRut(rut) != false)
                         {
-                            if (Mantenedor.BuscarRutUsuario(r) != false)
+                            if (Mantenedor.BuscarRutUsuario(rut) != false)
                             {
                                 Usuario u = new Usuario();
 
-                                u.Rut = r;
+                                u.Rut = rut;
                                 u.Nombre = TextUsuario.Text;
                                 u.Contra = TextContra.Text;
 
@@ -142,11 +137,10 @@ namespace Ventana
 
         }
 
-        private static readonly Regex regex = new Regex("[^0-9]S+");
-        private static readonly Regex regex1 = new Regex("[^0-9k]+");
+        private static readonly Regex regex = new Regex("[^0-9-k]S+");
         private static readonly Regex regex2 = new Regex("[^a-zA-Z]+$");
 
-        private static bool SoloNumeros(string text)
+        private static bool ValidarRut(string text)
         {
             return !regex.IsMatch(text);
         }
@@ -156,19 +150,9 @@ namespace Ventana
             return !regex2.IsMatch(text);
         }
 
-        private static bool ValidarDV(string text)
-        {
-            return !regex1.IsMatch(text);
-        }
-
         private void TextRut_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            e.Handled = !SoloNumeros(e.Text);
-        }
-
-        private void TextDV_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            e.Handled = !ValidarDV(e.Text);
+            e.Handled = !ValidarRut(e.Text);
         }
 
         private void TextUsuario_PreviewTextInput(object sender, TextCompositionEventArgs e)
