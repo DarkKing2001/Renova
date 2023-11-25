@@ -33,14 +33,17 @@ namespace Ventana
                 if (TextRut.Text.Length == 10)
                 {
                     string rut = TextRut.Text;
-                    
+
                     //Usuario u = Mantenedor.BuscarUsuarios(rut);
                     //ObservableCollection<Usuario> dataList = new ObservableCollection<Usuario>();
 
                     //dataList.Add(new Usuario {Rut = u.Rut, Nombre = u.Nombre, Contra = u.Contra });
 
                     //BusUsuarios.ItemsSource = dataList;
-                    BusUsuarios.ItemsSource = Mantenedor.BuscarUsuarios(rut);
+                    List<Usuario> u = new List<Usuario>();
+                    u.Add(Mantenedor.BuscarUsuarios(rut));
+
+                    BusUsuarios.ItemsSource = u;
 
                     //BusUsuarios.DataContext = Mantenedor.BuscarUsuarios(rut);
 

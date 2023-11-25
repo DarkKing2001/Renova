@@ -35,7 +35,10 @@ namespace Ventana
                 {
                     string rut = TextRut.Text;
 
-                    BusPersonas.ItemsSource = Mantenedor.Buscar(rut);
+                    List<Persona> p = new List<Persona>();
+                    p.Add(Mantenedor.Buscar(rut));
+
+                    BusPersonas.ItemsSource = p;
                 }
                 else
                 {

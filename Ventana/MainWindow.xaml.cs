@@ -73,7 +73,6 @@ namespace Ventana
                     if (comprobar != false)
                     {
                         this.Hide();
-
                         VistaInstructor vi = new VistaInstructor();
                         vi.ShowDialog();
                     }

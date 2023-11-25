@@ -34,7 +34,10 @@ namespace Ventana
 
                 if (Mantenedor.BuscarET(rut) != null)
                 {
-                    DG_buscarET.ItemsSource = Mantenedor.BuscarET(rut);
+                    List<Funcionario> f = new List<Funcionario>();
+                    f.Add(Mantenedor.BuscarET(rut));
+
+                    DG_buscarET.ItemsSource = f;
                 }
                 else
                 {

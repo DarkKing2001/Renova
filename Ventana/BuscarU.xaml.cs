@@ -41,7 +41,13 @@ namespace Ventana
                     //dataList.Add(new Usuario {Rut = u.Rut, Nombre = u.Nombre, Contra = u.Contra });
 
                     //BusUsuarios.ItemsSource = dataList;
-                    DG_Usuarios.ItemsSource = Mantenedor.BuscarUsuarios(rut);
+                    if (Mantenedor.BuscarUsuarios(rut) != null)
+                    {
+                        List<Usuario> u = new List<Usuario>();
+                        u.Add(Mantenedor.BuscarUsuarios(rut));
+                        DG_Usuarios.ItemsSource = u;
+                    }
+                    
 
                     //BusUsuarios.DataContext = Mantenedor.BuscarUsuarios(rut);
 

@@ -1193,9 +1193,9 @@ namespace Negocio
         public static bool AgregarET(Funcionario funcionario)
         {
             string sql = "INSERT INTO funcionario " +
-                    "(persona_id, p_correctas, p_incorrectas, aprobado) values " +
+                    "(persona_id, p_correctas, p_incorrectas, clase, aprobado) values " +
                     "(" + BuscarIdPersona(funcionario.Rut) + ", " + funcionario.PreguntasC +
-                    ", " + funcionario.PreguntasI + ", " + AprobadoBool(funcionario.Aprobado) + ");";
+                    ", " + funcionario.PreguntasI + ", '" + funcionario.Clase + "', " + AprobadoBool(funcionario.Aprobado) + ");";
 
             MySqlConnection ConnexionBD = ConexionBD.conexion();
             ConnexionBD.Open();
@@ -1221,7 +1221,8 @@ namespace Negocio
             string sql = "UPDATE funcionario SET" +
                     " p_correctas = " + funcionario.PreguntasC +
                     ", p_incorrectas = " + funcionario.PreguntasI +
-                    ", aprobado = " + AprobadoBool(funcionario.Aprobado) +
+                    ", clase = '" + funcionario.Clase +
+                    "', aprobado = " + AprobadoBool(funcionario.Aprobado) +
                     " Where persona_id = " + BuscarIdPersona(funcionario.Rut) + ";";
 
             MySqlConnection ConnexionBD = ConexionBD.conexion();
@@ -1290,6 +1291,7 @@ namespace Negocio
                         f.Rut = BuscarRutPersona(leer.GetInt32("persona_id"));
                         f.PreguntasC = leer.GetInt32("p_correctas");
                         f.PreguntasI = leer.GetInt32("p_incorrectas");
+                        f.Clase = leer.GetString("clase");
                         f.Aprobado = AprobadoString(bool.Parse(leer["aprobado"].ToString()));
 
                         return f;
@@ -1336,6 +1338,7 @@ namespace Negocio
                         f.Rut = BuscarRutPersona(leer.GetInt32("persona_id"));
                         f.PreguntasC = leer.GetInt32("p_correctas");
                         f.PreguntasI = leer.GetInt32("p_incorrectas");
+                        f.Clase = leer.GetString("clase");
                         f.Aprobado = AprobadoString(bool.Parse(leer["aprobado"].ToString()));
 
                         funcionarios.Add(f);

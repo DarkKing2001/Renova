@@ -37,7 +37,9 @@ namespace Ventana
 
                     if (Mantenedor.BuscarMedico(rut) != null)
                     {
-                        DG_ExamenesM.ItemsSource = Mantenedor.BuscarMedico(rut);
+                        List<Medico> m = new List<Medico>();
+                        m.Add(Mantenedor.BuscarMedico(rut));
+                        DG_ExamenesM.ItemsSource = m;
                     }
                 }
                 else

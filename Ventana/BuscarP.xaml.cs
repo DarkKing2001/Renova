@@ -35,7 +35,17 @@ namespace Ventana
                 {
                     string rut = TextRut.Text;
 
-                    DG_Personas.ItemsSource = Mantenedor.Buscar(rut);
+                    if (Mantenedor.Buscar(rut) != null)
+                    {
+                        List<Persona> p = new List<Persona>();
+                        p.Add(Mantenedor.Buscar(rut));
+                        DG_Personas.ItemsSource = p;
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("rut no exite");
+                    }
                 }
                 else
                 {

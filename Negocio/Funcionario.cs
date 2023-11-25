@@ -11,11 +11,13 @@ namespace Negocio
         private string rut;
         private int preguntasC;
         private int preguntasI;
+        private string clase;
         private string aprobado;
 
         public string Rut { get => rut; set => rut = value; }
         public int PreguntasC { get => preguntasC; set => preguntasC = value; }
         public int PreguntasI { get => preguntasI; set => preguntasI = value; }
-        public string Aprobado { get => aprobado; set => aprobado = value; }
+        public string Clase { get => clase; set => clase = value; }
+        public string Aprobado { get => aprobado; set => aprobado = value; }        
     }
 }

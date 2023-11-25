@@ -53,7 +53,7 @@ namespace Ventana
                             {
                                 //if (!TextLicencia.Text.Equals("") && RB_PrimeraL.IsChecked == true && CB_Clase.SelectedIndex <=4)
                                 //{
-                                if (!TextCarnet.Text.Equals("") && !TextCertificado.Text.Equals("") && !TextRecidencia.Text.Equals(""))
+                                if (Mantenedor.BuscarS(rut) == null)
                                 {
                                     int dia = f.Day;
                                     int mes = f.Month;
@@ -165,7 +165,7 @@ namespace Ventana
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Tiene que subir el carnet, recidencia, certificado y/o licencia");
+                                    MessageBox.Show("El usuario ya cuenta con una solicitud");
                                 }
                                 /*}
                                 else if (!TextLicencia.Text.Equals("") && RB_Renovacion.IsChecked == true)
@@ -1175,10 +1175,19 @@ namespace Ventana
                     {
                         Solicitud s = Mantenedor.BuscarS(rut);
 
-                        TextCarnet.Text = s.Carnet.ToString();
-                        TextCertificado.Text = s.Certificado.ToString();
-                        TextLicencia.Text = s.Licencia.ToString();
-                        TextRecidencia.Text = s.Recidencia.ToString();
+                        TextCarnet.Text = "Carnet";
+                        TextCertificado.Text = "Certificado";
+                        TextRecidencia.Text = "Recidencia";
+
+                        if (s.Licencia == null)
+                        {
+                            TextLicencia.Text = "";
+                        }
+                        else
+                        {
+                            TextLicencia.Text = "Licencia";
+                        }
+                        
 
                         int soli = s.NumSoli;
 

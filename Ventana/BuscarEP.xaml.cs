@@ -35,8 +35,9 @@ namespace Ventana
 
                 if (Mantenedor.BuscarRut(rut) != false)
                 {
-
-                    DG_ExamenP.ItemsSource = Mantenedor.BuscarEP(rut);
+                    List<Instructor> i = new List<Instructor>();
+                    i.Add(Mantenedor.BuscarEP(rut));
+                    DG_ExamenP.ItemsSource = i;
 
                 }
                 else

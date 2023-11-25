@@ -67,9 +67,11 @@ namespace Ventana
                                     f.Rut = TextRut.Text;
                                     f.PreguntasC = Convert.ToInt32(TextPreguntasC.Text);
                                     f.PreguntasI = Convert.ToInt32(TextPreguntasI.Text);
+                                    f.Clase = a;
                                     f.Aprobado = aprobado;
 
                                     Mantenedor.AgregarET(f);
+                                    Limpiar();
                                 }
                                 else
                                 {
@@ -96,9 +98,11 @@ namespace Ventana
                                     f.Rut = TextRut.Text;
                                     f.PreguntasC = Convert.ToInt32(TextPreguntasC.Text);
                                     f.PreguntasI = Convert.ToInt32(TextPreguntasI.Text);
+                                    f.Clase = a;
                                     f.Aprobado = aprobado;
 
                                     Mantenedor.AgregarET(f);
+                                    Limpiar();
                                 }
                                 else
                                 {
@@ -125,9 +129,11 @@ namespace Ventana
                                     f.Rut = TextRut.Text;
                                     f.PreguntasC = Convert.ToInt32(TextPreguntasC.Text);
                                     f.PreguntasI = Convert.ToInt32(TextPreguntasI.Text);
+                                    f.Clase = a;
                                     f.Aprobado = aprobado;
 
                                     Mantenedor.AgregarET(f);
+                                    Limpiar();
                                 }
                                 else
                                 {
@@ -150,7 +156,7 @@ namespace Ventana
                         }
                         else
                         {
-                            MessageBox.Show("Rut ya cuenta con un examen");
+                            MessageBox.Show("Persona ya cuenta con un examen");
                         }
                     }
                     else
@@ -208,9 +214,11 @@ namespace Ventana
                                 f.Rut = TextRut.Text;
                                 f.PreguntasC = Convert.ToInt32(TextPreguntasC.Text);
                                 f.PreguntasI = Convert.ToInt32(TextPreguntasI.Text);
+                                f.Clase = a;
                                 f.Aprobado = aprobado;
 
                                 Mantenedor.ModificarET(f);
+                                Limpiar();
                             }
                             else
                             {
@@ -237,9 +245,11 @@ namespace Ventana
                                 f.Rut = TextRut.Text;
                                 f.PreguntasC = Convert.ToInt32(TextPreguntasC.Text);
                                 f.PreguntasI = Convert.ToInt32(TextPreguntasI.Text);
+                                f.Clase = a;
                                 f.Aprobado = aprobado;
 
                                 Mantenedor.ModificarET(f);
+                                Limpiar();
                             }
                             else
                             {
@@ -266,9 +276,11 @@ namespace Ventana
                                 f.Rut = TextRut.Text;
                                 f.PreguntasC = Convert.ToInt32(TextPreguntasC.Text);
                                 f.PreguntasI = Convert.ToInt32(TextPreguntasI.Text);
+                                f.Clase = a;
                                 f.Aprobado = aprobado;
 
                                 Mantenedor.ModificarET(f);
+                                Limpiar();
                             }
                             else
                             {
@@ -308,7 +320,64 @@ namespace Ventana
 
         private void BotonBuscar_Click(object sender, RoutedEventArgs e)
         {
+            if (!TextRut.Text.Equals(""))
+            {
+                string rut = TextRut.Text;
 
+                if (rut.Length == 10)
+                {
+                    if (Mantenedor.BuscarET(rut) != null)
+                    {
+                        Funcionario f = Mantenedor.BuscarET(rut);
+
+                        TextPreguntasC.Text = f.PreguntasC.ToString();
+                        TextPreguntasI.Text = f.PreguntasI.ToString();
+                        
+                        switch (f.Clase)
+                        {
+                            case "B":
+                                ComboBoxClase.SelectedIndex = 0;
+                                break;
+                            case "C":
+                                ComboBoxClase.SelectedIndex = 1;
+                                break;
+                            case "D":
+                                ComboBoxClase.SelectedIndex = 2;
+                                break;
+                            case "A1":
+                                ComboBoxClase.SelectedIndex = 3;
+                                break;
+                            case "A2":
+                                ComboBoxClase.SelectedIndex = 4;
+                                break;
+                            case "A3":
+                                ComboBoxClase.SelectedIndex = 5;
+                                break;
+                            case "A4":
+                                ComboBoxClase.SelectedIndex = 6;
+                                break;
+                            case "A5":
+                                ComboBoxClase.SelectedIndex = 7;
+                                break;
+                            default:
+                                break;
+                        }
+                           
+                    }
+                    else
+                    {
+                        MessageBox.Show("Persona no cuenta con examen");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Rut no válido, ej: 12345678-9");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No puede estar el campo rut vacio");
+            }
         }
 
         private static readonly Regex regex = new Regex("[^0-9]+");
@@ -337,6 +406,14 @@ namespace Ventana
         private void TextPreguntasI_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !SoloNumeros(e.Text);
+        }
+
+        private void Limpiar()
+        {
+            TextRut.Text = "";
+            TextPreguntasC.Text = "";
+            TextPreguntasI.Text = "";
+            ComboBoxClase.SelectedIndex = 0;
         }
     }
 }

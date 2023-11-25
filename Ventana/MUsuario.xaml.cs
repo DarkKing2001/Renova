@@ -134,7 +134,33 @@ namespace Ventana
 
         private void BotonBuscar_Click(object sender, RoutedEventArgs e)
         {
+            if (!TextRut.Text.Equals(""))
+            {
+                if (TextRut.Text.Length == 10)
+                {
+                    string rut = TextRut.Text;
 
+                    if (Mantenedor.BuscarUsuarios(rut) != null)
+                    {
+                        Usuario u = Mantenedor.BuscarUsuarios(rut);
+
+                        TextUsuario.Text = u.Nombre;
+                        TextContra.Text = u.Contra;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error, Rut no tiene cuenta");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error, rut no válido, ej: 12345678.9");
+                }
+            }
+            else
+            {
+                MessageBox.Show("El campo de rut no puede estar vacio");
+            }
         }
 
         private static readonly Regex regex = new Regex("[^0-9-k]S+");

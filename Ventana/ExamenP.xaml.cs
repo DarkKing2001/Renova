@@ -40,27 +40,38 @@ namespace Ventana
 
                     if (Mantenedor.BuscarRut(rut) != false)
                     {
-                        if (faltasG <= 1 && faltasL <= 9)
+                        if (Mantenedor.BuscarEP(rut) == null)
                         {
-                            aprobado = "Aprobado";
+                            if (faltasG <= 1 && faltasL <= 9)
+                            {
+                                aprobado = "Aprobado";
+                                MessageBox.Show("Aprobado");
+                            }
+                            else
+                            {
+                                aprobado = "Reprobado";
+                                MessageBox.Show("Reprobado");
+                            }
+
+                            Instructor i = new Instructor();
+
+                            i.Rut = rut;
+                            i.FaltasG = faltasG;
+                            i.FaltasL = faltasL;
+                            i.Aprobado = aprobado;
+
+                            Mantenedor.AgregarEP(i);
+                            Limpiar();
                         }
                         else
                         {
-                            aprobado = "Reprobado";
+                            MessageBox.Show("Persona ya cuenta con un examen");
                         }
-
-                        Instructor i = new Instructor();
-
-                        i.Rut = rut;
-                        i.FaltasG = faltasG;
-                        i.FaltasL = faltasL;
-                        i.Aprobado = aprobado;
-
-                        Mantenedor.AgregarEP(i);
+                        
                     }
                     else
                     {
-                        MessageBox.Show("Rut no encontrado en la base de datos");
+                        MessageBox.Show("Persona no encontrada");
                     }
                 }
                 else
@@ -105,6 +116,7 @@ namespace Ventana
                         i.Aprobado = aprobado;
 
                         Mantenedor.ModificarEP(i);
+                        Limpiar();
                     }
                     else
                     {
@@ -124,7 +136,33 @@ namespace Ventana
 
         private void BotonBuscar_Click(object sender, RoutedEventArgs e)
         {
+            if (!TextRut.Text.Equals(""))
+            {
+                string rut = TextRut.Text;
 
+                if (rut.Length == 10)
+                {
+                    if (Mantenedor.BuscarEP(rut) != null)
+                    {
+                        Instructor i = Mantenedor.BuscarEP(rut);
+
+                        TextFaltasG.Text = i.FaltasG.ToString();
+                        TextFaltasL.Text = i.FaltasL.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Persona no cuenta con examen");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Rut no válido, ej: 12345678-9");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No puede estar el campo rut vacio");
+            }
         }
 
         private static readonly Regex regex = new Regex("[^0-9]+");
@@ -154,5 +192,13 @@ namespace Ventana
         {
             e.Handled = !SoloNumeros(e.Text);
         }
+
+        private void Limpiar()
+        {
+            TextRut.Text = "";
+            TextFaltasG.Text = "";
+            TextFaltasL.Text = "";
+        }
+
     }
 }

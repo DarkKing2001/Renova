@@ -35,7 +35,10 @@ namespace Ventana
 
                     if (Mantenedor.BuscarMedico(rut) != null)
                     {
-                        BusMedicos.ItemsSource = Mantenedor.BuscarMedico(rut);
+                        List<Medico> m = new List<Medico>();
+                        m.Add(Mantenedor.BuscarMedico(rut));
+
+                        BusMedicos.ItemsSource = m;
                     }
                 }
                 else
