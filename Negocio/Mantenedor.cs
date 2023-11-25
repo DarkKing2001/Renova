@@ -349,9 +349,9 @@ namespace Negocio
 
         }
 
-        public static List<Persona> Buscar(string rut)
+        public static Persona Buscar(string rut)
         {
-            List<Persona> personas = new List<Persona>();
+            Persona p = new Persona();
             MySqlDataReader leer = null;
 
             string sql = "Select * from persona " +
@@ -370,9 +370,6 @@ namespace Negocio
                     
                     while (leer.Read())
                     {
-
-                        Persona p = new Persona();
-
                         p.Rut = leer.GetString("rut");
                         p.Nombre = leer.GetString("p_nombre");
                         p.Snombre = leer.GetString("s_nombre");
@@ -381,10 +378,10 @@ namespace Negocio
                         p.Correo = leer.GetString("correo");
                         p.Comuna = leer.GetInt32("comuna_id");
 
-                        personas.Add(p);
+                        return (p);
                     }
                                          
-                    return personas;
+                    return p;
                 }
                 else
                 {
@@ -653,9 +650,9 @@ namespace Negocio
 
         }
 
-        public static List<Usuario> BuscarUsuarios(string rut)
+        public static Usuario BuscarUsuarios(string rut)
         {
-            List<Usuario> usuarios = new List<Usuario>();
+            Usuario u = new Usuario();
             int id = BuscarIdPersona(rut);
 
             string sql = "Select * from usuario " +
@@ -675,17 +672,15 @@ namespace Negocio
                     while (leer.Read())
                     {
 
-                        Usuario u = new Usuario();
-
                         u.Rut = BuscarRutPersona(leer.GetInt32("persona_id"));
                         u.Nombre = leer.GetString("nombre");
                         u.Contra = leer.GetString("contrasenia");
 
                         //return u;
-                        usuarios.Add(u);
+                        return u;
                     }
 
-                    return usuarios;
+                    return u;
                 }
                 else
                 {
@@ -863,9 +858,9 @@ namespace Negocio
 
         }
 
-        public static List<Medico> BuscarMedico(string rut)
+        public static Medico BuscarMedico(string rut)
         {
-            List<Medico> medicos = new List<Medico>();
+            Medico m = new Medico();
 
             string sql = "Select * from medico " +
                         "Where persona_id = " + BuscarIdPersona(rut) + ";";
@@ -883,9 +878,6 @@ namespace Negocio
 
                     while (leer.Read())
                     {
-
-                        Medico m = new Medico();
-
                         m.Rut = BuscarRutPersona(int.Parse(leer["persona_id"].ToString()));
                         m.ExamenV = AprobadoString(bool.Parse(leer["examen_visual"].ToString()));
                         m.ExamenA = AprobadoString(bool.Parse(leer["examen_auditivo"].ToString()));
@@ -896,10 +888,10 @@ namespace Negocio
 
                         //string ev = AprobadoString(bool.Parse((leer["examen_visual"].ToString())));
 
-                        medicos.Add(m);
+                        return m;
                     }
 
-                    return medicos;
+                    return m;
                 }
                 else
                 {
@@ -1074,9 +1066,9 @@ namespace Negocio
 
         }
 
-        public static List<Instructor> BuscarEP(string rut)
+        public static Instructor BuscarEP(string rut)
         {
-            List<Instructor> instructores = new List<Instructor>();
+            Instructor i = new Instructor();
 
             string sql = "Select * from instructor " +
                         "Where persona_id = " + BuscarIdPersona(rut) + ";";
@@ -1095,17 +1087,15 @@ namespace Negocio
                     while (leer.Read())
                     {
 
-                        Instructor i = new Instructor();
-
                         i.Rut = BuscarRutPersona(leer.GetInt32("persona_id"));
                         i.FaltasG = leer.GetInt32("f_graves");
                         i.FaltasL = leer.GetInt32("f_leves");
                         i.Aprobado = AprobadoString(bool.Parse(leer["aprobado"].ToString()));
 
-                        instructores.Add(i);
+                        return i;
                     }
 
-                    return instructores;
+                    return i;
                 }
                 else
                 {
@@ -1277,9 +1267,9 @@ namespace Negocio
 
         }
 
-        public static List<Funcionario> BuscarET(string rut)
+        public static Funcionario BuscarET(string rut)
         {
-            List<Funcionario> funcionarios = new List<Funcionario>();
+            Funcionario f = new Funcionario();
 
             string sql = "Select * from funcionario " +
                         "Where persona_id = " + BuscarIdPersona(rut) + ";";
@@ -1297,18 +1287,15 @@ namespace Negocio
 
                     while (leer.Read())
                     {
-
-                        Funcionario f = new Funcionario();
-
                         f.Rut = BuscarRutPersona(leer.GetInt32("persona_id"));
                         f.PreguntasC = leer.GetInt32("p_correctas");
                         f.PreguntasI = leer.GetInt32("p_incorrectas");
                         f.Aprobado = AprobadoString(bool.Parse(leer["aprobado"].ToString()));
 
-                        funcionarios.Add(f);
+                        return f;
                     }
 
-                    return funcionarios;
+                    return f;
                 }
                 else
                 {

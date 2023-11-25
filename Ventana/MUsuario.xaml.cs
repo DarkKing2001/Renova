@@ -31,7 +31,7 @@ namespace Ventana
         {
             if (!TextRut.Text.Equals("") && !TextUsuario.Text.Equals("") && !TextContra.Text.Equals(""))
             {
-                if (TextRut.Text.Length == 20)
+                if (TextRut.Text.Length == 10)
                 {
                     string rut = TextRut.Text;
 
@@ -70,7 +70,7 @@ namespace Ventana
                     }
                     else
                     {
-                        MessageBox.Show("El rut no es valido");
+                        MessageBox.Show("El rut no es valido, ej: 12345678-9");
                     }
                 }
                 else
@@ -88,7 +88,7 @@ namespace Ventana
         {
             if (!TextRut.Text.Equals("") && !TextUsuario.Text.Equals("") && !TextContra.Text.Equals(""))
             {
-                if (TextRut.Text.Length == 8)
+                if (TextRut.Text.Length == 10)
                 {
                     string rut = TextRut.Text;
 
@@ -118,7 +118,7 @@ namespace Ventana
                     }
                     else
                     {
-                        MessageBox.Show("El rut no es valido");
+                        MessageBox.Show("El rut no es valido, ej:12345678-9");
                     }
                 }
                 else
