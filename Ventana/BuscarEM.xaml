@@ -154,8 +154,9 @@
                     </Style>
                 </DataGrid.ColumnHeaderStyle>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Rut}" ClipboardContentBinding="{x:Null}" Header="Rut" HeaderStringFormat=""/>
+                    <DataGridTextColumn Binding="{Binding Rut}" ClipboardContentBinding="{x:Null}" Header="Rut" HeaderStringFormat=""/>                    
                     <DataGridTextColumn Binding="{Binding ExamenV}" ClipboardContentBinding="{x:Null}" Header="Examen Vista"/>
+                    <DataGridTextColumn Binding="{Binding Anio}" ClipboardContentBinding="{x:Null}" Header="Años" Width="50"/>
                     <DataGridTextColumn Binding="{Binding ExamenA}" ClipboardContentBinding="{x:Null}" Header="Examen Auditivo"/>
                     <DataGridTextColumn Binding="{Binding ExamenP}" ClipboardContentBinding="{x:Null}" Header="Examen Psicologico"/>
                     <DataGridTextColumn Binding="{Binding CoordinacionM}" ClipboardContentBinding="{x:Null}" Header="Coordinacion Motriz"/>

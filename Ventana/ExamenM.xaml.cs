@@ -98,6 +98,8 @@ namespace Ventana
                                 m.Aprobado = "Reprobado";
                             }
 
+                            m.Anio = Convert.ToInt32(CB_Anio.Text);
+
                             Mantenedor.AgregarMedico(m);
                         }
                         else
@@ -190,6 +192,8 @@ namespace Ventana
                             m.Aprobado = "Reprobado";
                         }
 
+                        m.Anio = Convert.ToInt32(CB_Anio.Text);
+
                         Mantenedor.ModificarMedico(m);
                     }
                     else
@@ -261,6 +265,26 @@ namespace Ventana
                             RB_examenG_N.IsChecked = true;
                         }
 
+                        switch (m.Anio)
+                        {
+                            case 2:
+                                CB_Anio.SelectedIndex = 0;
+                                break;
+                            case 3:
+                                CB_Anio.SelectedIndex = 1;
+                                break;
+                            case 4:
+                                CB_Anio.SelectedIndex = 2;
+                                break;
+                            case 5:
+                                CB_Anio.SelectedIndex = 3;
+                                break;
+                            case 6:
+                                CB_Anio.SelectedIndex = 4;
+                                break;
+                            default:
+                                break;
+                        }
                     }
                     else
                     {

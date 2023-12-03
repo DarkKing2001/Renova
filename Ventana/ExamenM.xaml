@@ -72,7 +72,16 @@
             <RadioButton x:Name="RB_cooN" Content="No Aprobado" HorizontalAlignment="Left" Height="20" Margin="320,160,0,0" VerticalAlignment="Top" Width="100" GroupName="CooMo" IsChecked="True" Foreground="{StaticResource plainTextColor3}"/>
             <RadioButton x:Name="RB_examenG_A" Content="Aprobado" HorizontalAlignment="Left" Height="20" Margin="220,190,0,0" VerticalAlignment="Top" Width="80" GroupName="ExamenG" Foreground="{StaticResource plainTextColor3}"/>
             <RadioButton x:Name="RB_examenG_N" Content="No Aprobado" HorizontalAlignment="Left" Height="20" Margin="320,190,0,0" VerticalAlignment="Top" Width="100" GroupName="ExamenG" IsChecked="True" Foreground="{StaticResource plainTextColor3}"/>
-            
+
+            <TextBlock Text="Años"  Foreground="{StaticResource plainTextColor3}" Margin="450,70,100,165"/>
+            <ComboBox x:Name="CB_Anio" HorizontalAlignment="Left" Height="20" Margin="490,68,0,0" VerticalAlignment="Top" Width="40" Cursor="" SelectedIndex="0">
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="3"/>
+                <ComboBoxItem Content="4"/>
+                <ComboBoxItem Content="5"/>
+                <ComboBoxItem Content="6"/>
+            </ComboBox>
+
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>

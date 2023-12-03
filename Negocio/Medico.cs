@@ -9,6 +9,7 @@ namespace Negocio
     public class Medico
     {
         private string rut;
+        private int anio;
         private string examenV;
         private string examenA;
         private string examenP;
@@ -17,6 +18,7 @@ namespace Negocio
         private string aprobado;
 
         public string Rut { get => rut; set => rut = value; }
+        public int Anio { get => anio; set => anio = value; }
         public string ExamenV { get => examenV; set => examenV = value; }
         public string ExamenA { get => examenA; set => examenA = value; }
         public string ExamenP { get => examenP; set => examenP = value; }

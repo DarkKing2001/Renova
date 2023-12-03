@@ -44,7 +44,11 @@ namespace Ventana
 
         private void BotonCerrar_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            //Application.Current.Shutdown();
+
+            this.Hide();
+            MainWindow mw = new MainWindow();
+            mw.ShowDialog();
         }
 
         private void pnlControlBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

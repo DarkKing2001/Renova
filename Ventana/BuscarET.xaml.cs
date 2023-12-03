@@ -99,5 +99,31 @@ namespace Ventana
         {
             e.Handled = !ValidarRut(e.Text);
         }
+
+        private void DG_ExamenesT_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            /*try
+            {
+                //string rut = this.DG_ExamenesT.SelectedCells[0].Column.ToString();
+                //string aprobado = this.DG_ExamenesT.SelectedCells[4].ToString();
+
+                //MessageBox.Show("Rut: " + rut + ", Aprobado: " + aprobado);
+
+                if (DG_ExamenesT.SelectedIndex != -1)
+                {
+                    Funcionario f = this.DG_ExamenesT.SelectedItem as Funcionario;
+
+                    if (f != null)
+                    {
+                        MessageBox.Show("Rut: " + f.Rut + ", Aprobado: " + f.Aprobado);
+                    }
+                    
+                }
+            }
+            catch (Exception)
+            {
+                return;
+            }*/
+        }
     }
 }

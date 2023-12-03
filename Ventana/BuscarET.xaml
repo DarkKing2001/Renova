@@ -143,7 +143,7 @@
                 Padding="10">
             <DataGrid x:Name="DG_ExamenesT" ColumnWidth="*" ItemsSource="{Binding}" AutoGenerateColumns="False"
                   Background="#200F53"
-                  BorderThickness="0" Loaded="DG_ExamenesT_Loaded">
+                  BorderThickness="0" Loaded="DG_ExamenesT_Loaded" SelectionChanged="DG_ExamenesT_SelectionChanged">
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
                         <Setter Property="Background" Value="Transparent"/>

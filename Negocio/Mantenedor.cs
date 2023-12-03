@@ -778,9 +778,9 @@ namespace Negocio
         public static bool AgregarMedico(Medico medico)
         {
             string sql = "INSERT INTO medico " +
-                    "(persona_id, examen_visual, examen_auditivo, examen_psicologico, " +
+                    "(persona_id, anio, examen_visual, examen_auditivo, examen_psicologico, " +
                     "coordinacion_motriz, examen_general, aprobado) values " +
-                    "(" + BuscarIdPersona(medico.Rut) + ", " + AprobadoBool(medico.ExamenV) +
+                    "(" + BuscarIdPersona(medico.Rut) + ", " + medico.Anio + ", "+ AprobadoBool(medico.ExamenV) +
                     ", " + AprobadoBool(medico.ExamenA) + ", " + AprobadoBool(medico.ExamenP) +
                     ", " + AprobadoBool(medico.CoordinacionM) + ", " + AprobadoBool(medico.ExamenG) +
                     ", " + AprobadoBool(medico.Aprobado) + ");";
@@ -807,6 +807,7 @@ namespace Negocio
         public static bool ModificarMedico(Medico medico)
         {
             string sql = "UPDATE medico SET" +
+                    " anio = " + medico.Anio +
                     " examen_visual = " + AprobadoBool(medico.ExamenV) +
                     ", examen_auditivo = " + AprobadoBool(medico.ExamenA) +
                     ", examen_psicologico = " + AprobadoBool(medico.ExamenP) +
@@ -879,6 +880,7 @@ namespace Negocio
                     while (leer.Read())
                     {
                         m.Rut = BuscarRutPersona(int.Parse(leer["persona_id"].ToString()));
+                        m.Anio = int.Parse(leer["anio"].ToString());
                         m.ExamenV = AprobadoString(bool.Parse(leer["examen_visual"].ToString()));
                         m.ExamenA = AprobadoString(bool.Parse(leer["examen_auditivo"].ToString()));
                         m.ExamenP = AprobadoString(bool.Parse(leer["examen_psicologico"].ToString()));
@@ -930,6 +932,7 @@ namespace Negocio
                         Medico m = new Medico();
 
                         m.Rut = BuscarRutPersona(int.Parse(leer["persona_id"].ToString()));
+                        m.Anio = int.Parse(leer["anio"].ToString());
                         m.ExamenV = AprobadoString(bool.Parse(leer["examen_visual"].ToString()));
                         m.ExamenA = AprobadoString(bool.Parse(leer["examen_auditivo"].ToString()));
                         m.ExamenP = AprobadoString(bool.Parse(leer["examen_psicologico"].ToString()));
