@@ -24,6 +24,5 @@ namespace Ventana
         {
             InitializeComponent();
         }
-
     }
 }
