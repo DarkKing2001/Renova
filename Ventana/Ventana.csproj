@@ -86,6 +86,9 @@
     <Compile Include="BuscarET.xaml.cs">
       <DependentUpon>BuscarET.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BuscarL.xaml.cs">
+      <DependentUpon>BuscarL.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BuscarP.xaml.cs">
       <DependentUpon>BuscarP.xaml</DependentUpon>
     </Compile>
@@ -106,6 +109,9 @@
     </Compile>
     <Compile Include="ExamenT.xaml.cs">
       <DependentUpon>ExamenT.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MLicencia.xaml.cs">
+      <DependentUpon>MLicencia.xaml</DependentUpon>
     </Compile>
     <Compile Include="MPersonas.xaml.cs">
       <DependentUpon>MPersonas.xaml</DependentUpon>
@@ -140,6 +146,7 @@
     <Compile Include="VistaModelo\ModeloBuscarEM.cs" />
     <Compile Include="VistaModelo\ModeloBuscarEP.cs" />
     <Compile Include="VistaModelo\ModeloBuscarET.cs" />
+    <Compile Include="VistaModelo\ModeloBuscarL.cs" />
     <Compile Include="VistaModelo\ModeloBuscarP.cs" />
     <Compile Include="VistaModelo\ModeloBuscarS.cs" />
     <Compile Include="VistaModelo\ModeloBuscarU.cs" />
@@ -147,6 +154,7 @@
     <Compile Include="VistaModelo\ModeloExamenP.cs" />
     <Compile Include="VistaModelo\ModeloExamenT.cs" />
     <Compile Include="VistaModelo\MainViewModel.cs" />
+    <Compile Include="VistaModelo\ModeloLicencia.cs" />
     <Compile Include="VistaModelo\ModeloPersona.cs" />
     <Compile Include="VistaModelo\ModeloSolicitud.cs" />
     <Compile Include="VistaModelo\ModeloUsuario.cs" />
@@ -173,6 +181,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BuscarExamenTeorico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BuscarL.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -273,6 +285,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MantenedorU.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MLicencia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

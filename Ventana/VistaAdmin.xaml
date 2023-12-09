@@ -33,6 +33,14 @@
         <DataTemplate DataType="{x:Type viewModel:ModeloUsuario}">
             <local:MUsuario/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:ModeloBuscarL}">
+            <local:BuscarL/>
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type viewModel:ModeloLicencia}">
+            <local:MLicencia/>
+        </DataTemplate>
     </Window.Resources>
 
     <Border CornerRadius="10"
@@ -107,11 +115,27 @@
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color8}"
+                                 Tag="{StaticResource color9}"
                                  Command="{Binding ShowUsuario}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="User" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Usuario" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color2}"
+                                 Command="{Binding ShowLicencias}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="IdCard" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Registro de Licencias" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color8}"
+                                 Command="{Binding ShowLicencia}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="IdCard" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Licencia" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                 </StackPanel>

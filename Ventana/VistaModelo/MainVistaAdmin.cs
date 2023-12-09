@@ -57,6 +57,8 @@ namespace Ventana.VistaModelo
         public ICommand ShowPersona { get; }
         public ICommand ShowBuscarUsuarios { get; }
         public ICommand ShowUsuario { get; }
+        public ICommand ShowLicencias { get; }
+        public ICommand ShowLicencia { get; }
 
         public MainVistaAdmin()
         {
@@ -65,6 +67,9 @@ namespace Ventana.VistaModelo
 
             ShowBuscarUsuarios = new ViewModelCommand(ExecuteShowBuscarUsuarios);
             ShowUsuario = new ViewModelCommand(ExecuteShowUsuario);
+
+            ShowLicencias = new ViewModelCommand(ExecuteShowLicencias);
+            ShowLicencia = new ViewModelCommand(ExecuteShowLicencia);
 
             ExecuteShowBuscarPersonas(null);
         }
@@ -95,6 +100,20 @@ namespace Ventana.VistaModelo
             CurrentChildView = new ModeloUsuario();
             Caption = "Usuario";
             Icon = IconChar.User;
+        }
+
+        private void ExecuteShowLicencias(object obj)
+        {
+            CurrentChildView = new ModeloBuscarL();
+            Caption = "Licencias";
+            Icon = IconChar.IdCard;
+        }
+
+        private void ExecuteShowLicencia(object obj)
+        {
+            CurrentChildView = new ModeloLicencia();
+            Caption = "Licencia";
+            Icon = IconChar.IdCard;
         }
     }
 }

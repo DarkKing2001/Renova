@@ -808,7 +808,7 @@ namespace Negocio
         {
             string sql = "UPDATE medico SET" +
                     " anio = " + medico.Anio +
-                    " examen_visual = " + AprobadoBool(medico.ExamenV) +
+                    ", examen_visual = " + AprobadoBool(medico.ExamenV) +
                     ", examen_auditivo = " + AprobadoBool(medico.ExamenA) +
                     ", examen_psicologico = " + AprobadoBool(medico.ExamenP) +
                     ", coordinacion_motriz = " + AprobadoBool(medico.CoordinacionM) +
@@ -1932,5 +1932,211 @@ namespace Negocio
 
         }
 
+        // Licencia
+
+
+        public static int IdLicencia()
+        {
+            string sql = "select MAX(id) as id from licencia;";
+            int id = 0;
+
+            MySqlConnection ConnexionBD = ConexionBD.conexion();
+            ConnexionBD.Open();
+
+            try
+            {
+                MySqlCommand comando = new MySqlCommand(sql, ConnexionBD);
+                MySqlDataReader leer = comando.ExecuteReader();
+
+                if (leer.HasRows)
+                {
+                    while (leer.Read())
+                    {
+                        id = leer.GetInt32("id");
+                    }
+
+                    return id + 1;
+                }
+                else
+                {
+                    MessageBox.Show("No se han encontrado datos");
+                    return id;
+                }
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("Error al Buscar datos: " + e.ToString());
+                return id;
+            }
+        }
+
+
+
+        public static bool AgregarLicencia(Licencia licencia)
+        {
+            int id = IdLicencia();
+
+            string sql = "INSERT INTO licencia " +
+                    "(id, num_licencia, municipalidad, f_ultimo_control, f_control) values " +
+                    "(" + id + ", " + BuscarIdPersona(licencia.Rut) + ", '" + licencia.Muni +
+                    "', '" + licencia.U_control.ToString("yyyy-MM-dd") + "', '" + licencia.Control.ToString("yyyy-MM-dd") + "');";
+
+            MySqlConnection ConnexionBD = ConexionBD.conexion();
+            ConnexionBD.Open();
+
+            try
+            {
+                MySqlCommand comando = new MySqlCommand(sql, ConnexionBD);
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Agregado correctamente");
+
+                return true;
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("Error al agregar: " + e.ToString());
+                return false;
+            }
+
+        }
+
+        public static bool ModificarLicenia(Licencia licencia)
+        {
+            string sql = "UPDATE licencia SET" +
+                    " f_ultimo_control = '" + licencia.U_control +
+                    "', f_control = '" + licencia.Control +
+                    "' Where num_licencia = '" + BuscarIdPersona(licencia.Rut) + "';";
+
+            MySqlConnection ConnexionBD = ConexionBD.conexion();
+            ConnexionBD.Open();
+
+            try
+            {
+                MySqlCommand comando = new MySqlCommand(sql, ConnexionBD);
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Modificado correctamente");
+
+                return true;
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("Error al modificada: " + e.ToString());
+                return false;
+            }
+
+        }
+
+        public static bool EliminarLicencia(string rut)
+        {
+            string sql = "Delete from licencia " +
+                        "Where num_licencia = " + BuscarIdPersona(rut) + ";";
+
+            MySqlConnection ConnexionBD = ConexionBD.conexion();
+            ConnexionBD.Open();
+
+            try
+            {
+                MySqlCommand comando = new MySqlCommand(sql, ConnexionBD);
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Eliminado correctamente");
+
+                return true;
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("Error al Eliminar: " + e.ToString());
+                return false;
+            }
+
+        }
+
+        public static Licencia BuscaLicencia(string rut)
+        {
+            Licencia l = new Licencia();
+            MySqlDataReader leer = null;
+
+            string sql = "Select * from licencia " +
+                        "Where num_licencia = " + BuscarIdPersona(rut) + ";";
+
+            MySqlConnection ConnexionBD = ConexionBD.conexion();
+            ConnexionBD.Open();
+
+            try
+            {
+                MySqlCommand comando = new MySqlCommand(sql, ConnexionBD);
+                leer = comando.ExecuteReader();
+
+                if (leer.HasRows)
+                {
+
+                    while (leer.Read())
+                    {
+                        l.Rut = rut;
+                        l.Muni = leer.GetString("municipalidad");
+                        l.U_control = DateTime.Parse(leer["f_ultimo_control"].ToString());
+                        l.Control = DateTime.Parse(leer["f_control"].ToString());
+
+                        return (l);
+                    }
+
+                    return l;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("Error al Buscar: " + e.ToString());
+                return null;
+            }
+
+        }
+
+        public static List<Licencia> MostrarLicenias()
+        {
+            List<Licencia> licencias = new List<Licencia>();
+
+            string sql = "Select * from licencia;";
+
+            MySqlConnection ConnexionBD = ConexionBD.conexion();
+            ConnexionBD.Open();
+
+            try
+            {
+                MySqlCommand comando = new MySqlCommand(sql, ConnexionBD);
+                MySqlDataReader leer = comando.ExecuteReader();
+
+                if (leer.HasRows)
+                {
+
+                    while (leer.Read())
+                    {
+
+                        Licencia l = new Licencia();
+
+                        l.Rut = BuscarRutPersona(leer.GetInt32("num_Licencia"));
+                        l.Muni = leer.GetString("municipalidad");
+                        l.U_control = DateTime.Parse(leer["f_ultimo_control"].ToString());
+                        l.Control = DateTime.Parse(leer["f_control"].ToString());
+
+                        licencias.Add(l);
+                    }
+
+                    return licencias;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("Error al Buscar: " + e.ToString());
+                return null;
+            }
+
+        }
     }
 }

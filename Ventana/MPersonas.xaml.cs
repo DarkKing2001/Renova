@@ -98,7 +98,7 @@ namespace Ventana
             if (!TextRut.Text.Equals("") && !TextPN.Text.Equals("") && !TextSN.Text.Equals("") &&
                 !TextAP.Text.Equals("") && !TextAM.Text.Equals("") && !TextCorreo.Text.Equals(""))
             {
-                if (TextRut.Text.Length == 8)
+                if (TextRut.Text.Length == 10)
                 {
                     if (TextPN.Text.Length >= 2 && TextSN.Text.Length >= 2 &&
                        TextAP.Text.Length >= 2 && TextAM.Text.Length >= 2)
