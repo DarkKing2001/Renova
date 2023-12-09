@@ -222,7 +222,7 @@
                                     VerticalAlignment="Center"
                                     Margin="0,0,10,0">
 
-                            <TextBlock Text="Funcionario"
+                            <TextBlock Text="Admin"
                                        Foreground="{StaticResource titleColor3}"
                                        FontFamily="Montserrat"
                                        FontSize="12"

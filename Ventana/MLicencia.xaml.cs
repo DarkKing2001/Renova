@@ -96,12 +96,99 @@ namespace Ventana
 
         private void BotonModificar_Click(object sender, RoutedEventArgs e)
         {
+            if (!TextRut.Text.Equals(""))
+            {
+                if (TextRut.Text.Length == 10)
+                {
+                    string rut = TextRut.Text;
 
+                    if (Mantenedor.Buscar(rut) != null)
+                    {
+                        Medico m = Mantenedor.BuscarMedico(rut);
+                        Instructor i = Mantenedor.BuscarEP(rut);
+                        Funcionario f = Mantenedor.BuscarET(rut);
+
+                        if (m != null && i != null && f != null)
+                        {
+                            if (m.Aprobado == "Aprobado" && i.Aprobado == "Aprobado" && f.Aprobado == "Aprobado")
+                            {
+                                if (Mantenedor.BuscaLicencia(rut) != null)
+                                {
+                                    Licencia l = new Licencia();
+
+                                    int anio = m.Anio;
+                                    DateTime fe = DateTime.Now;
+                                    int a = fe.Year;
+
+
+                                    DateTime fecha = new DateTime(a + anio, fe.Month, fe.Day);
+
+                                    l.Rut = rut;
+                                    l.Muni = "Paine";
+                                    l.U_control = DateTime.Now;
+                                    l.Control = fecha;
+
+                                    Mantenedor.ModificarLicenia(l);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Persona ya cuenta con una licenia");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Persona tiene que aprobar todos los examenes");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Persona tiene que realizar todos los examenes");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("El rut no es existe");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Rut no válido ej: 12345678-9");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No puede haber campos vacios");
+            }
         }
 
         private void BotonBuscar_Click(object sender, RoutedEventArgs e)
         {
+            if (!TextRut.Text.Equals(""))
+            {
+                if (TextRut.Text.Length == 10)
+                {
+                    string rut = TextRut.Text;
 
+                    if (Mantenedor.BuscaLicencia(rut) != null)
+                    {
+                        Licencia l = Mantenedor.BuscaLicencia(rut);
+
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("Persona ya cuenta con una licenia");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Rut no válido ej: 12345678-9");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No puede haber campos vacios");
+            }
         }
 
         private static readonly Regex regex1 = new Regex("[^0-9-k]+");
